@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BiCaStRe - formulaire III</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/0c87a70838.js"></script>
+
+    <link 
+    href="https://db.onlinewebfonts.com/c/6aa06a9a432b8417171f60d8351aa310?family=Torus+Notched"
+    rel="stylesheet"
+    type="text/css"
+    />
+
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="formulaire_p3">
+        <h1> Bilan Carbone Stage de Recherche</h1>
+
+        <hr><hr>
+
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="" height="50">
+            </div>
+            <div class="onglets">
+                <ul>
+                    <li><a href="">A propos</a></li>
+                    <li><a href="">Simulation</a></li>
+                    <li><a href="">Méthodologie</a></li>
+                    <li><a href="">Rapports</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr><hr>
+
+        <div class="avancee">
+            <img src="logo.png" alt="" height="50">
+            <img src="logo.png" alt="" height="50">
+            <img src="logo.png" alt="" height="50">
+            <img src="logo.png" alt="" height="60">
+            <img src="logo_estompe.png" alt="" height="50">
+        </div>
+
+        <h2>Partie III : Emissions indirectes liées au stage</h2><br><br>
+        <p> Cette partie vise à évaluer les émissions indirectement liées au stage.</p><br><br>
+        <form id="PIII" onsubmit="return false;">
+            <h3>III.1 Visite de proches depuis la France </h3><br><br>
+            <label for="ind_depuis">Des membres de votre famille ou des proches résidant en France sont-ils/elles venu.e.s vous rendre visite sur votre lieu de stage ?</label></br>
+            <select name="ind_depuis" id="ind_depuis" onchange="nextIII1()" required>
+                <option value="">-------</option>
+                <option value="Oui">Oui </option>
+                <option value="Non">Non </option>
+            </select></br></br>
+
+            <div id="Next_questIII1"></div>
+
+            <h3>III.2 Visite de proches vers la France </h3><br><br>
+            <label for="ind_vers">Etes-vous retourné.e en France rendre visite à des proches durant votre stage ?</label></br>
+            <select name="ind_vers" id="ind_vers" onchange="nextIII2()" required>
+                <option value="">-------</option>
+                <option value="Oui">Oui </option>
+                <option value="Non">Non </option>
+            </select></br></br>
+
+            <div id="Next_questIII2"></div>
+
+            <h3>III.3 Voyages de loisirs </h3><br><br>
+            <label for="ind_loisir">Avez-vous réalisé des voyages de loisirs depuis votre lieu de stage en direction de lieux de vacances significiativement éloignés ?</label></br><br>
+            <p><em>Attention : seuls comptent pour votre bilan les voyages réalisés DURANT votre période de stage. Tout voyage réalisé APRES la date annoncée de fin de stage ne doit pas être compté.</em></p><br><br>
+            <select name="ind_loisir" id="ind_loisir" onchange="nextIII3()" required>
+                <option value="">-------</option>
+                <option value="Oui">Oui </option>
+                <option value="Non">Non </option>
+            </select></br></br>
+
+            <div id="Next_questIII3"></div></br>
+
+            <button onclick=SuivantEnd()>Simuler mon Bilan Carbone</button>
+            <p></p><br><br>
+        </form>
+
+        <script>
+            function nextIII1() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_questIII1').forEach(function(element) {
+                    element.remove();
+                });
+        
+                // Vérifier la réponse à la question III1 et ajouter la question suivante en conséquence
+                if (document.getElementById('ind_depuis').value === "Oui") {
+                    var new_quest = `
+                        <div class="next_questIII1">
+                            <label for="ind_depuis_city1"> De quelle ville vos proches sont-ils/elles parti.e.s pour rejoindre votre lieu de stage ?</label></br>
+                            <input size="24" type="text" id="ind_depuis_city1" name="ind_depuis_city" placeholder="ex : Gif-sur-Yvette"  required></br></br>
+        
+                            <label for="ind_depuis_nb1"> Combien étaient-ils/elles ?</label></br>
+                            <input type="number" step="1" min="1" id="ind_depuis_nb1" name="ind_depuis_nb" placeholder="2"  required></br></br>
+
+                            <label for="ind_depuis_mdt_aller1"> Quel moyen de transport ont-ils/elles utilisé pour le voyage aller ?</label></br>
+                            <select name="ind_depuis_mdt_aller" id="ind_depuis_mdt_aller1" onchange="Voiture_depuis_aller1()" required>
+                                <option value="" selected="selected">------- </option>
+
+                                <option value="Avion">Avion </option>                                
+                                <option value="Bateau">Bateau </option>
+                                <option value="Bus">Bus </option>
+                                <option value="Helicoptere">Hélicoptère </option>
+                                <option value="Pied">Marche ou vélo</option>
+                                <option value="Train">Train </option>
+                                <option value="Voiture">Voiture </option>    
+                            </select></br></br>
+
+                            <div id="Voiture_depuis_aller1"></div>
+
+                            <label for="ind_depuis_mdt_retour1"> Quel moyen de transport ont-ils/elles utilisé pour le voyage retour ?</label></br>
+                            <select name="ind_depuis_mdt_retour" id="ind_depuis_mdt_retour1" onchange="Voiture_depuis_retour1()" required>
+                                <option value="" selected="selected">------- </option>
+
+                                <option value="Avion">Avion </option>
+                                <option value="Bateau">Bateau </option>
+                                <option value="Bus">Bus </option>
+                                <option value="Helicoptere">Hélicoptère </option>
+                                <option value="Pied">Marche ou vélo</option>
+                                <option value="Train">Train </option>
+                                <option value="Voiture">Voiture </option>    
+                            </select></br></br>
+
+                            <div id="Voiture_depuis_retour1"></div>
+
+                            <div id="Next_questIII1plus"></div>
+
+                            <p><em>
+                                Si l'ensemble des proches vous ayant rendu visite ne peut être regroupé - en raison d'une ville de départ différente ou de moyens de transport différents - il vous est possible d'ajouter des visites en cliquant sur le bouton suivant. L'appui sur le bouton "Réinitialiser" supprimera l'ensemble des visites que vous aurez ajoutées lors de l'appui sur "Ajouter une nouvelle visite". <br>
+                                Attention : dans le cas de la voiture, merci de sélectionner autant de visites qu'il y a eu de voitures différentes.
+                            </em></p><br><br>
+                            
+                            <button type="button" onclick="ajouterVisitedepuis()">Ajouter une nouvelle visite</button>
+                            <button type="button" onclick="resetVisitesdepuis()">Réinitialiser</button><br><br>
+                            
+                        </div>
+                    `;
+                    document.getElementById("Next_questIII1").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+        
+            function Voiture_depuis_aller1() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_questmdt_depuis_aller1').forEach(function(element) {
+                    element.remove();
+                });
+
+                // Vérifier la réponse à la question mdt_hl et ajouter la question suivante en conséquence
+                if (document.getElementById('ind_depuis_mdt_aller1').value === "Voiture") {
+                    var new_quest = `
+                        <div class="next_questmdt_depuis_aller1">
+                            <label for="Voiture_depuis_aller1_type">Quel type de voiture ont-ils/elles utilisé ?</label><br>
+                            <select name="Voiture_depuis_aller_type" id="Voiture_depuis_aller1_type">
+                                <option value="">-------</option>
+
+                                <option value="Essence">Essence</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="GPL">GPL</option>
+                                <option value="GNV">GNV</option>
+                                <option value="E85">E85</option>
+                                <option value="Hybride">Hybride</option>
+                                <option value="Electrique">Electrique</option>
+                            </select><br><br>
+                        </div>
+                    `;
+                    document.getElementById("Voiture_depuis_aller1").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+
+
+            function Voiture_depuis_retour1() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_questmdt_depuis_retour1').forEach(function(element) {
+                    element.remove();
+                });
+
+                // Vérifier la réponse à la question mdt_depuis_retour1 et ajouter la question suivante en conséquence
+                if (document.getElementById('ind_depuis_mdt_retour1').value === "Voiture") {
+                    var new_quest = `
+                        <div class="next_questmdt_depuis_retour1">
+                            <label for="Voiture_depuis_retour1_type">Quel type de voiture ont-ils/elles utilisé ?</label><br>
+                            <select name="Voiture_depuis_retour_type" id="Voiture_depuis_retour1_type">
+                                <option value="">-------</option>
+
+                                <option value="Essence">Essence</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="GPL">GPL</option>
+                                <option value="GNV">GNV</option>
+                                <option value="E85">E85</option>
+                                <option value="Hybride">Hybride</option>
+                                <option value="Electrique">Electrique</option>
+                            </select><br><br>
+                        </div>
+                    `;
+                    document.getElementById("Voiture_depuis_retour1").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+
+ 
+            let depuisIndex = 1;
+
+            function ajouterVisitedepuis() {
+                depuisIndex++;
+
+                // Créer une nouvelle 'visite'
+                var nouvelleVisiteDiv = `
+                    <h4>Visite depuis la France n°${depuisIndex}</h4><br><br>
+                    <label for="ind_depuis_city${depuisIndex}"> De quelle ville vos proches sont-ils/elles parti.e.s pour rejoindre votre lieu de stage ?</label></br>
+                    <input size="24" type="text" id="ind_depuis_city${depuisIndex}" name="ind_depuis_city" placeholder="ex : Gif-sur-Yvette"  required></br></br>
+            
+                    <label for="ind_depuis_nb${depuisIndex}"> Combien étaient-ils/elles ?</label></br>
+                    <input type="number" step="1" id="ind_depuis_nb${depuisIndex}" name="ind_depuis_nb" placeholder="2"  required></br></br>
+
+                    <label for="ind_depuis_mdt_aller${depuisIndex}"> Quel moyen de transport ont-ils/elles utilisé pour le voyage aller ?</label></br>
+                    <select name="ind_depuis_mdt_aller" id="ind_depuis_mdt_aller${depuisIndex}" onchange="Voiture_depuis_aller()" required>
+                        <option value="" selected="selected">------- </option>
+
+                        <option value="Avion">Avion </option>
+                        <option value="Bateau">Bateau </option>
+                        <option value="Bus">Bus </option>
+                        <option value="Helicoptere">Hélicoptère </option>
+                        <option value="Pied">Marche ou vélo</option>
+                        <option value="Train">Train </option>
+                        <option value="Voiture">Voiture </option>    
+                    </select></br></br>
+
+                    <div id="Voiture_depuis_aller${depuisIndex}"></div>
+
+                    <label for="ind_depuis_mdt_retour${depuisIndex}"> Quel moyen de transport ont-ils/elles utilisé pour le voyage retour ?</label></br>
+                    <select name="ind_depuis_mdt_retour" id="ind_depuis_mdt_retour${depuisIndex}" onchange="Voiture_depuis_retour()" required>
+                        <option value="" selected="selected">------- </option>
+
+                        <option value="Avion">Avion </option>
+                        <option value="Bateau">Bateau </option>
+                        <option value="Bus">Bus </option>
+                        <option value="Helicoptere">Hélicoptère </option>
+                        <option value="Pied">Marche ou vélo</option>
+                        <option value="Train">Train </option>
+                        <option value="Voiture">Voiture </option>    
+                    </select></br></br>
+
+                    <div id="Voiture_depuis_retour${depuisIndex}"></div>
+                    `;
+                document.getElementById("Next_questIII1plus").insertAdjacentHTML('beforeend', nouvelleVisiteDiv);
+            }
+
+            function Voiture_depuis_aller() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.new_questVoiture_depuis_aller'+depuisIndex).forEach(function(element) {
+                    element.remove();
+                });
+
+                // Vérifier la réponse à la question mdt_depuis_aller et ajouter la question suivante en conséquence
+                if (document.getElementById('ind_depuis_mdt_aller'+depuisIndex).value === "Voiture") {
+                    var new_quest = `
+                        <div class="new_questVoiture_depuis_aller${depuisIndex}">
+                            <label for="Voiture_depuis_aller${depuisIndex}_type">Quel type de voiture ont-ils/elles utilisé ?</label><br>
+                            <select name="Voiture_depuis_aller_type" id="Voiture_depuis_aller${depuisIndex}_type">
+                                <option value="">-------</option>
+                                
+                                <option value="Essence">Essence</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="GPL">GPL</option>
+                                <option value="GNV">GNV</option>
+                                <option value="E85">E85</option>
+                                <option value="Hybride">Hybride</option>
+                                <option value="Electrique">Electrique</option>
+                            </select><br><br>
+                        </div>
+                    `;
+                    document.getElementById(`Voiture_depuis_aller${depuisIndex}`).insertAdjacentHTML('afterbegin', new_quest);
+                }
+                ajouterStylesPourQuestionDepuisAller(depuisIndex);
+            }
+
+            function ajouterStylesPourQuestionDepuisAller(depuisIndex) {
+                const styles = `
+                    .formulaire_p3 .next_questIII1 .new_questVoiture_depuis_aller${depuisIndex} {
+                        margin-left: 70px;
+                    }
+                `;
+
+                const styleElement = document.createElement('style');
+                styleElement.innerHTML = styles;
+
+                document.querySelector('link[href="style.css"]').insertAdjacentElement('afterend', styleElement);
+
+            }
+
+            function Voiture_depuis_retour() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.new_questVoiture_depuis_retour'+depuisIndex).forEach(function(element) {
+                    element.remove();
+                });
+
+                // Vérifier la réponse à la question mdt_depuis_retour et ajouter la question suivante en conséquence
+                if (document.getElementById('ind_depuis_mdt_retour'+depuisIndex).value === "Voiture") {
+                    var new_quest = `
+                        <div class="new_questVoiture_depuis_retour${depuisIndex}">
+                            <label for="Voiture_depuis_retour${depuisIndex}_type">Quel type de voiture ont-ils/elles utilisé ?</label><br>
+                            <select name="Voiture_depuis_retour_type" id="Voiture_depuis_retour${depuisIndex}_type">
+                                <option value="">-------</option>
+                                
+                                <option value="Essence">Essence</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="GPL">GPL</option>
+                                <option value="GNV">GNV</option>
+                                <option value="E85">E85</option>
+                                <option value="Hybride">Hybride</option>
+                                <option value="Electrique">Electrique</option>
+                            </select><br><br>
+                        </div>
+                    `;
+                    document.getElementById(`Voiture_depuis_retour${depuisIndex}`).insertAdjacentHTML('afterbegin', new_quest);
+                }
+                ajouterStylesPourQuestionDepuisRetour(depuisIndex);
+            }
+
+            function ajouterStylesPourQuestionDepuisRetour(depuisIndex) {
+                const styles = `
+                    .formulaire_p3 .next_questIII1 .new_questVoiture_depuis_retour${depuisIndex} {
+                        margin-left: 70px;
+                    }
+                `;
+
+                const styleElement = document.createElement('style');
+                styleElement.innerHTML = styles;
+
+                document.querySelector('link[href="style.css"]').insertAdjacentElement('afterend', styleElement);
+
+            }
+
+
+            function resetVisitesdepuis() {
+                // Supprimer tous les ensembles "Visite n°i"
+                document.getElementById("Next_questIII1plus").innerHTML = '';
+
+                // Réinitialiser le compteur depuisIndex
+                depuisIndex = 1;
+            }
+
+
+            function nextIII2() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_questIII2').forEach(function(element) {
+                    element.remove();
+                });
+        
+                // Vérifier la réponse à la question III2 et ajouter la question suivante en conséquence
+                if (document.getElementById('ind_vers').value === "Oui") {
+                    var new_quest = `
+                        <div class="next_questIII2">
+                            <label for="ind_vers_city1"> Quelle ville française avez-vous rejointe pour rendre visite à vos proches ?</label></br>
+                            <input size="24" type="text" id="ind_vers_city1" name="ind_vers_city" placeholder="ex : Gif-sur-Yvette"  required></br></br>
+        
+                            <label for="ind_vers_mdt_aller1"> Quel moyen de transport avez-vous utilisé pour le voyage aller ?</label></br>
+                            <select name="ind_vers_mdt_aller" id="ind_vers_mdt_aller1" onchange="Voiture_vers_aller1()" required>
+                                <option value="" selected="selected">------- </option>
+
+                                <option value="Avion">Avion </option>                                
+                                <option value="Bateau">Bateau </option>
+                                <option value="Bus">Bus </option>
+                                <option value="Helicoptere">Hélicoptère </option>
+                                <option value="Pied">Marche ou vélo</option>
+                                <option value="Train">Train </option>
+                                <option value="Voiture">Voiture </option>    
+                            </select></br></br>
+
+                            <div id="Voiture_vers_aller1"></div>
+
+                            <label for="ind_vers_mdt_retour1"> Quel moyen de transport avez-vous utilisé pour le voyage retour ?</label></br>
+                            <select name="ind_vers_mdt_retour" id="ind_vers_mdt_retour1" onchange="Voiture_vers_retour1()" required>
+                                <option value="" selected="selected">------- </option>
+
+                                <option value="Avion">Avion </option>
+                                <option value="Bateau">Bateau </option>
+                                <option value="Bus">Bus </option>
+                                <option value="Helicoptere">Hélicoptère </option>
+                                <option value="Pied">Marche ou vélo</option>
+                                <option value="Train">Train </option>
+                                <option value="Voiture">Voiture </option>    
+                            </select></br></br>
+
+                            <div id="Voiture_vers_retour1"></div>
+
+                            <div id="Next_questIII2plus"></div>
+
+                            <p><em>
+                                Si l'ensemble des proches à qui vous avez rendu visite ne peut être regroupé - en raison d'une ville différente ou de moyens de transport différents - il vous est possible d'ajouter des visites en cliquant sur le bouton suivant. L'appui sur le bouton "Réinitialiser" supprimera l'ensemble des visites que vous aurez ajoutées lors de l'appui sur "Ajouter une nouvelle visite".
+                            </em></p><br><br>
+                            
+                            <button type="button" onclick="ajouterVisitevers()">Ajouter une nouvelle visite</button>
+                            <button type="button" onclick="resetVisitesvers()">Réinitialiser</button><br><br>
+                            
+                        </div>
+                    `;
+
+
+                    document.getElementById("Next_questIII2").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+        
+
+            function Voiture_vers_aller1() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_questmdt_vers_aller1').forEach(function(element) {
+                    element.remove();
+                });
+
+                // Vérifier la réponse à la question mdt_hl et ajouter la question suivante en conséquence
+                if (document.getElementById('ind_vers_mdt_aller1').value === "Voiture") {
+                    var new_quest = `
+                        <div class="next_questmdt_vers_aller1">
+                            <label for="Voiture_vers_aller1_type">Quel type de voiture avez-vous utilisé ?</label><br>
+                            <select name="Voiture_vers_aller_type" id="Voiture_vers_aller1_type">
+                                <option value="">-------</option>
+                                
+                                <option value="Essence">Essence</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="GPL">GPL</option>
+                                <option value="GNV">GNV</option>
+                                <option value="E85">E85</option>
+                                <option value="Hybride">Hybride</option>
+                                <option value="Electrique">Electrique</option>
+                            </select><br><br>
+
+                            <label for="Voiture_vers_aller1_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
+                            <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
+                            <input type="number" min="0" step="1" id="Voiture_vers_aller1_covoit" name="Voiture_vers_aller_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                        </div>
+                    `;
+                    document.getElementById("Voiture_vers_aller1").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+
+
+            function Voiture_vers_retour1() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_questmdt_vers_retour1').forEach(function(element) {
+                    element.remove();
+                });
+
+                // Vérifier la réponse à la question mdt_vers_retour1 et ajouter la question suivante en conséquence
+                if (document.getElementById('ind_vers_mdt_retour1').value === "Voiture") {
+                    var new_quest = `
+                        <div class="next_questmdt_vers_retour1">
+                            <label for="Voiture_vers_retour1_type">Quel type de voiture avez-vous utilisé ?</label><br>
+                            <select name="Voiture_vers_retour_type" id="Voiture_vers_retour1_type">
+                                <option value="">-------</option>
+                                
+                                <option value="Essence">Essence</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="GPL">GPL</option>
+                                <option value="GNV">GNV</option>
+                                <option value="E85">E85</option>
+                                <option value="Hybride">Hybride</option>
+                                <option value="Electrique">Electrique</option>
+                            </select><br><br>
+
+                            <label for="Voiture_vers_retour1_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
+                            <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
+                            <input type="number" min="0" step="1" id="Voiture_vers_retour1_covoit" name="Voiture_vers_retour_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                        </div>
+                    `;
+                    document.getElementById("Voiture_vers_retour1").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+
+
+            let versIndex = 1;
+
+            function ajouterVisitevers() {
+                versIndex++;
+
+                // Créer une nouvelle 'visite'
+                var nouvelleVisiteDiv = `
+                    <h4>Visite en France n°${versIndex}</h4><br><br>
+                    <label for="ind_vers_city${versIndex}"> Quelle ville française avez-vous rejointe pour rendre visite à vos proches ?</label></br>
+                    <input size="24" type="text" id="ind_vers_city${versIndex}" name="ind_vers_city" placeholder="ex : Gif-sur-Yvette"  required></br></br>
+            
+                    <label for="ind_vers_mdt_aller${versIndex}"> Quel moyen de transport avez-vous utilisé pour le voyage aller ?</label></br>
+                    <select name="ind_vers_mdt_aller" id="ind_vers_mdt_aller${versIndex}" onchange="Voiture_vers_aller()" required>
+                        <option value="" selected="selected">------- </option>
+
+                        <option value="Avion">Avion </option>
+                        <option value="Bateau">Bateau </option>
+                        <option value="Bus">Bus </option>
+                        <option value="Helicoptere">Hélicoptère </option>
+                        <option value="Pied">Marche ou vélo</option>
+                        <option value="Train">Train </option>
+                        <option value="Voiture">Voiture </option>    
+                    </select></br></br>
+
+                    <div id="Voiture_vers_aller${versIndex}"></div>
+        
+
+                    <label for="ind_vers_mdt_retour${versIndex}"> Quel moyen de transport avez-vous utilisé pour le voyage retour ?</label></br>
+                    <select name="ind_vers_mdt_retour" id="ind_vers_mdt_retour${versIndex}" onchange="Voiture_vers_retour()" required>
+                        <option value="" selected="selected">------- </option>
+
+                        <option value="Avion">Avion </option>
+                        <option value="Bateau">Bateau </option>
+                        <option value="Bus">Bus </option>
+                        <option value="Helicoptere">Hélicoptère </option>
+                        <option value="Pied">Marche ou vélo</option>
+                        <option value="Train">Train </option>
+                        <option value="Voiture">Voiture </option>    
+                    </select></br></br>
+
+                    <div id="Voiture_vers_retour${versIndex}"></div>
+                    `;
+
+                document.getElementById("Next_questIII2plus").insertAdjacentHTML('beforeend', nouvelleVisiteDiv);
+            }
+
+            function Voiture_vers_aller() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.new_questVoiture_vers_aller'+versIndex).forEach(function(element) {
+                    element.remove();
+                });
+
+                // Vérifier la réponse à la question mdt_vers_aller et ajouter la question suivante en conséquence
+                if (document.getElementById('ind_vers_mdt_aller'+versIndex).value === "Voiture") {
+                    var new_quest = `
+                        <div class="new_questVoiture_vers_aller${versIndex}">
+                            <label for="Voiture_vers_aller${versIndex}_type">Quel type de voiture avez-vous utilisé ?</label><br>
+                            <select name="Voiture_vers_aller_type" id="Voiture_vers_aller${versIndex}_type">
+                                <option value="">-------</option>
+                                
+                                <option value="Essence">Essence</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="GPL">GPL</option>
+                                <option value="GNV">GNV</option>
+                                <option value="E85">E85</option>
+                                <option value="Hybride">Hybride</option>
+                                <option value="Electrique">Electrique</option>
+                            </select><br><br>
+
+                            <label for="Voiture_vers_aller${versIndex}_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
+                            <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
+                            <input type="number" min="0" step="1" id="Voiture_vers_aller${versIndex}_covoit" name="Voiture_vers_aller_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                        </div>
+                    `;
+                    document.getElementById(`Voiture_vers_aller${versIndex}`).insertAdjacentHTML('afterbegin', new_quest);
+                }
+                ajouterStylesPourQuestionVersAller(versIndex);
+            }
+
+            function ajouterStylesPourQuestionVersAller(versIndex) {
+                const styles = `
+                    .formulaire_p3 .next_questIII2 .new_questVoiture_vers_aller${versIndex} {
+                        margin-left: 70px;
+                    }
+                `;
+
+                const styleElement = document.createElement('style');
+                styleElement.innerHTML = styles;
+
+                document.querySelector('link[href="style.css"]').insertAdjacentElement('afterend', styleElement);
+
+            }
+
+            function Voiture_vers_retour() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.new_questVoiture_vers_retour'+versIndex).forEach(function(element) {
+                    element.remove();
+                });
+
+                // Vérifier la réponse à la question mdt_vers_aller et ajouter la question suivante en conséquence
+                if (document.getElementById('ind_vers_mdt_retour'+versIndex).value === "Voiture") {
+                    var new_quest = `
+                        <div class="new_questVoiture_vers_retour${versIndex}">
+                            <label for="Voiture_vers_retour${versIndex}_type">Quel type de voiture avez-vous utilisé ?</label><br>
+                            <select name="Voiture_vers_retour_type" id="Voiture_vers_retour${versIndex}_type">
+                                <option value="">-------</option>
+                                
+                                <option value="Essence">Essence</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="GPL">GPL</option>
+                                <option value="GNV">GNV</option>
+                                <option value="E85">E85</option>
+                                <option value="Hybride">Hybride</option>
+                                <option value="Electrique">Electrique</option>
+                            </select><br><br>
+
+                            <label for="Voiture_vers_retour${versIndex}_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
+                            <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
+                            <input type="number" min="0" step="1" id="Voiture_vers_retour${versIndex}_covoit" name="Voiture_vers_retour_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                        </div>
+                    `;
+                    document.getElementById(`Voiture_vers_retour${versIndex}`).insertAdjacentHTML('afterbegin', new_quest);
+                }
+                ajouterStylesPourQuestionVersRetour(versIndex);
+            }
+
+            function ajouterStylesPourQuestionVersRetour(versIndex) {
+                const styles = `
+                    .formulaire_p3 .next_questIII2 .new_questVoiture_vers_retour${versIndex} {
+                        margin-left: 70px;
+                    }
+                `;
+
+                const styleElement = document.createElement('style');
+                styleElement.innerHTML = styles;
+
+                document.querySelector('link[href="style.css"]').insertAdjacentElement('afterend', styleElement);
+
+            }
+
+
+            function resetVisitesvers() {
+                // Supprimer tous les ensembles "Visite n°i"
+                document.getElementById("Next_questIII2plus").innerHTML = '';
+
+                // Réinitialiser le compteur versIndex
+                versIndex = 1;
+            }
+
+
+            function nextIII3() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_questIII3').forEach(function(element) {
+                    element.remove();
+                });
+        
+                // Vérifier la réponse à la question III3 et ajouter la question suivante en conséquence
+                if (document.getElementById('ind_loisir').value === "Oui") {
+                    var new_quest = `
+                        <div class="next_questIII3">
+                            <label for="ind_loisir_country1"> Quel pays avez-vous rejoint dans le cadre de vos loisirs ?</label></br>
+                            <select name="ind_loisir_country" id="ind_loisir_country1" required>
+                                <option value="">-------</option>
+
+                                <option value="Afghanistan">Afghanistan </option>
+                                <option value="Afrique_Centrale">Afrique Centrale </option>
+                                <option value="Afrique_du_sud">Afrique du Sud </option>
+                                <option value="Albanie">Albanie </option>
+                                <option value="Algerie">Algérie </option>
+                                <option value="Allemagne">Allemagne </option>
+                                <option value="Andorre">Andorre </option>
+                                <option value="Angola">Angola </option>
+                                <option value="Anguilla">Anguilla </option>
+                                <option value="Arabie_Saoudite">Arabie Saoudite </option>
+                                <option value="Argentine">Argentine </option>
+                                <option value="Armenie">Arménie </option>
+                                <option value="Australie">Australie </option>
+                                <option value="Autriche">Autriche </option>
+                                <option value="Azerbaidjan">Azerbaïdjan </option>
+
+                                <option value="Bahamas">Bahamas </option>
+                                <option value="Bangladesh">Bangladesh </option>
+                                <option value="Barbade">Barbade </option>
+                                <option value="Bahrein">Bahreïn </option>
+                                <option value="Belgique">Belgique </option>
+                                <option value="Belize">Belize </option>
+                                <option value="Benin">Bénin </option>
+                                <option value="Bermudes">Bermudes </option>
+                                <option value="Bielorussie">Biélorussie </option>
+                                <option value="Bolivie">Bolivie </option>
+                                <option value="Botswana">Botswana </option>
+                                <option value="Bhoutan">Bhoutan </option>
+                                <option value="Boznie_Herzegovine">Boznie-Herzégovine </option>
+                                <option value="Bresil">Brésil </option>
+                                <option value="Brunei">Brunei </option>
+                                <option value="Bulgarie">Bulgarie </option>
+                                <option value="Burkina_Faso">Burkina Faso </option>
+                                <option value="Burundi">Burundi </option>
+
+                                <option value="Caiman">Caïman </option>
+                                <option value="Cambodge">Cambodge </option>
+                                <option value="Cameroun">Cameroun </option>
+                                <option value="Canada">Canada </option>     
+                                <option value="Canaries">Canaries </option>
+                                <option value="Cap_vert">Cap Vert </option>
+                                <option value="Chili">Chili </option>
+                                <option value="Chine">Chine </option>
+                                <option value="Chypre">Chypre </option>
+                                <option value="Colombie">Colombie </option>
+                                <option value="Comores">Comores </option>
+                                <option value="Congo">Congo </option>
+                                <option value="Congo_democratique">Congo démocratique </option> 
+                                <option value="Cook">Cook </option>
+                                <option value="Coree_du_Nord">Corée du Nord </option>
+                                <option value="Coree_du_Sud">Corée du Sud </option>
+                                <option value="Costa_Rica">Costa Rica </option>
+                                <option value="Cote_d_Ivoire">Côte d'Ivoire </option>
+                                <option value="Croatie">Croatie </option>
+                                <option value="Cuba">Cuba </option> 
+
+                                <option value="Danemark">Danemark </option>
+                                <option value="Djibouti">Djibouti </option>
+                                <option value="Dominique">Dominique </option>
+
+                                <option value="Egypte">Egypte </option>
+                                <option value="Emirats_Arabes_Unis">Emirats Arabes Unis </option>
+                                <option value="Equateur">Equateur </option>
+                                <option value="Erythree">Erythrée </option>
+                                <option value="Espagne">Espagne </option>
+                                <option value="Estonie">Estonie </option>
+                                <option value="Etats_Unis">Etats Unis d'Amérique</option>
+                                <option value="Ethiopie">Ethiopie </option>
+
+                                <option value="Falkland">Falkland </option>
+                                <option value="Feroe">Feroe </option>   
+                                <option value="Fidji">Fidji </option>
+                                <option value="Finlande">Finlande </option>
+                                <option value="France">France </option>     
+
+                                <option value="Gabon">Gabon </option>   
+                                <option value="Gambie">Gambie </option>
+                                <option value="Georgie">Géorgie </option>    
+                                <option value="Ghana">Ghana </option>
+                                <option value="Grece">Grèce </option>
+                                <option value="Grenade">Grenade </option>
+                                <option value="Groenland">Groenland </option>
+                                <option value="Guam">Guam </option>
+                                <option value="Guatemala">Guatemala</option>
+                                <option value="Guinee">Guinée </option>
+                                <option value="Guinee_Bissau">Guinée-Bissau </option>
+                                <option value="Guinee equatoriale">Guinée Equatoriale </option>
+                                <option value="Guyana">Guyana </option>
+
+                                <option value="Haiti">Haïti </option>
+                                <option value="Hawaii">Hawaii </option>
+                                <option value="Honduras">Honduras </option>
+                                <option value="Hong_Kong">Hong Kong </option>
+                                <option value="Hongrie">Hongrie </option>
+
+                                <option value="Inde">Inde </option>
+                                <option value="Indonesie">Indonésie </option>
+                                <option value="Iran">Iran </option>
+                                <option value="Iraq">Irak </option>
+                                <option value="Irlande">Irelande </option>
+                                <option value="Islande">Islande </option>
+                                <option value="Israel">Israël </option>
+                                <option value="Italie">Italie </option>
+
+                                <option value="Jamaique">Jamaïque </option>
+                                <option value="Japon">Japon </option>
+                                <option value="Jordanie">Jordanie </option>
+
+                                <option value="Kazakhstan">Kazakhstan </option>     
+                                <option value="Kenya">Kenya </option>       
+                                <option value="Kirghizstan">Kirghizistan </option>
+                                <option value="Koweit">Koweït </option>
+
+                                <option value="Laos">Laos </option>
+                                <option value="Lesotho">Lesotho </option>   
+                                <option value="Lettonie">Lettonie </option>
+                                <option value="Liban">Liban </option>
+                                <option value="Liberia">Liberia </option>
+                                <option value="Liechtenstein">Liechtenstein </option>
+                                <option value="Lituanie">Lituanie </option>
+                                <option value="Luxembourg">Luxembourg </option>
+                                <option value="Lybie">Lybie </option>
+        
+                                <option value="Macedoine">Macédoine du Nord </option>
+                                <option value="Madagascar">Madagascar </option>
+                                <option value="Malaisie">Malaisie </option>
+                                <option value="Malawi">Malawi </option>
+                                <option value="Maldives">Maldives </option>
+                                <option value="Mali">Mali </option>
+                                <option value="Malte">Malte </option>
+                                <option value="Maroc">Maroc </option>
+                                <option value="Marshall">Marshall </option>
+                                <option value="Maurice">Maurice </option>
+                                <option value="Mauritanie">Mauritanie </option>
+                                <option value="Mexique">Mexique </option>
+                                <option value="Micronesie">Micronésie </option>
+                                <option value="Moldavie">Moldavie </option>
+                                <option value="Monaco">Monaco </option>
+                                <option value="Mongolie">Mongolie </option>
+                                <option value="Montenegro">Monténégro </option>
+                                <option value="Mozambique">Mozambique </option>
+
+                                <option value="Namibie">Namibie </option>
+                                <option value="Nauru">Nauru </option>
+                                <option value="Nepal">Népal </option>
+                                <option value="Nicaragua">Nicaragua </option>
+                                <option value="Niger">Niger </option>
+                                <option value="Nigeria">Nigéria </option>
+                                <option value="Niue">Niue </option>
+                                <option value="Norvege">Norvège </option>
+                                <option value="Nouvelle_Caledonie">Nouvelle Calédonie </option>
+                                <option value="Nouvelle_Zelande">Nouvelle Zélande </option>
+
+                                <option value="Oman">Oman </option>
+                                <option value="Ouganda">Ouganda </option>
+                                <option value="Ouzbekistan">Ouzbékistan </option>
+
+                                <option value="Pakistan">Pakistan </option>
+                                <option value="Palaos">Palaos </option>
+                                <option value="Palestine">Palestine </option>
+                                <option value="Panama">Panama </option>
+                                <option value="Papouasie_Nouvelle_Guinee">Papouasie-Nouvelle Guinée </option>
+                                <option value="Paraguay">Paraguay </option>
+                                <option value="Pays_Bas">Pays-Bas </option>
+                                <option value="Perou">Pérou </option>
+                                <option value="Philippines">Philippines </option>
+                                <option value="Pologne">Pologne </option>
+                                <option value="Portugal">Portugal </option>
+
+                                <option value="Qatar">Qatar </option>
+
+                                <option value="Republique_Dominicaine">République Dominicaine </option>
+                                <option value="Republique_Tcheque">République Tchèque </option>     
+                                <option value="Roumanie">Roumanie </option>
+                                <option value="Royaume_Uni">Royaume-Uni </option>
+                                <option value="Russie">Russie </option>
+                                <option value="Rwanda">Rwanda </option>
+
+                                <option value="Sainte_Lucie">Sainte-Lucie </option>
+                                <option value="Saint_Martin">Saint-Martin </option>
+                                <option value="Saint-Vincent-et-les-Grenadines">Saint-Vincent-et-les-Grenadines </option>
+                                <option value="Salomon">Salomon </option>
+                                <option value="Salvador">Salvador </option>
+                                <option value="Samoa_Occidentales">Samoa</option>
+                                <option value="Sao_Tome_et_Principe">Sao Tomé-et-Principe </option>
+                                <option value="Senegal">Sénégal </option>
+                                <option value="Serbie">Serbie </option>
+                                <option value="Seychelles">Seychelles </option>
+                                <option value="Sierra Leone">Sierra Leone </option>
+                                <option value="Singapour">Singapour </option>
+                                <option value="Slovaquie">Slovaquie </option>
+                                <option value="Slovenie">Slovénie</option>
+                                <option value="Somalie">Somalie </option>
+                                <option value="Soudan">Soudan </option>
+                                <option value="Soudan_du_Sud">Soudan du Sud </option>
+                                <option value="Sri_Lanka">Sri Lanka </option>
+                                <option value="Suede">Suède </option>
+                                <option value="Suisse">Suisse </option>
+                                <option value="Surinam">Surinam </option>
+                                <option value="Syrie">Syrie </option>
+
+                                <option value="Tadjikistan">Tadjikistan </option>
+                                <option value="Taiwan">Taïwan </option> 
+                                <option value="Tonga">Tonga </option>
+                                <option value="Tanzanie">Tanzanie </option>
+                                <option value="Tchad">Tchad </option>
+                                <option value="Thailande">Thaïlande </option>
+                                <option value="Timor_Oriental">Timor Oriental </option>
+                                <option value="Togo">Togo </option>
+                                <option value="Trinite_et_Tobago">Trinité-et-Tobago </option>
+                                <option value="Tunisie">Tunisie </option>
+                                <option value="Turkmenistan">Turkménistan </option>
+                                <option value="Turquie">Turquie </option>
+
+                                <option value="Ukraine">Ukraine </option>
+                                <option value="Uruguay">Uruguay </option>
+
+                                <option value="Vanuatu">Vanuatu </option>
+                                <option value="Vatican">Vatican </option>
+                                <option value="Venezuela">Venezuela </option>
+                                <option value="Vietnam">Vietnam </option>
+
+                                <option value="Yemen">Yémen </option>
+
+                                <option value="Zambie">Zambie </option>
+                                <option value="Zimbabwe">Zimbabwe </option>
+
+                            </select></br></br>
+
+                            <label for="ind_loisir_city1"> Quelle ville avez-vous rejointe dans le cadre de vos loisirs ?</label></br>
+                            <input size="24" type="text" id="ind_loisir_city1" name="ind_loisir_city" placeholder="ex : Gif-sur-Yvette"  required></br></br>
+        
+                            <label for="ind_loisir_mdt_aller1"> Quel moyen de transport avez-vous utilisé pour le voyage aller ?</label></br>
+                            <select name="ind_loisir_mdt_aller" id="ind_loisir_mdt_aller1" onchange="Voiture_loisir_aller1()" required>
+                                <option value="" selected="selected">------- </option>
+
+                                <option value="Avion">Avion </option>                                
+                                <option value="Bateau">Bateau </option>
+                                <option value="Bus">Bus </option>
+                                <option value="Helicoptere">Hélicoptère </option>
+                                <option value="Pied">Marche ou vélo</option>
+                                <option value="Train">Train </option>
+                                <option value="Voiture">Voiture </option>    
+                            </select></br></br>
+
+                            <div id="Voiture_loisir_aller1"></div>
+
+                            <label for="ind_loisir_mdt_retour1"> Quel moyen de transport avez-vous utilisé pour le voyage retour ?</label></br>
+                            <select name="ind_loisir_mdt_retour" id="ind_loisir_mdt_retour1" onchange="Voiture_loisir_retour1()" required>
+                                <option value="" selected="selected">------- </option>
+
+                                <option value="Avion">Avion </option>
+                                <option value="Bateau">Bateau </option>
+                                <option value="Bus">Bus </option>
+                                <option value="Helicoptere">Hélicoptère </option>
+                                <option value="Pied">Marche ou vélo</option>
+                                <option value="Train">Train </option>
+                                <option value="Voiture">Voiture </option>    
+                            </select></br></br>
+
+                            <div id="Voiture_loisir_retour1"></div>
+
+                            <div id="Next_questIII3plus"></div>
+
+                            <p><em>
+                                Il vous est possible d'ajouter des voyages en cliquant sur le bouton suivant. L'appui sur le bouton "Réinitialiser" supprimera l'ensemble des voyages que vous aurez ajoutés lors de l'appui sur "Ajouter une nouveau voyage".
+                            </em></p><br><br>
+                            
+                            <button type="button" onclick="ajouterVisiteloisir()">Ajouter un nouveau voyage</button>
+                            <button type="button" onclick="resetVisitesloisir()">Réinitialiser</button><br><br>
+                            
+                        </div>
+                    `;
+
+
+                    document.getElementById("Next_questIII3").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+        
+
+            function Voiture_loisir_aller1() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_questmdt_loisir_aller1').forEach(function(element) {
+                    element.remove();
+                });
+
+                // Vérifier la réponse à la question mdt_hl et ajouter la question suivante en conséquence
+                if (document.getElementById('ind_loisir_mdt_aller1').value === "Voiture") {
+                    var new_quest = `
+                        <div class="next_questmdt_loisir_aller1">
+                            <label for="Voiture_loisir_aller1_type">Quel type de voiture avez-vous utilisé ?</label><br>
+                            <select name="Voiture_loisir_aller_type" id="Voiture_loisir_aller1_type">
+                                <option value="">-------</option>
+                                
+                                <option value="Essence">Essence</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="GPL">GPL</option>
+                                <option value="GNV">GNV</option>
+                                <option value="E85">E85</option>
+                                <option value="Hybride">Hybride</option>
+                                <option value="Electrique">Electrique</option>
+                            </select><br><br>
+
+                            <label for="Voiture_loisir_aller1_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
+                            <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
+                            <input type="number" min="0" step="1" id="Voiture_loisir_aller1_covoit" name="Voiture_loisir_aller_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                        </div>
+                    `;
+                    document.getElementById("Voiture_loisir_aller1").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+
+
+            function Voiture_loisir_retour1() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_questmdt_loisir_retour1').forEach(function(element) {
+                    element.remove();
+                });
+
+                // Vérifier la réponse à la question mdt_hl et ajouter la question suivante en conséquence
+                if (document.getElementById('ind_loisir_mdt_retour1').value === "Voiture") {
+                    var new_quest = `
+                        <div class="next_questmdt_loisir_retour1">
+                            <label for="Voiture_loisir_retour1_type">Quel type de voiture avez-vous utilisé ?</label><br>
+                            <select name="Voiture_loisir_retour_type" id="Voiture_loisir_retour1_type">
+                                <option value="">-------</option>
+                                
+                                <option value="Essence">Essence</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="GPL">GPL</option>
+                                <option value="GNV">GNV</option>
+                                <option value="E85">E85</option>
+                                <option value="Hybride">Hybride</option>
+                                <option value="Electrique">Electrique</option>
+                            </select><br><br>
+
+                            <label for="Voiture_loisir_retour1_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
+                            <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
+                            <input type="number" min="0" step="1" id="Voiture_loisir_retour1_covoit" name="Voiture_loisir_retour_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                        </div>
+                    `;
+                    document.getElementById("Voiture_loisir_retour1").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+
+
+            let loisirIndex = 1;
+
+            function ajouterVisiteloisir() {
+                loisirIndex++;
+
+                // Créer une nouvelle 'visite'
+                var nouvelleVisiteDiv = `
+                    <h4>Voyage n°${loisirIndex}</h4><br><br>
+                    <label for="ind_loisir_country${loisirIndex}"> Quel pays avez-vous rejoint dans le cadre de vos loisirs ?</label></br>
+                    <select name="ind_loisir_country" id="ind_loisir_country${loisirIndex}" required>
+                        <option value="">-------</option>
+
+                        <option value="Afghanistan">Afghanistan </option>
+                        <option value="Afrique_Centrale">Afrique Centrale </option>
+                        <option value="Afrique_du_sud">Afrique du Sud </option>
+                        <option value="Albanie">Albanie </option>
+                        <option value="Algerie">Algérie </option>
+                        <option value="Allemagne">Allemagne </option>
+                        <option value="Andorre">Andorre </option>
+                        <option value="Angola">Angola </option>
+                        <option value="Anguilla">Anguilla </option>
+                        <option value="Arabie_Saoudite">Arabie Saoudite </option>
+                        <option value="Argentine">Argentine </option>
+                        <option value="Armenie">Arménie </option>
+                        <option value="Australie">Australie </option>
+                        <option value="Autriche">Autriche </option>
+                        <option value="Azerbaidjan">Azerbaïdjan </option>
+
+                        <option value="Bahamas">Bahamas </option>
+                        <option value="Bangladesh">Bangladesh </option>
+                        <option value="Barbade">Barbade </option>
+                        <option value="Bahrein">Bahreïn </option>
+                        <option value="Belgique">Belgique </option>
+                        <option value="Belize">Belize </option>
+                        <option value="Benin">Bénin </option>
+                        <option value="Bermudes">Bermudes </option>
+                        <option value="Bielorussie">Biélorussie </option>
+                        <option value="Bolivie">Bolivie </option>
+                        <option value="Botswana">Botswana </option>
+                        <option value="Bhoutan">Bhoutan </option>
+                        <option value="Boznie_Herzegovine">Boznie-Herzégovine </option>
+                        <option value="Bresil">Brésil </option>
+                        <option value="Brunei">Brunei </option>
+                        <option value="Bulgarie">Bulgarie </option>
+                        <option value="Burkina_Faso">Burkina Faso </option>
+                        <option value="Burundi">Burundi </option>
+
+                        <option value="Caiman">Caïman </option>
+                        <option value="Cambodge">Cambodge </option>
+                        <option value="Cameroun">Cameroun </option>
+                        <option value="Canada">Canada </option>     
+                        <option value="Canaries">Canaries </option>
+                        <option value="Cap_vert">Cap Vert </option>
+                        <option value="Chili">Chili </option>
+                        <option value="Chine">Chine </option>
+                        <option value="Chypre">Chypre </option>
+                        <option value="Colombie">Colombie </option>
+                        <option value="Comores">Comores </option>
+                        <option value="Congo">Congo </option>
+                        <option value="Congo_democratique">Congo démocratique </option> 
+                        <option value="Cook">Cook </option>
+                        <option value="Coree_du_Nord">Corée du Nord </option>
+                        <option value="Coree_du_Sud">Corée du Sud </option>
+                        <option value="Costa_Rica">Costa Rica </option>
+                        <option value="Cote_d_Ivoire">Côte d'Ivoire </option>
+                        <option value="Croatie">Croatie </option>
+                        <option value="Cuba">Cuba </option> 
+
+                        <option value="Danemark">Danemark </option>
+                        <option value="Djibouti">Djibouti </option>
+                        <option value="Dominique">Dominique </option>
+
+                        <option value="Egypte">Egypte </option>
+                        <option value="Emirats_Arabes_Unis">Emirats Arabes Unis </option>
+                        <option value="Equateur">Equateur </option>
+                        <option value="Erythree">Erythrée </option>
+                        <option value="Espagne">Espagne </option>
+                        <option value="Estonie">Estonie </option>
+                        <option value="Etats_Unis">Etats Unis d'Amérique</option>
+                        <option value="Ethiopie">Ethiopie </option>
+
+                        <option value="Falkland">Falkland </option>
+                        <option value="Feroe">Feroe </option>   
+                        <option value="Fidji">Fidji </option>
+                        <option value="Finlande">Finlande </option>
+                        <option value="France">France </option>     
+
+                        <option value="Gabon">Gabon </option>   
+                        <option value="Gambie">Gambie </option>
+                        <option value="Georgie">Géorgie </option>    
+                        <option value="Ghana">Ghana </option>
+                        <option value="Grece">Grèce </option>
+                        <option value="Grenade">Grenade </option>
+                        <option value="Groenland">Groenland </option>
+                        <option value="Guam">Guam </option>
+                        <option value="Guatemala">Guatemala</option>
+                        <option value="Guinee">Guinée </option>
+                        <option value="Guinee_Bissau">Guinée-Bissau </option>
+                        <option value="Guinee equatoriale">Guinée Equatoriale </option>
+                        <option value="Guyana">Guyana </option>
+
+                        <option value="Haiti">Haïti </option>
+                        <option value="Hawaii">Hawaii </option>
+                        <option value="Honduras">Honduras </option>
+                        <option value="Hong_Kong">Hong Kong </option>
+                        <option value="Hongrie">Hongrie </option>
+
+                        <option value="Inde">Inde </option>
+                        <option value="Indonesie">Indonésie </option>
+                        <option value="Iran">Iran </option>
+                        <option value="Iraq">Irak </option>
+                        <option value="Irlande">Irelande </option>
+                        <option value="Islande">Islande </option>
+                        <option value="Israel">Israël </option>
+                        <option value="Italie">Italie </option>
+
+                        <option value="Jamaique">Jamaïque </option>
+                        <option value="Japon">Japon </option>
+                        <option value="Jordanie">Jordanie </option>
+
+                        <option value="Kazakhstan">Kazakhstan </option>     
+                        <option value="Kenya">Kenya </option>       
+                        <option value="Kirghizstan">Kirghizistan </option>
+                        <option value="Koweit">Koweït </option>
+
+                        <option value="Laos">Laos </option>
+                        <option value="Lesotho">Lesotho </option>   
+                        <option value="Lettonie">Lettonie </option>
+                        <option value="Liban">Liban </option>
+                        <option value="Liberia">Liberia </option>
+                        <option value="Liechtenstein">Liechtenstein </option>
+                        <option value="Lituanie">Lituanie </option>
+                        <option value="Luxembourg">Luxembourg </option>
+                        <option value="Lybie">Lybie </option>
+
+                        <option value="Macedoine">Macédoine du Nord </option>
+                        <option value="Madagascar">Madagascar </option>
+                        <option value="Malaisie">Malaisie </option>
+                        <option value="Malawi">Malawi </option>
+                        <option value="Maldives">Maldives </option>
+                        <option value="Mali">Mali </option>
+                        <option value="Malte">Malte </option>
+                        <option value="Maroc">Maroc </option>
+                        <option value="Marshall">Marshall </option>
+                        <option value="Maurice">Maurice </option>
+                        <option value="Mauritanie">Mauritanie </option>
+                        <option value="Mexique">Mexique </option>
+                        <option value="Micronesie">Micronésie </option>
+                        <option value="Moldavie">Moldavie </option>
+                        <option value="Monaco">Monaco </option>
+                        <option value="Mongolie">Mongolie </option>
+                        <option value="Montenegro">Monténégro </option>
+                        <option value="Mozambique">Mozambique </option>
+
+                        <option value="Namibie">Namibie </option>
+                        <option value="Nauru">Nauru </option>
+                        <option value="Nepal">Népal </option>
+                        <option value="Nicaragua">Nicaragua </option>
+                        <option value="Niger">Niger </option>
+                        <option value="Nigeria">Nigéria </option>
+                        <option value="Niue">Niue </option>
+                        <option value="Norvege">Norvège </option>
+                        <option value="Nouvelle_Caledonie">Nouvelle Calédonie </option>
+                        <option value="Nouvelle_Zelande">Nouvelle Zélande </option>
+
+                        <option value="Oman">Oman </option>
+                        <option value="Ouganda">Ouganda </option>
+                        <option value="Ouzbekistan">Ouzbékistan </option>
+
+                        <option value="Pakistan">Pakistan </option>
+                        <option value="Palaos">Palaos </option>
+                        <option value="Palestine">Palestine </option>
+                        <option value="Panama">Panama </option>
+                        <option value="Papouasie_Nouvelle_Guinee">Papouasie-Nouvelle Guinée </option>
+                        <option value="Paraguay">Paraguay </option>
+                        <option value="Pays_Bas">Pays-Bas </option>
+                        <option value="Perou">Pérou </option>
+                        <option value="Philippines">Philippines </option>
+                        <option value="Pologne">Pologne </option>
+                        <option value="Portugal">Portugal </option>
+
+                        <option value="Qatar">Qatar </option>
+
+                        <option value="Republique_Dominicaine">République Dominicaine </option>
+                        <option value="Republique_Tcheque">République Tchèque </option>     
+                        <option value="Roumanie">Roumanie </option>
+                        <option value="Royaume_Uni">Royaume-Uni </option>
+                        <option value="Russie">Russie </option>
+                        <option value="Rwanda">Rwanda </option>
+
+                        <option value="Sainte_Lucie">Sainte-Lucie </option>
+                        <option value="Saint_Martin">Saint-Martin </option>
+                        <option value="Saint-Vincent-et-les-Grenadines">Saint-Vincent-et-les-Grenadines </option>
+                        <option value="Salomon">Salomon </option>
+                        <option value="Salvador">Salvador </option>
+                        <option value="Samoa_Occidentales">Samoa</option>
+                        <option value="Sao_Tome_et_Principe">Sao Tomé-et-Principe </option>
+                        <option value="Senegal">Sénégal </option>
+                        <option value="Serbie">Serbie </option>
+                        <option value="Seychelles">Seychelles </option>
+                        <option value="Sierra Leone">Sierra Leone </option>
+                        <option value="Singapour">Singapour </option>
+                        <option value="Slovaquie">Slovaquie </option>
+                        <option value="Slovenie">Slovénie</option>
+                        <option value="Somalie">Somalie </option>
+                        <option value="Soudan">Soudan </option>
+                        <option value="Soudan_du_Sud">Soudan du Sud </option>
+                        <option value="Sri_Lanka">Sri Lanka </option>
+                        <option value="Suede">Suède </option>
+                        <option value="Suisse">Suisse </option>
+                        <option value="Surinam">Surinam </option>
+                        <option value="Syrie">Syrie </option>
+
+                        <option value="Tadjikistan">Tadjikistan </option>
+                        <option value="Taiwan">Taïwan </option> 
+                        <option value="Tonga">Tonga </option>
+                        <option value="Tanzanie">Tanzanie </option>
+                        <option value="Tchad">Tchad </option>
+                        <option value="Thailande">Thaïlande </option>
+                        <option value="Timor_Oriental">Timor Oriental </option>
+                        <option value="Togo">Togo </option>
+                        <option value="Trinite_et_Tobago">Trinité-et-Tobago </option>
+                        <option value="Tunisie">Tunisie </option>
+                        <option value="Turkmenistan">Turkménistan </option>
+                        <option value="Turquie">Turquie </option>
+
+                        <option value="Ukraine">Ukraine </option>
+                        <option value="Uruguay">Uruguay </option>
+
+                        <option value="Vanuatu">Vanuatu </option>
+                        <option value="Vatican">Vatican </option>
+                        <option value="Venezuela">Venezuela </option>
+                        <option value="Vietnam">Vietnam </option>
+
+                        <option value="Yemen">Yémen </option>
+
+                        <option value="Zambie">Zambie </option>
+                        <option value="Zimbabwe">Zimbabwe </option>
+
+                    </select></br></br>
+
+                    <label for="ind_loisir_city${loisirIndex}"> Quelle ville avez-vous rejointe dans le cadre de vos loisirs ?</label></br>
+                    <input size="24" type="text" id="ind_loisir_city${loisirIndex}" name="ind_loisir_city" placeholder="ex : Gif-sur-Yvette"  required></br></br>
+            
+                    <label for="ind_loisir_mdt_aller${loisirIndex}"> Quel moyen de transport avez-vous utilisé pour le voyage aller ?</label></br>
+                    <select name="ind_loisir_mdt_aller" id="ind_loisir_mdt_aller${loisirIndex}" onchange="Voiture_loisir_aller()" required>
+                        <option value="" selected="selected">------- </option>
+
+                        <option value="Avion">Avion </option>
+                        <option value="Bateau">Bateau </option>
+                        <option value="Bus">Bus </option>
+                        <option value="Helicoptere">Hélicoptère </option>
+                        <option value="Pied">Marche ou vélo</option>
+                        <option value="Train">Train </option>
+                        <option value="Voiture">Voiture </option>    
+                    </select></br></br>
+
+                    <div id="Voiture_loisir_aller${loisirIndex}"></div>
+
+                    <label for="ind_loisir_mdt_retour${loisirIndex}"> Quel moyen de transport avez-vous utilisé pour le voyage retour ?</label></br>
+                    <select name="ind_loisir_mdt_retour" id="ind_loisir_mdt_retour${loisirIndex}" onchange="Voiture_loisir_retour()" required>
+                        <option value="" selected="selected">------- </option>
+
+                        <option value="Avion">Avion </option>
+                        <option value="Bateau">Bateau </option>
+                        <option value="Bus">Bus </option>
+                        <option value="Helicoptere">Hélicoptère </option>
+                        <option value="Pied">Marche ou vélo</option>
+                        <option value="Train">Train </option>
+                        <option value="Voiture">Voiture </option>    
+                    </select></br></br>
+
+                    <div id="Voiture_loisir_retour${loisirIndex}"></div>
+                    `;
+                document.getElementById("Next_questIII3plus").insertAdjacentHTML('beforeend', nouvelleVisiteDiv);
+            }
+
+            function Voiture_loisir_aller() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.new_questVoiture_loisir_aller'+loisirIndex).forEach(function(element) {
+                    element.remove();
+                });
+
+                // Vérifier la réponse à la question mdt_vers_aller et ajouter la question suivante en conséquence
+                if (document.getElementById('ind_loisir_mdt_aller'+loisirIndex).value === "Voiture") {
+                    var new_quest = `
+                        <div class="new_questVoiture_loisir_aller${loisirIndex}">
+                            <label for="Voiture_loisir_aller${loisirIndex}_type">Quel type de voiture avez-vous utilisé ?</label><br>
+                            <select name="Voiture_loisir_aller_type" id="Voiture_loisir_aller${loisirIndex}_type">
+                                <option value="">-------</option>
+                                
+                                <option value="Essence">Essence</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="GPL">GPL</option>
+                                <option value="GNV">GNV</option>
+                                <option value="E85">E85</option>
+                                <option value="Hybride">Hybride</option>
+                                <option value="Electrique">Electrique</option>
+                            </select><br><br>
+
+                            <label for="Voiture_loisir_aller${loisirIndex}_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
+                            <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
+                            <input type="number" min="0" step="1" id="Voiture_loisir_aller${loisirIndex}_covoit" name="Voiture_loisir_aller_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                        </div>
+                    `;
+                    document.getElementById(`Voiture_loisir_aller${loisirIndex}`).insertAdjacentHTML('afterbegin', new_quest);
+                }
+                ajouterStylesPourQuestionLoisirAller(loisirIndex);
+            }
+
+            function ajouterStylesPourQuestionLoisirAller(loisirIndex) {
+                const styles = `
+                    .formulaire_p3 .next_questIII3 .new_questVoiture_loisir_aller${loisirIndex} {
+                        margin-left: 70px;
+                    }
+                `;
+
+                const styleElement = document.createElement('style');
+                styleElement.innerHTML = styles;
+
+                document.querySelector('link[href="style.css"]').insertAdjacentElement('afterend', styleElement);
+
+            }
+
+            function Voiture_loisir_retour() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.new_questVoiture_loisir_retour'+loisirIndex).forEach(function(element) {
+                    element.remove();
+                });
+
+                // Vérifier la réponse à la question mdt_vers_aller et ajouter la question suivante en conséquence
+                if (document.getElementById('ind_loisir_mdt_retour'+loisirIndex).value === "Voiture") {
+                    var new_quest = `
+                        <div class="new_questVoiture_loisir_retour${loisirIndex}">
+                            <label for="Voiture_vers_retour${loisirIndex}_type">Quel type de voiture avez-vous utilisé ?</label><br>
+                            <select name="Voiture_loisir_retour_type" id="Voiture_loisir_retour${loisirIndex}_type">
+                                <option value="">-------</option>
+                                
+                                <option value="Essence">Essence</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="GPL">GPL</option>
+                                <option value="GNV">GNV</option>
+                                <option value="E85">E85</option>
+                                <option value="Hybride">Hybride</option>
+                                <option value="Electrique">Electrique</option>
+                            </select><br><br>
+
+                            <label for="Voiture_loisir_retour${loisirIndex}_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
+                            <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
+                            <input type="number" min="0" step="1" id="Voiture_loisir_retour${loisirIndex}_covoit" name="Voiture_loisir_retour_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                        </div>
+                    `;
+                    document.getElementById(`Voiture_loisir_retour${loisirIndex}`).insertAdjacentHTML('afterbegin', new_quest);
+                }
+                ajouterStylesPourQuestionLoisirRetour(loisirIndex);
+            }
+
+            function ajouterStylesPourQuestionLoisirRetour(loisirIndex) {
+                const styles = `
+                    .formulaire_p3 .next_questIII3 .new_questVoiture_loisir_retour${loisirIndex} {
+                        margin-left: 70px;
+                    }
+                `;
+
+                const styleElement = document.createElement('style');
+                styleElement.innerHTML = styles;
+
+                document.querySelector('link[href="style.css"]').insertAdjacentElement('afterend', styleElement);
+
+            }
+
+            function resetVisitesloisir() {
+                // Supprimer tous les ensembles "Voyage n°i"
+                document.getElementById("Next_questIII3plus").innerHTML = '';
+
+                // Réinitialiser le compteur loisirIndex
+                loisirIndex = 1;
+            }
+
+            function SuivantEnd() {
+                // Validation des réponses de la partie 3 du formulaire
+                let Myind_depuis = document.getElementById("ind_depuis").value;
+
+                if (!Myind_depuis) {
+                    alert("Veuillez préciser si des proches sont venu.e.s vous rendre visite sur votre lieu de stage.");
+                    return;
+                }
+                else if (Myind_depuis == "Oui") {
+                    let Myind_depuis_city1 = document.getElementById("ind_depuis_city1").value;
+                    
+                    if (!Myind_depuis_city1) {
+                        alert("Veuillez renseigner la ville de départ de vos proches lors qu'ils/elles vous ont rendu visite sur votre lieu de stage.");
+                        return;
+                    }
+
+                    let Myind_depuis_nb1 = document.getElementById("ind_depuis_nb1").value;
+
+                    if (!Myind_depuis_nb1) {
+                        alert("Veuillez renseigner le nombre de proches vous ayant rendu visite sur votre lieu de stage.");
+                        return;
+                    }
+
+                    let Myind_depuis_mdt_aller1 = document.getElementById("ind_depuis_mdt_aller1").value;
+
+                    if (!Myind_depuis_mdt_aller1) {
+                        alert("Veuillez renseigner le mode de transport utilisé par votre proches à l'aller lorsqu'ils/elles vous ont rendu visite sur votre lieu de stage.");
+                        return;
+                    }
+                    else if (Myind_depuis_mdt_aller1 == "Voiture") {
+                        let Myvoiture_depuis_aller1_type = document.getElementById("Voiture_depuis_aller1_type").value;
+
+                        if (!Myvoiture_depuis_aller1_type) {
+                            alert("Veuillez renseigner le type de voiture utilisé par vos proches à l'aller lorsqu'ils/elles vous ont rendu visite sur votre lieu de stage.");
+                            return;
+                        }
+                    }
+
+                    let Myind_depuis_mdt_retour1 = document.getElementById("ind_depuis_mdt_retour1").value;
+
+                    if (!Myind_depuis_mdt_retour1) {
+                        alert("Veuillez renseigner le mode de transport utilisé par votre proches au retour lorsqu'ils/elles vous ont rendu visite sur votre lieu de stage.");
+                        return;
+                    }
+                    else if (Myind_depuis_mdt_retour1 == "Voiture") {
+                        let Myvoiture_depuis_retour1_type = document.getElementById("Voiture_depuis_retour1_type").value;
+
+                        if (!Myvoiture_depuis_retour1_type) {
+                            alert("Veuillez renseigner le type de voiture utilisé par vos proches au retour lorsqu'ils/elles vous ont rendu visite sur votre lieu de stage.");
+                            return;
+                        }
+                    }
+                }
+
+                let Myind_vers = document.getElementById("ind_vers").value;
+
+                if (!Myind_vers) {
+                    alert("Veuillez préciser si vous êtes retourné.e en France rendre visite à des proches durant votre stage.");
+                    return;
+                }
+                else if (Myind_vers == "Oui") {
+                    let Myind_vers_city1 = document.getElementById("ind_vers_city1").value;
+                    
+                    if (!Myind_vers_city1) {
+                        alert("Veuillez renseigner la ville française que vous avez rejointe pour rendre visite à vos proches durant votre stage.");
+                        return;
+                    }
+
+                    let Myind_vers_mdt_aller1 = document.getElementById("ind_vers_mdt_aller1").value;
+
+                    if (!Myind_vers_mdt_aller1) {
+                        alert("Veuillez renseigner le mode de transport utilisé à l'aller pour rendre visite à vos proches en France.");
+                        return;
+                    }
+                    else if (Myind_vers_mdt_aller1 == "Voiture") {
+                        let Myvoiture_vers_aller1_type = document.getElementById("Voiture_vers_aller1_type").value;
+
+                        if (!Myvoiture_vers_aller1_type) {
+                            alert("Veuillez renseigner le type de voiture utilisé à l'aller pour rendre visite à vos proches en France.");
+                            return;
+                        }
+
+                        let Myvoiture_vers_aller1_covoit = document.getElementById("Voiture_vers_aller1_covoit").value;
+
+                        if (!Myvoiture_vers_aller1_covoit) {
+                            alert("Veuillez préciser le nombre de personne ayant voyagé avec vous à l'aller pour rejoindre la France et rendre visite à vos proches. Si vous n'avez pas covoituré, merci de saisir la valeur '0'.");
+                            return;
+                        }
+                    }
+
+                    let Myind_vers_mdt_retour1 = document.getElementById("ind_vers_mdt_retour1").value;
+
+                    if (!Myind_vers_mdt_retour1) {
+                        alert("Veuillez renseigner le mode de transport utilisé au retour après avoir rendu visite à vos proches en France pour retourner sur votre lieu de stage.");
+                        return;
+                    }
+                    else if (Myind_vers_mdt_retour1 == "Voiture") {
+                        let Myvoiture_vers_retour1_type = document.getElementById("Voiture_vers_retour1_type").value;
+
+                        if (!Myvoiture_vers_retour1_type) {
+                            alert("Veuillez renseigner le type de voiture utilisé au retour après avoir rendu visite à vos proches en France pour retourner sur votre lieu de stage.");
+                            return;
+                        }
+
+                        let Myvoiture_vers_retour1_covoit = document.getElementById("Voiture_vers_retour1_covoit").value;
+
+                        if (!Myvoiture_vers_retour1_covoit) {
+                            alert("Veuillez préciser le nombre de personne ayant voyagé avec vous au retour pour rejoindre votre lieu de stage après avoir rendu visite à vos proches. Si vous n'avez pas covoituré, merci de saisir la valeur '0'.");
+                            return;
+                        }
+                    }
+                }
+
+                let Myind_loisir = document.getElementById("ind_loisir").value;
+
+                if (!Myind_loisir) {
+                    alert("Veuillez préciser si vous avez réalisé des voyages de loisir durant votre stage.");
+                    return;
+                }
+                else if (Myind_loisir == "Oui") {
+                    let Myind_loisir_country1 = document.getElementById("ind_loisir_country1").value;
+                    
+                    if (!Myind_loisir_country1) {
+                        alert("Veuillez renseigner le pays que vous avez rejoint dans le cadre de vos loisirs.");
+                        return;
+                    }
+
+                    let Myind_loisir_city1 = document.getElementById("ind_loisir_city1").value;
+                    
+                    if (!Myind_loisir_city1) {
+                        alert("Veuillez renseigner la ville que vous avez rejointe dans le cadre de vos loisirs.");
+                        return;
+                    }
+
+                    let Myind_loisir_mdt_aller1 = document.getElementById("ind_loisir_mdt_aller1").value;
+
+                    if (!Myind_loisir_mdt_aller1) {
+                        alert("Veuillez renseigner le mode de transport utilisé à l'aller pour rejoindre votre lieu de vacances dans le cadre de vos loisirs.");
+                        return;
+                    }
+                    else if (Myind_loisir_mdt_aller1 == "Voiture") {
+                        let Myvoiture_loisir_aller1_type = document.getElementById("Voiture_loisir_aller1_type").value;
+
+                        if (!Myvoiture_loisir_aller1_type) {
+                            alert("Veuillez renseigner le type de voiture utilisé à l'aller pour rejoindre votre lieu de vacances dans le cadre de vos loisirs.");
+                            return;
+                        }
+
+                        let Myvoiture_loisir_aller1_covoit = document.getElementById("Voiture_loisir_aller1_covoit").value;
+
+                        if (!Myvoiture_loisir_aller1_covoit) {
+                            alert("Veuillez préciser le nombre de personne ayant voyagé avec vous à l'aller pour rejoindre votre lieu de vacances dans le cadre de vos loisirs. Si vous n'avez pas covoituré, merci de saisir la valeur '0'.");
+                            return;
+                        }
+                    }
+
+                    let Myind_loisir_mdt_retour1 = document.getElementById("ind_loisir_mdt_retour1").value;
+
+                    if (!Myind_loisir_mdt_retour1) {
+                        alert("Veuillez renseigner le mode de transport utilisé au retour pour retourner sur votre lieu de stage après votre voyage de loisir.");
+                        return;
+                    }
+                    else if (Myind_loisir_mdt_retour1 == "Voiture") {
+                        let Myvoiture_loisir_retour1_type = document.getElementById("Voiture_loisir_retour1_type").value;
+
+                        if (!Myvoiture_loisir_retour1_type) {
+                            alert("Veuillez renseigner le type de voiture utilisé au retour pour retourner sur votre lieu de stage après votre voyage de loisir.");
+                            return;
+                        }
+
+                        let Myvoiture_loisir_retour1_covoit = document.getElementById("Voiture_loisir_retour1_covoit").value;
+
+                        if (!Myvoiture_loisir_retour1_covoit) {
+                            alert("Veuillez préciser le nombre de personne ayant voyagé avec vous au retour pour retourner sur votre lieu de stage après votre voyage de loisir. Si vous n'avez pas covoituré, merci de saisir la valeur '0'.");
+                            return;
+                        }
+                    }
+                }
+
+                // Récupérer les réponses de la partie 3
+                const reponsesPIII = new FormData(document.getElementById('PIII'));
+
+                // Stocker les réponses dans une session ou un cookie
+                sessionStorage.setItem('reponsesPIII', JSON.stringify(Object.fromEntries(reponsesPIII.entries())));
+
+                // Fusionner les réponses de la partie Coord, de la partie0, de la partie 1, de la partie 2 et de la partie 3
+                const reponsesCoord = JSON.parse(sessionStorage.getItem('reponsesCoord'));
+                const reponsesP0 = JSON.parse(sessionStorage.getItem('reponsesP0'));
+                const reponsesPI = JSON.parse(sessionStorage.getItem('reponsesPI'));
+                const reponsesPII = JSON.parse(sessionStorage.getItem('reponsesPII'));
+                const reponsesCompletees = { ...reponsesCoord, ...reponsesP0, ...reponsesPI, ...reponsesPII, ...Object.fromEntries(reponsesPIII.entries()) };
+
+                // Stocker les réponses complètes dans une session ou un cookie
+                sessionStorage.setItem('reponsesCompletees', JSON.stringify(reponsesCompletees));
+
+                // Rediriger vers la page de fin
+                window.location.href = "end.html";
+            }
+        </script>
+
+
+        <hr>
+
+        <div class="footer">
+        <p>&copy; copyright Antoine FEYDIT - 2023 </p>
+        </div>
+    </div>
+</body>

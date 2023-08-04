@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BiCaStRe - formulaire connexion</title>
+        <link rel="icon" type="image/png" href="logo.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://kit.fontawesome.com/0c87a70838.js"></script>
+
+        <link 
+        href="https://db.onlinewebfonts.com/c/6aa06a9a432b8417171f60d8351aa310?family=Torus+Notched"
+        rel="stylesheet"
+        type="text/css"
+        />
+
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="connexion">
+            <h1> Bilan Carbone Stage de Recherche</h1>
+
+            <hr><hr>
+
+            <div class="container">
+                <div class="logo">
+                    <img src="logo.png" alt="" height="50">
+                </div>
+                <div class="onglets">
+                    <ul>
+                        <li><a href="">A propos</a></li>
+                        <li><a href="">Simulation</a></li>
+                        <li><a href="">Méthodologie</a></li>
+                        <li><a href="">Rapports</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr><hr>
+
+            <h2>Connexion</h2><br><br>
+            <p>Ce questionnaire vise à établir le bilan carbone de votre stage de recherche de M1. Il tente d'estimer le montant des émissions de Gaz à Effet de Serre (GES) engendrées par la réalisation de votre stage, quantifié en kgCO2e (masse de dioxyde de carbone équivalent). </p><br><br>
+            <p>L'ensemble du questionnaire est constitué de trois parties, lesquelles sont précédées de questions générales. Seront notamment évaluées : <br>
+            - les émissions dues aux transports <br>
+            - les émissions dues à votre recherche <br>
+            - les émissions indirectes.</p><br><br>
+            <p>Avant de répondre, et afin de connaître le bilan carbone associé à votre stage, merci de renseigner votre adresse mail institutionnelle ainsi que le code correspondant à votre groupe de stage (fourni par mail).</p><br><br>
+            <form id="Coord" onsubmit="return false;">
+                <label for="email"> Adresse institutionnelle :</label></br>
+                <input size="30" type="email" id="email" name="email" placeholder="prenom.nom@ens-paris-saclay.fr" required></br></br>
+        
+                <label for="code_grp"> Code groupe  :</label></br>
+                <input maxlength="6" size="6" type="text" id="code_grp" name="code_grp" placeholder="DER_2X" required></br></br>
+                
+                <button onclick=Suivant0()>Accéder au questionnaire</button>
+                <p></p><br><br>
+            </form>
+
+            <hr>
+
+            <div class="footer">
+            <p>&copy; copyright Antoine FEYDIT - 2023 </p>
+            </div>
+        </div>
+
+        <script>
+            function Suivant0() {
+                // Validation des réponses de la partie Coord du formulaire
+                let Myemail = document.getElementById('email').value;
+
+                if (!Myemail) {
+                    alert("Veuillez renseigner votre adresse email institutionnelle.");
+                    return;
+                } 
+                else if (!Myemail.includes('@ens-paris-saclay.fr')) {
+                    alert("Veuillez entrer une adresse email valide de l'ENS Paris-Saclay.");
+                    return; 
+                }
+
+                let Mycode_grp = document.getElementById('code_grp').value;
+                // Liste des codes valides
+                const codesValides = ['PHY_23', 'CHM_23', 'XXX_99'];
+
+                if (!codesValides.includes(Mycode_grp)) {
+                    alert("Veuillez entrer un code groupe valide.");
+                    return;
+                }
+
+                // Récupérer les réponses de la partie Coord
+                const reponsesCoord = new FormData(document.getElementById('Coord'));
+
+                // Stocker les réponses dans une session ou un cookie
+                sessionStorage.setItem('reponsesCoord', JSON.stringify(Object.fromEntries(reponsesCoord.entries())));
+
+                // Rediriger vers la page de la partie 0
+                window.location.href = "formulaire_p0.html";
+            }
+        </script>
+    </body>
+</html>

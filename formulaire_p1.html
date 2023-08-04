@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BiCaStRe - formulaire I</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/0c87a70838.js"></script>
+
+    <link 
+    href="https://db.onlinewebfonts.com/c/6aa06a9a432b8417171f60d8351aa310?family=Torus+Notched"
+    rel="stylesheet"
+    type="text/css"
+    />
+
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="formulaire_p1">
+        <h1> Bilan Carbone Stage de Recherche</h1>
+
+        <hr><hr>
+
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="" height="50">
+            </div>
+            <div class="onglets">
+                <ul>
+                    <li><a href="">A propos</a></li>
+                    <li><a href="">Simulation</a></li>
+                    <li><a href="">Méthodologie</a></li>
+                    <li><a href="">Rapports</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr><hr>
+
+        <div class="avancee">
+            <img src="logo.png" alt="" height="50">
+            <img src="logo.png" alt="" height="60">
+            <img src="logo_estompe.png" alt="" height="50">
+            <img src="logo_estompe.png" alt="" height="50">
+            <img src="logo_estompe.png" alt="" height="50">
+        </div>
+
+        <h2>Partie I : Transports liés au stage</h2><br><br>
+        <p> Cette partie vise à évaluer les émissions liées aux transports engendrés par le stage.</p><br><br>
+
+        <form id="PI" onsubmit="return false;">
+            <h3>I.1 Déplacement France - lieu de stage</h3><br><br>
+
+            <label for="country_dep"> De quel pays êtes-vous parti.e pour rejoindre votre lieu de stage ?</label></br>
+            <select name="country_dep" id="country_dep">
+                <option value="France" selected="selected">France </option>
+
+                <option value="Afghanistan">Afghanistan </option>
+                <option value="Afrique Centrale">Afrique Centrale </option>
+                <option value="Afrique du sud">Afrique du Sud </option>
+                <option value="Albanie">Albanie </option>
+                <option value="Algérie">Algérie </option>
+                <option value="Allemagne">Allemagne </option>
+                <option value="Andorre">Andorre </option>
+                <option value="Angola">Angola </option>
+                <option value="Anguilla">Anguilla </option>
+                <option value="Arabie_Saoudite">Arabie Saoudite </option>
+                <option value="Argentine">Argentine </option>
+                <option value="Arménie">Arménie </option>
+                <option value="Australie">Australie </option>
+                <option value="Autriche">Autriche </option>
+                <option value="Azerbaïdjan">Azerbaïdjan </option>
+
+                <option value="Bahamas">Bahamas </option>
+                <option value="Bangladesh">Bangladesh </option>
+                <option value="Barbade">Barbade </option>
+                <option value="Bahrïn">Bahreïn </option>
+                <option value="Belgique">Belgique </option>
+                <option value="Belize">Belize </option>
+                <option value="Bénin">Bénin </option>
+                <option value="Bermudes">Bermudes </option>
+                <option value="Biélorussie">Biélorussie </option>
+                <option value="Bolivie">Bolivie </option>
+                <option value="Botswana">Botswana </option>
+                <option value="Bhoutan">Bhoutan </option>
+                <option value="Boznie-Herzégovine">Boznie-Herzégovine </option>
+                <option value="Brésil">Brésil </option>
+                <option value="Bruneï">Brunei </option>
+                <option value="Bulgarie">Bulgarie </option>
+                <option value="Burkina Faso">Burkina Faso </option>
+                <option value="Burundi">Burundi </option>
+
+                <option value="Caiman">Caïman </option>
+                <option value="Cambodge">Cambodge </option>
+                <option value="Cameroun">Cameroun </option>
+                <option value="Canada">Canada </option>
+                <option value="Canaries">Canaries </option>
+                <option value="Cap vert">Cap Vert </option>
+                <option value="Chili">Chili </option>
+                <option value="Chine">Chine </option>
+                <option value="Chypre">Chypre </option>
+                <option value="Colombie">Colombie </option>
+                <option value="Comores">Comores </option>
+                <option value="Congo">Congo </option>
+                <option value="Congo démocratique">Congo démocratique </option> 
+                <option value="Cook">Cook </option>
+                <option value="Coree du Nord">Corée du Nord </option>
+                <option value="Coree du Sud">Corée du Sud </option>
+                <option value="Costa Rica">Costa Rica </option>
+                <option value="Cote d'Ivoire">Côte d'Ivoire </option>
+                <option value="Croatie">Croatie </option>
+                <option value="Cuba">Cuba </option>
+
+                <option value="Danemark">Danemark </option>
+                <option value="Djibouti">Djibouti </option>
+                <option value="Dominique">Dominique </option>
+
+                <option value="Egypte">Egypte </option>
+                <option value="Emirats Arabes Unis">Emirats Arabes Unis </option>
+                <option value="Equateur">Equateur </option>
+                <option value="Erythrée">Erythrée </option>
+                <option value="Espagne">Espagne </option>
+                <option value="Estonie">Estonie </option>
+                <option value="Etats Unis d'Amérique">Etats Unis d'Amérique</option>
+                <option value="Ethiopie">Ethiopie </option>
+
+                <option value="Falkland">Falkland </option>
+                <option value="Feroe">Feroe </option>   
+                <option value="Fidji">Fidji </option>
+                <option value="Finlande">Finlande </option>
+                <option value="France">France </option>
+
+                <option value="Gabon">Gabon </option>   
+                <option value="Gambie">Gambie </option>
+                <option value="Georgie">Géorgie </option>
+                <option value="Ghana">Ghana </option>
+                <option value="Grece">Grèce </option>
+                <option value="Grenade">Grenade </option>
+                <option value="Groenland">Groenland </option>
+                <option value="Guam">Guam </option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Guinee">Guinée </option>
+                <option value="Guinee Bissau">Guinée-Bissau </option>
+                <option value="Guinée équatoriale">Guinée Equatoriale </option>
+                <option value="Guyana">Guyana </option>
+
+                <option value="Haiti">Haïti </option>
+                <option value="Hawaii">Hawaii </option>
+                <option value="Honduras">Honduras </option>
+                <option value="Hong Kong">Hong Kong </option>
+                <option value="Hongrie">Hongrie </option>
+
+                <option value="Inde">Inde </option>
+                <option value="Indonésie">Indonésie </option>
+                <option value="Iran">Iran </option>
+                <option value="Irak">Irak </option>
+                <option value="Irlande">Irelande </option>
+                <option value="Islande">Islande </option>
+                <option value="Israël">Israël </option>
+                <option value="Italie">Italie </option>
+
+                <option value="Jamaïque">Jamaïque </option>
+                <option value="Japon">Japon </option>
+                <option value="Jordanie">Jordanie </option>
+
+                <option value="Kazakhstan">Kazakhstan </option>     
+                <option value="Kenya">Kenya </option>       
+                <option value="Kirghizstan">Kirghizistan </option>
+                <option value="Koweit">Koweït </option>
+
+                <option value="Laos">Laos </option>
+                <option value="Lesotho">Lesotho </option>   
+                <option value="Lettonie">Lettonie </option>
+                <option value="Liban">Liban </option>
+                <option value="Liberia">Liberia </option>
+                <option value="Liechtenstein">Liechtenstein </option>
+                <option value="Lituanie">Lituanie </option>
+                <option value="Luxembourg">Luxembourg </option>
+                <option value="Lybie">Lybie </option>
+        
+                <option value="Macedoine du Nord">Macédoine du Nord </option>
+                <option value="Madagascar">Madagascar </option>
+                <option value="Malaisie">Malaisie </option>
+                <option value="Malawi">Malawi </option>
+                <option value="Maldives">Maldives </option>
+                <option value="Mali">Mali </option>
+                <option value="Malte">Malte </option>
+                <option value="Maroc">Maroc </option>
+                <option value="Marshall">Marshall </option>
+                <option value="Maurice">Maurice </option>
+                <option value="Mauritanie">Mauritanie </option>
+                <option value="Mexique">Mexique </option>
+                <option value="Micronesie">Micronésie </option>
+                <option value="Moldavie">Moldavie </option>
+                <option value="Monaco">Monaco </option>
+                <option value="Mongolie">Mongolie </option>
+                <option value="Montenegro">Monténégro </option>
+                <option value="Mozambique">Mozambique </option>
+
+                <option value="Namibie">Namibie </option>
+                <option value="Nauru">Nauru </option>
+                <option value="Nepal">Népal </option>
+                <option value="Nicaragua">Nicaragua </option>
+                <option value="Niger">Niger </option>
+                <option value="Nigeria">Nigéria </option>
+                <option value="Niue">Niue </option>
+                <option value="Norvege">Norvège </option>
+                <option value="Nouvelle Calédonie">Nouvelle Calédonie </option>
+                <option value="Nouvelle Zélande">Nouvelle Zélande </option>
+
+                <option value="Oman">Oman </option>
+                <option value="Ouganda">Ouganda </option>
+                <option value="Ouzbékistan">Ouzbékistan </option>
+
+                <option value="Pakistan">Pakistan </option>
+                <option value="Palaos">Palaos </option>
+                <option value="Palestine">Palestine </option>
+                <option value="Panama">Panama </option>
+                <option value="Papouasie-Nouvelle Guinée">Papouasie-Nouvelle Guinée </option>
+                <option value="Paraguay">Paraguay </option>
+                <option value="PaysBas">Pays-Bas </option>
+                <option value="Perou">Pérou </option>
+                <option value="Philippines">Philippines </option>
+                <option value="Pologne">Pologne </option>
+                <option value="Portugal">Portugal </option>
+
+                <option value="Qatar">Qatar </option>
+
+                <option value="Republique Dominicaine">République Dominicaine </option>
+                <option value="Republique Tcheque">République Tchèque </option>
+                <option value="Roumanie">Roumanie </option>
+                <option value="Royaume-Uni">Royaume-Uni </option>
+                <option value="Russie">Russie </option>
+                <option value="Rwanda">Rwanda </option>
+
+                <option value="Sainte-Lucie">Sainte-Lucie </option>
+                <option value="Saint-Martin">Saint-Martin </option>
+                <option value="Saint-Vincent-et-les-Grenadines">Saint-Vincent-et-les-Grenadines </option>
+                <option value="Salomon">Salomon </option>
+                <option value="Salvador">Salvador </option>
+                <option value="Samoa Occidentales">Samoa</option>
+                <option value="Sao Tome-et-Principe">Sao Tomé-et-Principe </option>
+                <option value="Senegal">Sénégal </option>
+                <option value="Serbie">Serbie </option>
+                <option value="Seychelles">Seychelles </option>
+                <option value="Sierra Leone">Sierra Leone </option>
+                <option value="Singapour">Singapour </option>
+                <option value="Slovaquie">Slovaquie </option>
+                <option value="Slovenie">Slovénie</option>
+                <option value="Somalie">Somalie </option>
+                <option value="Soudan">Soudan </option>
+                <option value="Soudan du Sud">Soudan du Sud </option>
+                <option value="Sri Lanka">Sri Lanka </option>
+                <option value="Suede">Suède </option>
+                <option value="Suisse">Suisse </option>
+                <option value="Surinam">Surinam </option>
+                <option value="Syrie">Syrie </option>
+
+                <option value="Tadjikistan">Tadjikistan </option>
+                <option value="Taiwan">Taïwan </option> 
+                <option value="Tonga">Tonga </option>
+                <option value="Tanzanie">Tanzanie </option>
+                <option value="Tchad">Tchad </option>
+                <option value="Thailande">Thaïlande </option>
+                <option value="Timor Oriental">Timor Oriental </option>
+                <option value="Togo">Togo </option>
+                <option value="Trinite et Tobago">Trinité-et-Tobago </option>
+                <option value="Tunisie">Tunisie </option>
+                <option value="Turkmenistan">Turkménistan </option>
+                <option value="Turquie">Turquie </option>
+
+                <option value="Ukraine">Ukraine </option>
+                <option value="Uruguay">Uruguay </option>
+
+                <option value="Vanuatu">Vanuatu </option>
+                <option value="Vatican">Vatican </option>
+                <option value="Venezuela">Venezuela </option>
+                <option value="Vietnam">Vietnam </option>
+
+                <option value="Yemen">Yémen </option>
+
+                <option value="Zambie">Zambie </option>
+                <option value="Zimbabwe">Zimbabwe </option>
+
+            </select></br></br>
+
+            <label for="city_dep"> De quelle ville êtes-vous parti.e pour rejoindre votre lieu de stage ?</label></br>
+            <input size="24" type="text" id="city_dep" name="city_dep" placeholder="ex : Gif-sur-Yvette"  required></br></br>
+        
+            
+
+            <label for="country_int"> Dans quel pays avez-vous effectué votre stage ?</label></br>
+            <select name="country_int" id="country_int">
+                <option value="" selected="selected">----------- </option>
+
+                <option value="Afghanistan">Afghanistan </option>
+                <option value="Afrique Centrale">Afrique Centrale </option>
+                <option value="Afrique du sud">Afrique du Sud </option>
+                <option value="Albanie">Albanie </option>
+                <option value="Algerie">Algérie </option>
+                <option value="Allemagne">Allemagne </option>
+                <option value="Andorre">Andorre </option>
+                <option value="Angola">Angola </option>
+                <option value="Anguilla">Anguilla </option>
+                <option value="Arabie_Saoudite">Arabie Saoudite </option>
+                <option value="Argentine">Argentine </option>
+                <option value="Armenie">Arménie </option>
+                <option value="Australie">Australie </option>
+                <option value="Autriche">Autriche </option>
+                <option value="Azerbaidjan">Azerbaïdjan </option>
+
+                <option value="Bahamas">Bahamas </option>
+                <option value="Bangladesh">Bangladesh </option>
+                <option value="Barbade">Barbade </option>
+                <option value="Bahrein">Bahreïn </option>
+                <option value="Belgique">Belgique </option>
+                <option value="Belize">Belize </option>
+                <option value="Benin">Bénin </option>
+                <option value="Bermudes">Bermudes </option>
+                <option value="Bielorussie">Biélorussie </option>
+                <option value="Bolivie">Bolivie </option>
+                <option value="Botswana">Botswana </option>
+                <option value="Bhoutan">Bhoutan </option>
+                <option value="Boznie-Herzegovine">Boznie-Herzégovine </option>
+                <option value="Bresil">Brésil </option>
+                <option value="Brunei">Brunei </option>
+                <option value="Bulgarie">Bulgarie </option>
+                <option value="Burkina_Faso">Burkina Faso </option>
+                <option value="Burundi">Burundi </option>
+
+                <option value="Caiman">Caïman </option>
+                <option value="Cambodge">Cambodge </option>
+                <option value="Cameroun">Cameroun </option>
+                <option value="Canada">Canada </option>
+                <option value="Canaries">Canaries </option>
+                <option value="Cap vert">Cap Vert </option>
+                <option value="Chili">Chili </option>
+                <option value="Chine">Chine </option>
+                <option value="Chypre">Chypre </option>
+                <option value="Colombie">Colombie </option>
+                <option value="Comores">Comores </option>
+                <option value="Congo">Congo </option>
+                <option value="Congo démocratique">Congo démocratique </option> 
+                <option value="Cook">Cook </option>
+                <option value="Coree du Nord">Corée du Nord </option>
+                <option value="Coree du Sud">Corée du Sud </option>
+                <option value="Costa Rica">Costa Rica </option>
+                <option value="Cote d'Ivoire">Côte d'Ivoire </option>
+                <option value="Croatie">Croatie </option>
+                <option value="Cuba">Cuba </option>
+
+                <option value="Danemark">Danemark </option>
+                <option value="Djibouti">Djibouti </option>
+                <option value="Dominique">Dominique </option>
+
+                <option value="Egypte">Egypte </option>
+                <option value="Emirats Arabes Unis">Emirats Arabes Unis </option>
+                <option value="Equateur">Equateur </option>
+                <option value="Erythree">Erythrée </option>
+                <option value="Espagne">Espagne </option>
+                <option value="Estonie">Estonie </option>
+                <option value="Etats_Unis">Etats Unis d'Amérique</option>
+                <option value="Ethiopie">Ethiopie </option>
+
+                <option value="Falkland">Falkland </option>
+                <option value="Feroe">Feroe </option>   
+                <option value="Fidji">Fidji </option>
+                <option value="Finlande">Finlande </option>
+                <option value="France">France </option>
+
+                <option value="Gabon">Gabon </option>   
+                <option value="Gambie">Gambie </option>
+                <option value="Georgie">Géorgie </option>
+                <option value="Ghana">Ghana </option>
+                <option value="Grece">Grèce </option>
+                <option value="Grenade">Grenade </option>
+                <option value="Groenland">Groenland </option>
+                <option value="Guam">Guam </option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Guinée">Guinée </option>
+                <option value="Guinée Bissau">Guinée-Bissau </option>
+                <option value="Guinée Equatoriale">Guinée Equatoriale </option>
+                <option value="Guyana">Guyana </option>
+
+                <option value="Haiti">Haïti </option>
+                <option value="Hawaii">Hawaii </option>
+                <option value="Honduras">Honduras </option>
+                <option value="Hong Kong">Hong Kong </option>
+                <option value="Hongrie">Hongrie </option>
+
+                <option value="Inde">Inde </option>
+                <option value="Indonesie">Indonésie </option>
+                <option value="Iran">Iran </option>
+                <option value="Irak">Irak </option>
+                <option value="Irlande">Irelande </option>
+                <option value="Islande">Islande </option>
+                <option value="Israel">Israël </option>
+                <option value="Italie">Italie </option>
+
+                <option value="Jamaique">Jamaïque </option>
+                <option value="Japon">Japon </option>
+                <option value="Jordanie">Jordanie </option>
+
+                <option value="Kazakhstan">Kazakhstan </option>     
+                <option value="Kenya">Kenya </option>       
+                <option value="Kirghizstan">Kirghizistan </option>
+                <option value="Koweit">Koweït </option>
+
+                <option value="Laos">Laos </option>
+                <option value="Lesotho">Lesotho </option>   
+                <option value="Lettonie">Lettonie </option>
+                <option value="Liban">Liban </option>
+                <option value="Liberia">Liberia </option>
+                <option value="Liechtenstein">Liechtenstein </option>
+                <option value="Lituanie">Lituanie </option>
+                <option value="Luxembourg">Luxembourg </option>
+                <option value="Lybie">Lybie </option>
+        
+                <option value="Macedoine">Macédoine du Nord </option>
+                <option value="Madagascar">Madagascar </option>
+                <option value="Malaisie">Malaisie </option>
+                <option value="Malawi">Malawi </option>
+                <option value="Maldives">Maldives </option>
+                <option value="Mali">Mali </option>
+                <option value="Malte">Malte </option>
+                <option value="Maroc">Maroc </option>
+                <option value="Marshall">Marshall </option>
+                <option value="Maurice">Maurice </option>
+                <option value="Mauritanie">Mauritanie </option>
+                <option value="Mexique">Mexique </option>
+                <option value="Micronesie">Micronésie </option>
+                <option value="Moldavie">Moldavie </option>
+                <option value="Monaco">Monaco </option>
+                <option value="Mongolie">Mongolie </option>
+                <option value="Montenegro">Monténégro </option>
+                <option value="Mozambique">Mozambique </option>
+
+                <option value="Namibie">Namibie </option>
+                <option value="Nauru">Nauru </option>
+                <option value="Nepal">Népal </option>
+                <option value="Nicaragua">Nicaragua </option>
+                <option value="Niger">Niger </option>
+                <option value="Nigeria">Nigéria </option>
+                <option value="Niue">Niue </option>
+                <option value="Norvege">Norvège </option>
+                <option value="Nouvelle_Caledonie">Nouvelle Calédonie </option>
+                <option value="Nouvelle_Zelande">Nouvelle Zélande </option>
+
+                <option value="Oman">Oman </option>
+                <option value="Ouganda">Ouganda </option>
+                <option value="Ouzbekistan">Ouzbékistan </option>
+
+                <option value="Pakistan">Pakistan </option>
+                <option value="Palaos">Palaos </option>
+                <option value="Palestine">Palestine </option>
+                <option value="Panama">Panama </option>
+                <option value="Papouasie-Nouvelle Guinée">Papouasie-Nouvelle Guinée </option>
+                <option value="Paraguay">Paraguay </option>
+                <option value="Pays-Bas">Pays-Bas </option>
+                <option value="Pérou">Pérou </option>
+                <option value="Philippines">Philippines </option>
+                <option value="Pologne">Pologne </option>
+                <option value="Portugal">Portugal </option>
+
+                <option value="Qatar">Qatar </option>
+
+                <option value="Republique Dominicaine">République Dominicaine </option>
+                <option value="Republique Tcheque">République Tchèque </option>
+                <option value="Roumanie">Roumanie </option>
+                <option value="Royaume-Uni">Royaume-Uni </option>
+                <option value="Russie">Russie </option>
+                <option value="Rwanda">Rwanda </option>
+
+                <option value="Sainte-Lucie">Sainte-Lucie </option>
+                <option value="Saint-Martin">Saint-Martin </option>
+                <option value="Saint-Vincent-et-les-Grenadines">Saint-Vincent-et-les-Grenadines </option>
+                <option value="Salomon">Salomon </option>
+                <option value="Salvador">Salvador </option>
+                <option value="Samoa Occidentales">Samoa</option>
+                <option value="Sao Tome-et-Principe">Sao Tomé-et-Principe </option>
+                <option value="Senegal">Sénégal </option>
+                <option value="Serbie">Serbie </option>
+                <option value="Seychelles">Seychelles </option>
+                <option value="Sierra Leone">Sierra Leone </option>
+                <option value="Singapour">Singapour </option>
+                <option value="Slovaquie">Slovaquie </option>
+                <option value="Slovenie">Slovénie</option>
+                <option value="Somalie">Somalie </option>
+                <option value="Soudan">Soudan </option>
+                <option value="Soudan du Sud">Soudan du Sud </option>
+                <option value="Sri_Lanka">Sri Lanka </option>
+                <option value="Suede">Suède </option>
+                <option value="Suisse">Suisse </option>
+                <option value="Surinam">Surinam </option>
+                <option value="Syrie">Syrie </option>
+
+                <option value="Tadjikistan">Tadjikistan </option>
+                <option value="Taiwan">Taïwan </option> 
+                <option value="Tonga">Tonga </option>
+                <option value="Tanzanie">Tanzanie </option>
+                <option value="Tchad">Tchad </option>
+                <option value="Thailande">Thaïlande </option>
+                <option value="Timor Oriental">Timor Oriental </option>
+                <option value="Togo">Togo </option>
+                <option value="Trinite-et-Tobago">Trinité-et-Tobago </option>
+                <option value="Tunisie">Tunisie </option>
+                <option value="Turkmenistan">Turkménistan </option>
+                <option value="Turquie">Turquie </option>
+
+                <option value="Ukraine">Ukraine </option>
+                <option value="Uruguay">Uruguay </option>
+
+                <option value="Vanuatu">Vanuatu </option>
+                <option value="Vatican">Vatican </option>
+                <option value="Venezuela">Venezuela </option>
+                <option value="Vietnam">Vietnam </option>
+
+                <option value="Yemen">Yémen </option>
+
+                <option value="Zambie">Zambie </option>
+                <option value="Zimbabwe">Zimbabwe </option>
+
+            </select></br></br>
+
+            <label for="city_int"> Dans quelle ville avez-vous effectué votre stage ?</label></br>
+            <input size="24" type="text" id="city_int" name="city_int" placeholder="Ville du lieu de stage"  required></br></br>
+        
+            <label for="mdt_aller"> Quel moyen de transport avez-vous utilisé pour le voyage aller ?</label></br>
+            <select name="mdt_aller" id="mdt_aller" onchange="Voiture_aller()" required>
+                <option value="" selected="selected">------- </option>
+
+                <option value="Avion">Avion </option>
+                <option value="Bateau">Bateau </option>
+                <option value="Bus">Bus </option>
+                <option value="Helicoptere">Hélicoptère </option>
+                <option value="Pied">Marche ou vélo</option>
+                <option value="Train">Train </option>
+                <option value="Voiture">Voiture </option>    
+            </select></br></br>
+
+            <div id="Voiture_aller"></div>
+
+            <label for="mdt_retour"> Quel moyen de transport avez-vous utilisé pour le voyage retour ?</label></br>
+            <select name="mdt_retour" id="mdt_retour" onchange="Voiture_retour()" required>
+                <option value="" selected="selected">------- </option>
+
+                <option value="Avion">Avion </option>
+                <option value="Bateau">Bateau </option>
+                <option value="Bus">Bus </option>
+                <option value="Helicoptere">Hélicoptère </option>
+                <option value="Pied">Marche ou vélo</option>
+                <option value="Train">Train </option>
+                <option value="Voiture">Voiture </option>
+            </select></br></br>
+
+            <div id="Voiture_retour"></div>
+
+            <h3>I.2 Déplacements professionnels</h3><br><br>
+            <label for="dplcmt_pro"> Avez-vous été amené.e à vous déplacer dans le cadre de votre stage ?</label></br><br>
+            <p><em>Il peut s'agir de : </br>
+                - visites de laboratoires extérieurs, d'entreprises, etc.  </br>
+                - participations à des conférences, des séminaires, etc. </br>
+                - prélèvements ou mesures in situ. </br></br>
+                Les déplacements dont cette question cherche à tenir compte sont ceux réalisés vers des lieux situés à des distances significatives du lieu où est effectué le stage. <br></br>
+            </em></p><br>
+            <select name="dplcmt_pro" id="dplcmt_pro" onchange="nextI2()" required>
+                <option value="">-------</option>
+                <option value="Oui">Oui </option>
+                <option value="Non">Non </option>
+            </select></br></br>
+
+            <div id="Next_questI2"></div>
+
+            <h3>I.3 Déplacements hébergement-laboratoire</h3><br><br>
+            <label for="dplcmt_hl"> Avez-vous été amené.e à vous déplacer entre votre hébergement et votre laboratoire ?</label></br><br>
+            <p><em>Merci de répondre Non si : </br>
+                - le trajet est effectué intégralement à pied ou à vélo.  </br>
+                - le trajet est similaire à celui effectué entre votre logement à Saclay et l'ENS en termes de distance et de moyen de transport. </br>
+                - vous vivez dans votre laboratoire. </br></br>
+                Dans les autres cas, merci de répondre Oui. </br>
+            </em></p><br><br>
+            <select name="dplcmt_hl" id="dplcmt_hl" onchange="nextI3()" required>
+                <option value="">-------</option>
+                <option value="Oui">Oui </option>
+                <option value="Non">Non </option>
+            </select></br></br>
+
+            <div id="Next_questI3"></div>
+
+            <button onclick=Suivant2()>Passer à la partie II</button>
+            <p></p><br><br>
+        </form>
+
+        <script>
+            function Voiture_aller() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_questmdt_aller').forEach(function(element) {
+                    element.remove();
+                });
+
+                // Vérifier la réponse à la question mdt_aller et ajouter la question suivante en conséquence
+                if (document.getElementById('mdt_aller').value === "Voiture") {
+                    var new_quest = `
+                        <div class="next_questmdt_aller">
+                            <label for="Voiture_aller_type">Quel type de voiture avez-vous utilisé ?</label><br>
+                            <select name="Voiture_aller_type" id="Voiture_aller_type">
+                                <option value="">-------</option>
+
+                                <option value="Essence">Essence</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="GPL">GPL</option>
+                                <option value="GNV">GNV</option>
+                                <option value="E85">E85</option>
+                                <option value="Hybride">Hybride</option>
+                                <option value="Electrique">Electrique</option>
+                            </select><br><br>
+
+                            <label for="Voiture_aller_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
+                            <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
+                            <input type="number" min="0" max="6" step="1" id="Voiture_aller_covoit" name="Voiture_aller_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                        </div>
+                    `;
+                    document.getElementById("Voiture_aller").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+
+
+            function Voiture_retour() {
+                document.querySelectorAll('.next_questmdt_retour').forEach(function(element) {
+                    element.remove();
+                });
+
+                // Vérifier la réponse à la question I2 et ajouter la question suivante en conséquence
+                if (document.getElementById('mdt_retour').value === "Voiture") {
+                    var new_quest = `
+                        <div class="next_questmdt_retour">
+                            <label for="Voiture_retour_type">Quel type de voiture avez-vous utilisé ?</label><br>
+                            <select name="Voiture_retour_type" id="Voiture_retour_type">
+                                <option value="">-------</option>
+
+                                <option value="Essence">Essence</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="GPL">GPL</option>
+                                <option value="GNV">GNV</option>
+                                <option value="E85">E85</option>
+                                <option value="Hybride">Hybride</option>
+                                <option value="Electrique">Electrique</option>
+                            </select><br><br>
+
+                            <label for="Voiture_retour_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
+                            <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
+                            <input type="number" min="0" max="6" step="1" id="Voiture_retour_covoit" name="Voiture_retour_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                        </div>
+                    `;
+                    document.getElementById("Voiture_retour").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+
+
+            function nextI2() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_questI2').forEach(function(element) {
+                    element.remove();
+                });
+
+                // Vérifier la réponse à la question dplcmt_pro et ajouter la question suivante en conséquence
+                if (document.getElementById('dplcmt_pro').value === "Oui") {
+                    var new_quest = `
+                        <div class="next_questI2">
+                            <label for="dplcmt_pro_dist">Quelle est la distance totale parcourue pour ces déplacements ?</label></br>
+                            <input type="number" step="1" min="0" id="dplcmt_pro_dist" name="dplcmt_pro_dist" placeholder="200" required> <span>km</span> </br></br>
+                        
+                            <label for="dplcmt_pro_mdt"> Quel moyen de transport avez-vous utilisé pour ces déplacements ?</label></br><br>
+                            <p><em>Attention : il ne vous est possible de sélectionner qu'un seul moyen de transport. Si vous en avez utilisé plusieurs, merci de retenir celui ayant permis de réaliser la distance la plus importante sur l'ensemble des déplacements.</em></p><br><br>
+                            <select name="dplcmt_pro_mdt" id="dplcmt_pro_mdt" onchange="Voiture_pro()" required>
+                                <option value="" selected="selected">------- </option>
+
+                                <option value="Avion">Avion </option>
+                                <option value="Bateau">Bateau </option>
+                                <option value="Bus">Bus </option>
+                                <option value="Helicoptere">Hélicoptère </option>
+                                <option value="Pied">Marche ou vélo</option>
+                                <option value="Train">Train </option>
+                                <option value="Voiture">Voiture </option>
+                            </select></br></br>
+
+                            <div id="Voiture_pro"></div>
+                        </div>
+                    `;
+                    document.getElementById("Next_questI2").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+
+
+            function Voiture_pro() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_questmdt_pro').forEach(function(element) {
+                    element.remove();
+                });
+
+                // Vérifier la réponse à la question mdt_pro et ajouter la question suivante en conséquence
+                if (document.getElementById('dplcmt_pro_mdt').value === "Voiture") {
+                    var new_quest = `
+                        <div class="next_questmdt_pro">
+                            <label for="Voiture_pro_type">Quel type de voiture avez-vous utilisé ?</label><br>
+                            <select name="Voiture_pro_type" id="Voiture_pro_type">
+                                <option value="">-------</option>
+
+                                <option value="Essence">Essence</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="GPL">GPL</option>
+                                <option value="GNV">GNV</option>
+                                <option value="E85">E85</option>
+                                <option value="Hybride">Hybride</option>
+                                <option value="Electrique">Electrique</option>
+                            </select><br><br>
+
+                            <label for="Voiture_pro_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
+                            <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
+                            <input type="number" min="0" max="6" step="1" id="Voiture_pro_covoit" name="Voiture_pro_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                        </div>
+                    `;
+                    document.getElementById("Voiture_pro").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+
+
+            function nextI3() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_questI3').forEach(function(element) {
+                    element.remove();
+                });
+
+                // Vérifier la réponse à la question I2 et ajouter la question suivante en conséquence
+                if (document.getElementById('dplcmt_hl').value === "Oui") {
+                    var new_quest = `
+                        <div class="next_questI3">
+                            <label for="dplcmt_hl_days">Quels ont été les jours concernés par ces trajets chaque semaine ?</label></br>
+                            <input type="checkbox" id="lundi" name="dplcmt_hl_day" value="lundi">
+                            <label for="lundi">Lundi</label></br>
+                            <input type="checkbox" id="mardi" name="dplcmt_hl_day" value="mardi">
+                            <label for="mardi">Mardi</label></br>
+                            <input type="checkbox" id="mercredi" name="dplcmt_hl_day" value="mercredi">
+                            <label for="mercredi">Mercredi</label></br>
+                            <input type="checkbox" id="jeudi" name="dplcmt_hl_day" value="jeudi">
+                            <label for="jeudi">Jeudi</label></br>
+                            <input type="checkbox" id="vendredi" name="dplcmt_hl_day" value="vendredi">
+                            <label for="vendredi">Vendredi</label></br>
+                            <input type="checkbox" id="samedi" name="dplcmt_hl_day" value="samedi">
+                            <label for="samedi">Samedi</label></br>
+                            <input type="checkbox" id="dimanche" name="dplcmt_hl_day" value="dimanche">
+                            <label for="dimanche">Dimanche</label></br></br>
+
+                            <label for="dplcmt_hl_dist">Quelle était la distance totale journalière (aller-retour) parcourue ?</label></br>
+                            <input type="number" step="0.1" id="dplcmt_hl_dist" name="dplcmt_hl_dist" placeholder="30" required> <span>km</span> </br></br>
+                        
+                            <label for="dplcmt_hl_mdt"> Quel moyen de transport avez-vous utilisé pour ces déplacements ?</label></br><br>
+                            <p><em>Attention : il ne vous est possible de sélectionner qu'un seul moyen de transport. Si vous en avez utilisé plusieurs, merci de retenir celui ayant permis de réaliser la distance la plus importante sur l'ensemble des déplacements.</em></p><br><br>
+                            <select name="dplcmt_hl_mdt" id="dplcmt_hl_mdt" onchange="Voiture_hl()" required>
+                                <option value="" selected="selected">------- </option>
+
+                                <option value="Avion">Avion </option>
+                                <option value="Bateau">Bateau </option>
+                                <option value="Bus">Bus </option>
+                                <option value="Helicoptere">Hélicoptère </option>
+                                <option value="Metro">Métro </option>
+                                <option value="RER">RER </option>
+                                <option value="Train">Train </option>
+                                <option value="Tramway">Tramway </option>
+                                <option value="Voiture">Voiture </option>
+                            </select></br></br>
+
+                            <div id="Voiture_hl"></div>
+
+                        </div>
+                    `;
+                    document.getElementById("Next_questI3").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+            
+
+            function Voiture_hl() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_questmdt_hl').forEach(function(element) {
+                    element.remove();
+                });
+
+                // Vérifier la réponse à la question mdt_hl et ajouter la question suivante en conséquence
+                if (document.getElementById('dplcmt_hl_mdt').value === "Voiture") {
+                    var new_quest = `
+                        <div class="next_questmdt_hl">
+                            <label for="Voiture_hl_type">Quel type de voiture avez-vous utilisé ?</label><br>
+                            <select name="Voiture_hl_type" id="Voiture_hl_type">
+                                <option value="">-------</option>
+
+                                <option value="Essence">Essence</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="GPL">GPL</option>
+                                <option value="GNV">GNV</option>
+                                <option value="E85">E85</option>
+                                <option value="Hybride">Hybride</option>
+                                <option value="Electrique">Electrique</option>
+                            </select><br><br>
+
+                            <label for="Voiture_hl_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
+                            <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
+                            <input type="number" min="0" step="1" id="Voiture_hl_covoit" name="Voiture_hl_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                        </div>
+                    `;
+                    document.getElementById("Voiture_hl").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+
+            function Suivant2() {
+                // Validation des réponses de la partie 1 du formulaire
+                let Mycountry_dep = document.getElementById("country_dep").value;
+
+                if (!Mycountry_dep) {
+                    alert("Veuillez renseigner votre pays de départ.");
+                    return;
+                }
+
+                let Mycity_dep = document.getElementById("city_dep").value;
+                let MyRegEx = /^[a-zA-Z-\s]+$/;
+
+                if (!Mycity_dep) {
+                    alert("Veuillez renseigner votre ville de départ.");
+                    return;
+                }
+                
+                if (MyRegEx.test(Mycity_dep) == false) {
+                    alert("Seuls les lettres, les tirets et les espaces sont tolérés pour le renseignement de la ville de départ. Si vous avez utilisé des virgules, sachez qu'il n'est pas nécessaire de préciser la Région, le Comté, ou l'Etat. Le nom de la ville suffit.");
+                    return;
+                }
+
+                let Mycountry_int = document.getElementById("country_int").value;
+
+                if (!Mycountry_int) {
+                    alert("Veuillez renseigner votre pays de stage.");
+                    return;
+                }
+
+                let Mycity_int = document.getElementById("city_int").value;
+
+                if (!Mycity_int) {
+                    alert("Veuillez renseigner votre ville de stage.");
+                    return;
+                }
+                else if (!MyRegEx.test(Mycity_int)) {
+                    alert("Seuls les lettres, les tirets et les espaces sont tolérés pour le renseignement de la ville de stage. Si vous avez utilisé des virgules, sachez qu'il n'est pas nécessaire de préciser la Région, le Comté, ou l'Etat. Le nom de la ville suffit.");
+                    return;
+                }
+
+                let Mymdt_aller = document.getElementById("mdt_aller").value;
+
+                if (!Mymdt_aller) {
+                    alert("Veuillez renseigner le moyen de transport utilisé pour rejoindre votre lieu de stage.");
+                    return;
+                }
+                else if (Mymdt_aller == "Voiture") {
+                    let MyVoiture_aller_type = document.getElementById("Voiture_aller_type").value;
+                
+                    if (!MyVoiture_aller_type) {
+                        alert("Veuillez préciser le type de voiture utilisé pour rejoindre votre lieu de stage. Si vous avez utilisé un autre moyen de transport, merci de modifier la question précédente en conséquence.");
+                        return;
+                    }
+
+                    let MyVoiture_aller_covoit = document.getElementById("Voiture_aller_covoit").value;
+
+                    if (!MyVoiture_aller_covoit) {
+                        alert("Veuillez préciser le nombre de personne ayant voyagé avec vous pour rejoindre votre lieu de stage. Si vous n'avez pas covoituré, merci de saisir la valeur '0'.");
+                        return;
+                    }
+                }
+
+                let Mymdt_retour = document.getElementById("mdt_retour").value;
+
+                if (!Mymdt_retour) {
+                    alert("Veuillez renseigner le moyen de transport utilisé pour quitter votre lieu de stage.");
+                    return;
+                }
+                else if (Mymdt_retour == "Voiture") {
+                    let MyVoiture_retour_type = document.getElementById("Voiture_retour_type").value;
+
+                    if (!MyVoiture_retour_type) {
+                        alert("Veuillez préciser le type de voiture utilisé pour quitter votre lieu de stage. Si vous avez utilisé un autre moyen de transport, merci de modifier la question précédente en conséquence.");
+                        return;
+                    }
+
+                    let MyVoiture_retour_covoit = document.getElementById("Voiture_retour_covoit").value;
+
+                    if (!MyVoiture_retour_covoit) {
+                        alert("Veuillez préciser le nombre de personne ayant voyagé avec vous pour quitter votre lieu de stage. Si vous n'avez pas covoituré, merci de saisir la valeur '0'.");
+                        return;
+                    }
+                }
+
+                let Mydplcmt_pro = document.getElementById("dplcmt_pro").value;
+
+                if (!Mydplcmt_pro) {
+                    alert("Veuillez préciser si vous avez effectué des déplacements professionnels.");
+                    return;
+                }
+                else if (Mydplcmt_pro == "Oui") {
+                    let Mydplcmt_pro_dist = document.getElementById("dplcmt_pro_dist").value;
+
+                    if (!Mydplcmt_pro_dist) {
+                        alert("Veuillez préciser la distance parcourue lors des déplacements professionnels.");
+                        return;
+                    }
+
+                    let Mydplcmt_pro_mdt = document.getElementById("dplcmt_pro_mdt").value;
+
+                    if (!Mydplcmt_pro_mdt) {
+                        alert("Veuillez préciser le moyen de transport utilisé pour vos déplacements professionnels.");
+                        return;
+                    }
+                    else if (Mydplcmt_pro_mdt == "Voiture") {
+                        let MyVoiture_pro_type = document.getElementById("Voiture_pro_type").value;
+
+                        if (!MyVoiture_pro_type) {
+                            alert("Veuillez préciser le type de voiture utilisé pour vos déplacements professionnels. Si vous avez utilisé un autre moyen de transport, merci de modifier la question précédente en conséquence.");
+                            return;
+                        }
+
+                        let MyVoiture_pro_covoit = document.getElementById("Voiture_pro_covoit").value;
+
+                        if (!MyVoiture_pro_covoit) {
+                            alert("Veuillez préciser le nombre de personne ayant voyagé avec vous lors de vos déplacements professionnels. Si vous n'avez pas covoituré, merci de saisir la valeur '0'.");
+                            return;
+                        }
+                    }
+                }
+
+                let Mydplcmt_hl = document.getElementById("dplcmt_hl").value;
+
+                if (!Mydplcmt_hl) {
+                    alert("Veuillez préciser si vous avez effectué des déplacements hébergement-laboratoire.");
+                    return;
+                }
+                else if (Mydplcmt_hl == "Oui") {
+                    const checkboxes_days = document.querySelectorAll('input[name="dplcmt_hl_day"]');
+  
+                    // Vérifier si au moins une case est cochée
+                    let auMoinsUneCochee = false;
+                    checkboxes_days.forEach(checkbox => {
+                        if (checkbox.checked) {
+                        auMoinsUneCochee = true;
+                        // Sortir de la boucle car au moins une case est cochée
+                        return;
+                        }
+                    });
+
+                    if (!auMoinsUneCochee) {
+                        alert("Veuillez préciser au moins un jour de la semaine concerné par vos trajets hébergement-laboratoire. S'il n'y en a aucun, merci de modifier la réponse à la question précédente en conséquence.");
+                        return;
+                    }
+
+                    let Mydplcmt_hl_dist = document.getElementById("dplcmt_hl_dist").value;
+
+                    if (!Mydplcmt_hl_dist) {
+                        alert("Veuillez préciser la distance journalière parcourue (aller-retour) lors de vos déplacements hébergement-laboratoire.");
+                        return;
+                    }
+
+                    let Mydplcmt_hl_mdt = document.getElementById("dplcmt_hl_mdt").value;
+
+                    if (!Mydplcmt_hl_mdt) {
+                        alert("Veuillez préciser le moyen de transport utilisé pour vos déplacements hébergement-laboratoire.");
+                        return;
+                    }
+                    else if (Mydplcmt_hl_mdt == "Voiture") {
+                        let MyVoiture_hl_type = document.getElementById("Voiture_hl_type").value;
+
+                        if (!MyVoiture_hl_type) {
+                            alert("Veuillez préciser le type de voiture utilisé pour vos déplacements hébergement-laboratoire. Si vous avez utilisé un autre moyen de transport, merci de modifier la question précédente en conséquence.");
+                            return;
+                        }
+
+                        let MyVoiture_hl_covoit = document.getElementById("Voiture_hl_covoit").value;
+
+                        if (!MyVoiture_hl_covoit) {
+                            alert("Veuillez préciser le nombre de personne ayant voyagé avec vous lors de vos déplacements hébergement-laboratoire. Si vous n'avez pas covoituré, merci de saisir la valeur '0'.");
+                            return;
+                        }
+                    }
+                }
+
+                // Récupérer les réponses de la partie 1
+                const reponsesPI = new FormData(document.getElementById('PI'));
+                const dplcmt_hl_days = Array.from(document.querySelectorAll('input[name="dplcmt_hl_days"]:checked')).map(input => input.value);
+
+                // Stocker les réponses dans une session ou un cookie
+                sessionStorage.setItem('reponsesPI', JSON.stringify(Object.fromEntries(reponsesPI.entries())));
+                sessionStorage.setItem('dplcmt_hl_days', JSON.stringify(dplcmt_hl_days));
+
+                // Rediriger vers la page de la partie 2
+                window.location.href = 'formulaire_p2.html';
+            }
+        </script>
+
+
+        <hr>
+
+        <div class="footer">
+        <p>&copy; copyright Antoine FEYDIT - 2023 </p>
+        </div>
+    </div>
+</body>
+</html>

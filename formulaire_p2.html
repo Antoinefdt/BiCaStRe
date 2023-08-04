@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BiCaStRe - formulaire II</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/0c87a70838.js"></script>
+
+    <link 
+    href="https://db.onlinewebfonts.com/c/6aa06a9a432b8417171f60d8351aa310?family=Torus+Notched"
+    rel="stylesheet"
+    type="text/css"
+    />
+
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="formulaire_p2">
+        <h1> Bilan Carbone Stage de Recherche</h1>
+
+        <hr><hr>
+
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="" height="50">
+            </div>
+            <div class="onglets">
+                <ul>
+                    <li><a href="">A propos</a></li>
+                    <li><a href="">Simulation</a></li>
+                    <li><a href="">Méthodologie</a></li>
+                    <li><a href="">Rapports</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr><hr>
+
+        <div class="avancee">
+            <img src="logo.png" alt="" height="50">
+            <img src="logo.png" alt="" height="50">
+            <img src="logo.png" alt="" height="60">
+            <img src="logo_estompe.png" alt="" height="50">
+            <img src="logo_estompe.png" alt="" height="50">
+        </div>
+
+        <h2>Partie II : Activité de Recherche dans le cadre du stage</h2><br><br>
+        <p> Cette partie vise à évaluer les émissions liées au travail de recherche lui-même.</p><br><br>
+
+        <form id="PII" onsubmit="return false;">
+            <h3>II.1 Numérique - super-ordinateurs </h3><br><br>
+            <label for="rec_sup">Avez-vous été amené.e à utiliser un supercalculateur/superordinateur durant votre stage ?</label></br>
+            <select name="rec_sup" id="rec_sup" onchange="nextII1()" required>
+                <option value="">-------</option>
+                <option value="Oui">Oui </option>
+                <option value="Non">Non </option>
+            </select></br></br>
+
+            <div id="Next_questII1"></div>
+
+            <h3>II.2 Numérique - fournitures </h3><br><br>
+            <label for="rec_four"> Des appareils ou ressources numériques/électroniques ont-ils (elles) été acquis(es) (par votre laboratoire ou par vous-même) dans le cadre de votre stage, afin d'être utilisé(e)s spécifiquement pour votre stage ?</label></br><br>
+            <p><em>Il peut par exemple s'agir : <br>
+            - d'une tablette achetée par vos soins en vue de votre stage. <br>
+            - d'un ordinateur portable fourni par votre laboratoire en début de stage et cédé à la fin du stage au titre de gratification. <br>
+            - de cartes électroniques, de câbles coaxiaux fourni(e)s par le laboratoire et qui ne serviront qu'à votre stage (parce qu'ils en sortiront dégradés et/ou inutilisables, ou bien parce que vous les garderez, ou pour quelque autre raison que ce soit). <br>
+            - d'un logiciel spécifique acquis par votre laboratoire ou par vous-même spécifiquement pour votre travail de recherche durant le stage. <br>
+            - etc.
+            </em></p><br><br>
+            <select name="rec_four" id="rec_four" onchange="nextII2()" required>
+                <option value="">-------</option>
+                <option value="Oui">Oui </option>
+                <option value="Non">Non </option>
+            </select></br></br>
+
+            <div id="Next_questII2"></div>
+
+            <h3>II.3 Expérimental - consommables </h3><br><br>
+            <label for="rec_conso"> Votre stage a-t-il nécessité l'utilisation de consommables pour la réalisation d'expériences ?</label></br>
+            <select name="rec_conso" id="rec_conso" onchange="nextII3()" required>
+                <option value="">-------</option>
+                <option value="Oui">Oui </option>
+                <option value="Non">Non </option>
+            </select></br></br>
+
+            <div id="Next_questII3"></div>
+
+            <h3>II.4 Expérimental - manipulations puissantes </h3><br><br>
+            <label for="rec_manip"> Avez-vous réalisé des manipulations ayant impliqué une consommation significative d'énergie électrique, dont la valeur est connue de vous ?</label></br><br>
+            <p><em>Il peut par exemple s'agir d'expériences LASER, de l'usage d'un accélérateur/d'un collisionneur/de grosses machines industrielles, etc. </br>
+                Attention : Merci de ne tenir compte d'une manipulation que si les résultats qui en découlent concernent directement votre travail dans le cadre du stage.
+            </em></p><br><br>
+            <select name="rec_manip" id="rec_manip" onchange="nextII4()" required>
+                <option value="">-------</option>
+                <option value="Oui">Oui </option>
+                <option value="Non">Non </option>
+            </select></br></br>
+
+            <div id="Next_questII4"></div>
+
+            <button onclick=Suivant3()>Passer à la partie III</button>
+            <p></p><br><br>
+
+        </form>
+
+        <script>
+            function nextII1() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_questII1').forEach(function(element) {
+                    element.remove();
+                });
+        
+                // Vérifier la réponse à la question II1 et ajouter la question suivante en conséquence
+                if (document.getElementById('rec_sup').value === "Oui") {
+                    var new_quest = `
+                        <div class="next_questII1">
+                            <label for="rec_sup_time"> Quelle durée totale de calcul a représenté votre usage du supercalculateur pendant votre stage ?</label></br>
+                            <input type="number" step="1" min="0" id="rec_sup_time" name="rec_sup_time" placeholder="1000" required> <span>heures</span> </br></br>
+                        
+                            <label for="rec_sup_para"> Avez-vous exploité la parallélisation ?</label></br>
+                            <select name="rec_sup_para" id="rec_sup_para" onchange="nextII1bis()" required>
+                                <option value="">-------</option>
+                                <option value="Oui">Oui </option>
+                                <option value="Non">Non </option>
+                                <option value="Nsp">Je ne sais pas </option>
+                            </select></br></br>                       
+
+                            <div id="Next_questII1bis"></div>
+                        </div>
+                    `;
+                    document.getElementById("Next_questII1").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+        
+
+            function nextII1bis() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_questII1bis').forEach(function(element) {
+                    element.remove();
+                });
+        
+                // Vérifier la réponse à la question II1 et ajouter la question suivante en conséquence
+                if (document.getElementById('rec_sup_para').value === "Oui") {
+                    var new_quest = `
+                        <div class="next_questII1bis">
+                            <label for="rec_sup_para_cpu"> Combien de CPU avez-vous utilisées ?</label></br>
+                            <input type="number" step="1" min="1" id="rec_sup_para_cpu" name="rec_sup_para_cpu" placeholder="24" required> <span>CPU</span> </br></br>
+        
+                        </div>
+                    `;
+                    document.getElementById("Next_questII1bis").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+
+
+            function nextII2() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_questII2').forEach(function(element) {
+                    element.remove();
+                });
+        
+                // Vérifier la réponse à la question II2 et ajouter la question suivante en conséquence
+                if (document.getElementById('rec_four').value === "Oui") {
+                    var new_quest = `
+                        <div class="next_questII2">
+                            <label for="rec_four_type"> Quel type d'appareil ou de ressource numérique avez-vous acquis(e) et utilisé(e) ?</label></br><br>
+                            <input type="checkbox" id="type1" name='fournitures' value="informatique" onclick="prix(this)">
+                            <label for="type1">Matériel informatique : ordinateurs, écrans, imprimantes, serveurs</label></br>
+                            <div id="Prix_informatique"></div></br>
+                            
+                            <input type="checkbox" id="type2" name='fournitures' value="audiovisuel" onclick="prix(this)">
+                            <label for="type2">Matériel audiovisuel : réception, enregistrement, reproduction image et son</label></br>
+                            <div id="Prix_audiovisuel"></div></br>
+                            
+                            <input type="checkbox" id="type3" name='fournitures' value="composants électroniques" onclick="prix(this)">
+                            <label for="type3">Composants électroniques et cartes</label></br>
+                            <div id="Prix_composants électroniques"></div></br>
+                            
+                            <input type="checkbox" id="type4" name='fournitures' value="logiciel" onclick="prix(this)">
+                            <label for="type4">Logiciel</label></br>
+                            <div id="Prix_logiciel"></div></br>
+                            
+                        </div>
+                    `;
+                    document.getElementById("Next_questII2").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+
+
+            function prix(checkbox) {
+                const champValeurId = "Prix_" + checkbox.value;
+                const champValeurDiv = document.getElementById(champValeurId);
+
+                if (checkbox.checked) {
+                    champValeurDiv.innerHTML = `
+                    <label for="${champValeurId}">Prix total de la/des entité(s) concernée(s) :</label>
+                    <input type="number" step="1" id="${champValeurId}" name="${champValeurId}" placeholder="XXX" required> <span>€</span>
+                    `;
+                } else {
+                champValeurDiv.innerHTML = ""; // Effacer le champ texte lorsque la case est décochée
+                }
+            }
+
+
+            function nextII3() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_questII3').forEach(function(element) {
+                    element.remove();
+                });
+        
+                // Vérifier la réponse à la question II3 et ajouter la question suivante en conséquence
+                if (document.getElementById('rec_conso').value === "Oui") {
+                    var new_quest = `
+                        <div class="next_questII3">
+                            <label for="rec_conso_type"> Quel type de consommable avez-vous utilisé ?</label></br><br>
+                            <input type="checkbox" id="conso1" name='consommables' value="accessoires" onclick="prix(this)">
+                            <label for="conso1">Accessoires (gants, blouses jetables, lunettes, etc.)</label></br>
+                            <div id="Prix_accessoires"></div></br>
+                            
+                            <input type="checkbox" id="conso2" name='consommables' value="protection individuelle" onclick="prix(this)">
+                            <label for="conso2">Equipements de protection individuelle : radioprotection, vêtements de sécurité/de travail/de laboratoire réutilisables</label></br>
+                            <div id="Prix_protection individuelle"></div></br>
+
+                            <input type="checkbox" id="conso3" name='consommables' value="gaz, hélium et azote liquides" onclick="prix(this)">
+                            <label for="conso3">Gaz de qualité industrielle et grande pureté, hélium et azote liquides</label></br>
+                            <div id="Prix_gaz, hélium et azote liquides"></div></br>
+
+                            <input type="checkbox" id="conso4" name='consommables' value="produits chimiques" onclick="prix(this)">
+                            <label for="conso4">Produits chimiques</label></br>
+                            <div id="Prix_produits chimiques"></div></br>
+
+                            <input type="checkbox" id="conso5" name='consommables' value="plastique et résine" onclick="prix(this)">
+                            <label for="conso5">Plastiques et résines : matériaux à usiner et résines pour la micro- et nanoélectronique</label></br>
+                            <div id="Prix_plastique et résine"></div></br>
+
+                            <input type="checkbox" id="conso6" name='consommables' value="Animaux de laboratoire (petit)" onclick="prix(this)">
+                            <label for="conso6">Animaux de laboratoire : petits mammifères (rongeurs..), amphibiens, animaux aquatiques, insectes et arachnides</label></br>
+                            <div id="Prix_Animaux de laboratoire (petit)"></div></br>
+
+                            <input type="checkbox" id="conso7" name='consommables' value="Animaux de laboratoire (gros)" onclick="prix(this)">
+                            <label for="conso7">Animaux de laboratoire : gros mammifères, porcins, ovins, caprins et primates + oiseaux, volailles et oeufs</label></br>
+                            <div id="Prix_Animaux de laboratoire (gros)"></div></br>
+
+                            <input type="checkbox" id="conso8" name='consommables' value="végétal" onclick="prix(this)">
+                            <label for="conso8">Expérimentation végétale : autres végétaux, végétaux marins, champignons, semences et tubercules, plantes et plants</label></br>
+                            <div id="Prix_végétal"></div></br>
+
+                            <input type="checkbox" id="conso9" name='consommables' value="pipette" onclick="prix(this)">
+                            <label for="conso9">Pipettes réutilisables et à usage unique</label></br>
+                            <div id="Prix_pipette"></div></br>
+
+                            <input type="checkbox" id="conso10" name='consommables' value="lame" onclick="prix(this)">
+                            <label for="conso10">Lames et lamelles en plastique et en verre </label></br>
+                            <div id="Prix_lame"></div></br>
+                            
+                        </div>
+                    `;
+                    document.getElementById("Next_questII3").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+
+
+            function nextII4() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_questII4').forEach(function(element) {
+                    element.remove();
+                });
+        
+                // Vérifier la réponse à la question II4 et ajouter la question suivante en conséquence
+                if (document.getElementById('rec_manip').value === "Oui") {
+                    var new_quest = `
+                        <div class="next_questII4">
+                            <label for="rec_manip_energy"> Quelle a été la quantité d'énergie consommée par cette/ces manipulation(s) dans le cadre du stage ?</label></br><br>
+                            <p><em>Veillez à pondérer cette valeur par le nombre de personnes impliquées dans cette manipulation, afin de ne pas faire porter l'entièreté de l'empreinte carbone sur votre seul stage si vous n'étiez pas seul.e.</br>
+                                Attention : Merci de prendre garde à l'unité lorsque vous précisez l'énergie consommée (en kiloWatt.heure).
+                            </em></p><br><br>
+                            <input type="number" step="1" id="rec_manip_energy" name="rec_manip_energy" placeholder="1000" required> <span>kWh</span> </br></br>                      
+                        </div>
+                    `;
+                    document.getElementById("Next_questII4").insertAdjacentHTML('afterbegin', new_quest);
+                }
+            }
+
+            function Suivant3() {
+                // Validation des réponses de la partie 2 du formulaire
+                let Myrec_sup = document.getElementById("rec_sup").value;
+
+                if (!Myrec_sup) {
+                    alert("Veuillez préciser si vous avez utilisé un super-ordinateur durant votre stage.");
+                    return;
+                }
+                else if (Myrec_sup == "Oui") {
+                    let Myrec_sup_time = document.getElementById("rec_sup_time").value;
+
+                    if (!Myrec_sup_time) {
+                        alert("Veuillez préciser le nombre d'heures d'utilisation du super-ordinateur durant votre stage.");
+                        return;
+                    }
+
+                    let Myrec_sup_para = document.getElementById("rec_sup_para").value;
+
+                    if (!Myrec_sup_para) {
+                        alert("Veuillez préciser si vous avez exploité la parallélisation lors de l'utilisation du super-ordinateur.");
+                        return;
+                    }
+                    else if (Myrec_sup_para == "Oui") {
+                        let Myerc_sup_para_cpu = document.getElementById("rec_sup_para_cpu").value;
+
+                        if (!Myerc_sup_para_cpu) {
+                            alert("Veuillez préciser le nombre de CPU utilisées lors de l'usage du super-ordinateur.");
+                            return;
+                        }
+                    }
+                }
+
+                let Myrec_four = document.getElementById("rec_four").value;
+
+                if (!Myrec_four) {
+                    alert("Veuillez préciser si vous avez acquis et utilisé des fournitures numériques et/ou électroniques durant votre stage.");
+                    return;
+                }
+                else if (Myrec_four == "Oui") {
+                    const checkboxes_four = document.querySelectorAll('input[name="fournitures"]');
+  
+                    // Vérifier si au moins une case est cochée
+                    let auMoinsUneCochee = false;
+                    checkboxes_four.forEach(checkbox => {
+                        if (checkbox.checked) {
+                            auMoinsUneCochee = true;
+                            let MyPrix = document.getElementById("Prix_"+ checkbox.value).value;
+                            if (!MyPrix) {
+                                alert("Veuillez préciser le prix de la/des fourniture(s) liée(s) à la rubrique \""+checkbox.value+"\".");
+                                return;
+                            }
+                        }
+                    });
+
+                    if (!auMoinsUneCochee) {
+                        alert("Veuillez préciser au moins une fourniture acquise et utilisée. S'il n'y en a aucune, merci de modifier la réponse à la question précédente en conséquence.");
+                        return;
+                    }   
+                }
+
+                let Myrec_conso = document.getElementById("rec_conso").value;
+
+                if (!Myrec_conso) {
+                    alert("Veuillez préciser si vous avez utilisé des consommables pour des expériences durant votre stage.");
+                    return;
+                }
+                else if (Myrec_conso == "Oui") {
+                    const checkboxes_conso = document.querySelectorAll('input[name="consommables"]');
+  
+                    // Vérifier si au moins une case est cochée
+                    let auMoinsUneCochee = false;
+                    checkboxes_conso.forEach(checkbox => {
+                        if (checkbox.checked) {
+                            auMoinsUneCochee = true;
+                            let MyPrix = document.getElementById("Prix_"+ checkbox.value).value;
+                            if (!MyPrix) {
+                                alert("Veuillez préciser le prix du/des consommable(s) lié(s) à la rubrique \""+checkbox.value+"\".");
+                                return;
+                            }
+                        }
+                    });
+
+                    if (!auMoinsUneCochee) {
+                        alert("Veuillez préciser au moins un consommable utilisé. S'il n'y en a aucun, merci de modifier la réponse à la question précédente en conséquence.");
+                        return;
+                    }  
+                }
+
+                let Myrec_manip = document.getElementById("rec_manip").value;
+
+                if (!Myrec_manip) {
+                    alert("Veuillez préciser si vous avez réalisé des manipulations puissantes durant votre stage.");
+                    return;
+                }
+                else if (Myrec_manip == "Oui") {
+                    let Myrec_manip_energy = document.getElementById("rec_manip_energy").value;
+
+                    if (!Myrec_manip_energy) {
+                        alert("Veuillez renseigner l'énergie consommée lors de la manipulation puissante que vous avez réalisée.");
+                        return;
+                    }
+                }
+
+                // Récupérer les réponses de la partie 2
+                const reponsesPII = new FormData(document.getElementById('PII'));
+                const fournitures = Array.from(document.querySelectorAll('input[name="fournitures"]:checked')).map(input => input.value);
+                const consommables = Array.from(document.querySelectorAll('input[name="consommables"]:checked')).map(input => input.value);
+
+                // Stocker les réponses dans une session ou un cookie
+                sessionStorage.setItem('reponsesPII', JSON.stringify(Object.fromEntries(reponsesPII.entries())));
+
+                // Rediriger vers la page de la partie 3
+                window.location.href = "formulaire_p3.html";
+            }
+        </script>
+
+        <hr>
+
+        <div class="footer">
+        <p>&copy; copyright Antoine FEYDIT - 2023 </p>
+        </div>
+    </div>
+</body>

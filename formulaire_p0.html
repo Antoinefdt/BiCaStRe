@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BiCaStRe - formulaire préliminaires</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/0c87a70838.js"></script>
+
+    <link 
+    href="https://db.onlinewebfonts.com/c/6aa06a9a432b8417171f60d8351aa310?family=Torus+Notched"
+    rel="stylesheet"
+    type="text/css"
+    />
+
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="formulaire_p0">
+        <h1> Bilan Carbone Stage de Recherche</h1>
+
+        <hr><hr>
+
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="" height="50">
+            </div>
+            <div class="onglets">
+                <ul>
+                    <li><a href="">A propos</a></li>
+                    <li><a href="">Simulation</a></li>
+                    <li><a href="">Méthodologie</a></li>
+                    <li><a href="">Rapports</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr><hr>
+
+        <div class="avancee">
+            <img src="logo.png" alt="" height="60">
+            <img src="logo_estompe.png" alt="" height="50">
+            <img src="logo_estompe.png" alt="" height="50">
+            <img src="logo_estompe.png" alt="" height="50">
+            <img src="logo_estompe.png" alt="" height="50">
+        </div>
+
+
+        <h2>Partie préliminaire : Généralités</h2><br><br>
+        <p> Cette partie vise à recueillir les informations générales liées à votre stage. Ces dernières contribuent au calcul des émissions et/ou permettent de situer votre bilan carbone dans le contexte global de la réduction des émissions de gaz à effet de serre (GES).</p><br><br>
+
+        <form id="P0" onsubmit="return false;">
+            <h3>0.1 Durée du stage</h3><br><br>
+            <label for="date_beg"> A quelle date avez-vous commencé votre stage ?</label></br>
+            <input size="24" type="date" id="date_beg" name="date_beg" required></br></br>
+        
+            <label for="date_end"> A quelle date avez-vous terminé votre stage ?</label></br>
+            <input size="24" type="date" id="date_end" name="date_end" required></br></br>
+
+            <h3>0.2 Sujet du stage</h3><br><br>
+            <label for="sub"> Dans quel domaine avez-vous réalisé votre stage ?</label></br><br>
+            <p><em>Merci de rester bref/brève et d'indiquer en quelques mots le sujet de votre stage.</em></p><br><br>
+            <input size="40" maxlength="80" type="text" id="sub" name="sub" placeholder="ex : modélisation radiative des atmosphères" required></br></br>
+        
+            <label for="sub_cc"> Votre recherche contribue-t-elle à répondre à la crise climatique ?</label></br>
+            <select name="sub_cc" id="sub_cc" onchange="next02()" required>
+                <option value="">-------</option>
+                <option value="Oui">Oui </option>
+                <option value="Non">Non </option>
+            </select></br></br>
+
+            <div id="Next_quest02"></div>
+
+            <button onclick=Suivant1()>Passer à la partie I</button>
+            <p></p><br><br>
+        </form> 
+
+        <script>
+            function next02() {
+                // Supprimer les questions suivantes déjà affichées
+                document.querySelectorAll('.next_quest02').forEach(function(element) {
+                    element.remove();
+                });
+
+                // Vérifier la réponse à la question 02 et ajouter la question suivante en conséquence
+                if (document.getElementById('sub_cc').value === "Oui") {
+                    var new_quest = `
+                        <div class="next_quest02">
+                            <label for="sub_cc_why"> Dans quelle mesure ?</label></br>
+                            <select name="sub_cc_why" id="sub_cc_why">
+                                <option value="" selected="selected">--------------------------------------------------------------- </option>
+
+                                <option value="Modelling">Modélisation : meilleure compréhension des phénomènes climatiques et/ou environnementaux. </option>
+                                <option value="Energy">Energie : meilleure gestion des ressources énergétiques et/ou électriques, décarbonation de la production. </option>
+                                <option value="Environment">Environnement : réduction de l'empreinte environnementale d'un procédé et/ou d'une industrie. </option>
+                            </select></br></br>
+                        </div>
+                    `;
+                    document.getElementById("Next_quest02").insertAdjacentHTML('afterbegin', new_quest);
+                }
+
+            }
+
+            function Suivant1() {
+                // Validation des réponses de la partie 0 du formulaire
+                let Mydate_beg = document.getElementById("date_beg").value;
+                let Mydate_end = document.getElementById("date_end").value;
+
+                if (!Mydate_beg) {
+                    alert("Veuillez renseigner la date de début de stage.");
+                    return;
+                }
+                if (!Mydate_end) {
+                    alert("Veuillez renseigner la date de fin de stage.");
+                    return;
+                }
+
+                let Mydate_begOK = new Date(document.getElementById("date_beg").value);
+                let Mydate_endOK = new Date(document.getElementById("date_end").value);
+
+                if (Mydate_endOK <= Mydate_begOK) {
+                    alert("Veuillez indiquer une date de fin de stage postérieure à la date de début.");
+                    return;
+                }
+
+                let Mysub = document.getElementById("sub").value;
+
+                if (!Mysub) {
+                    alert("Veuillez renseigner votre sujet de stage.");
+                    return;
+                }
+
+                let Mysub_cc = document.getElementById("sub_cc").value;
+
+                if (!Mysub_cc) {
+                    alert("Veuillez préciser si votre sujet contribue à répondre à la crise climatique.");
+                    return;
+                }
+
+                if (Mysub_cc == 'Oui') {
+                    let Mysub_cc_why = document.getElementById("sub_cc_why").value;
+
+                    if (!Mysub_cc_why) {
+                        alert("Veuillez préciser dans quelle mesure votre recherche contribue à répondre à la crise climatique. Si elle n'y contribue pas, merci de modifier votre réponse à la question précédente.");
+                    return;
+                    }  
+                }
+
+
+                // Récupérer les réponses de la partie 0
+                const reponsesP0 = new FormData(document.getElementById('P0'));
+
+                // Stocker les réponses dans une session ou un cookie
+                sessionStorage.setItem('reponsesP0', JSON.stringify(Object.fromEntries(reponsesP0.entries())));
+
+                // Rediriger vers la page de la partie 1
+                window.location.href = "formulaire_p1.html";
+            }
+        </script>
+
+
+        <hr>
+
+        <div class="footer">
+        <p>&copy; copyright Antoine FEYDIT - 2023 </p>
+        </div>
+    </div>
+</body>

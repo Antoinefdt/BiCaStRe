@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BiCaStRe - formulaire soumis</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/0c87a70838.js"></script>
+
+    <link 
+    href="https://db.onlinewebfonts.com/c/6aa06a9a432b8417171f60d8351aa310?family=Torus+Notched"
+    rel="stylesheet"
+    type="text/css"
+    />
+
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="end">
+        <h1> Bilan Carbone Stage de Recherche</h1>
+
+        <hr><hr>
+
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="" height="50">
+            </div>
+            <div class="onglets">
+                <ul>
+                    <li><a href="">A propos</a></li>
+                    <li><a href="">Simulation</a></li>
+                    <li><a href="">Méthodologie</a></li>
+                    <li><a href="">Rapports</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr><hr>
+
+        <div class="avancee">
+            <img src="logo.png" alt="" height="50">
+            <img src="logo.png" alt="" height="50">
+            <img src="logo.png" alt="" height="50">
+            <img src="logo.png" alt="" height="50">
+            <img src="logo.png" alt="" height="60">
+        </div>
+
+        <h2>Merci pour votre réponse au questionnaire !</h2><br><br>
+
+        <p>Vos résultats seront analysés dans les plus brefs délais. Vous recevrez votre bilan carbone à l'adresse mail institutionnelle que vous avez précisée en début de questionnaire dans un délai de quelques heures.</p><br><br><br><br><br>
+
+        <pre id="resume-reponses"></pre><br><br><br><br><br>
+
+        <button onclick="Accueil()">Revenir à l'accueil</button><br><br>
+        <hr>
+
+        <div class="footer">
+        <p>&copy; copyright Antoine FEYDIT - 2023 </p>
+        </div>
+    </div>
+
+    <script>
+        // Récupérer les réponses complètes depuis la session
+        const reponsesCompletees = JSON.parse(sessionStorage.getItem('reponsesCompletees'));
+        const dplcmt_hl_days = JSON.parse(sessionStorage.getItem('dplcmt_hl_days'));
+
+        // Afficher le résumé des réponses dans un élément HTML
+        const resumeReponsesElement = document.getElementById('resume-reponses');
+        resumeReponsesElement.innerText = JSON.stringify(reponsesCompletees, null, 2);
+
+
+        function Accueil() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
