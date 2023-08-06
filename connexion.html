@@ -98,7 +98,7 @@
             const refReponsesCoord = ref(database, 'ReponsesCoord');
 
             // Lire les données une seule fois
-            refReponsesCoord.once('value')
+            once(refReponsesCoord, 'value')
                 .then((snapshot) => {
                     // Les données sont disponibles sous forme de snapshot
                     const data = snapshot.val();
