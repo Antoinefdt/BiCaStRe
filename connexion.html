@@ -117,6 +117,20 @@
                 // Enregistrement des réponses dans la base de données Firebase
                 database.ref("ReponsesCoord").push(reponses);
 
+                // Obtenez une référence à un nœud spécifique dans la base de données
+                const ref = database.ref('ReponsesCoord');
+
+                // Lire les données une seule fois
+                ref.once('value')
+                .then((snapshot) => {
+                    // Les données sont disponibles sous forme de snapshot
+                    const data = snapshot.val();
+                    console.log(data); // Afficher les données dans la console
+                })
+                .catch((error) => {
+                    console.error('Erreur lors de la lecture des données :', error);
+                });
+
                 // Stocker les réponses dans une session ou un cookie
                 sessionStorage.setItem('reponsesCoord', JSON.stringify(Object.fromEntries(reponsesCoord.entries())));
 
