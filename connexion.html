@@ -13,32 +13,7 @@
         rel="stylesheet"
         type="text/css"
         />
-
-        <script type="module">
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-            import { getDatabase } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
-
-            // Remplacez les valeurs ci-dessous par votre configuration Firebase
-            const firebaseConfig = {
-                apiKey: "AIzaSyAmRegf6hzLaMhuGmfleze5xeg0nBmIlD4",
-                authDomain: "bicastre.firebaseapp.com",
-                databaseURL: "https://bicastre-default-rtdb.europe-west1.firebasedatabase.app",
-                projectId: "bicastre",
-                storageBucket: "bicastre.appspot.com",
-                messagingSenderId: "172210441241",
-                appId: "1:172210441241:web:3cb58bc84aeac5afe72e88"
-            };
-
-            // Initialiser Firebase
-            const firebase = initializeApp(firebaseConfig);
-
-            // Référence à la base de données
-            const database = getDatabase(firebase);
-
-            // Exporter la variable database pour pouvoir l'utiliser dans app.js
-            export { database };
-        </script>
-        
+   
         
 
         <link rel="stylesheet" href="style.css">
@@ -90,6 +65,49 @@
             </div>
         </div>
 
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+            import { getDatabase } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+
+            // Remplacez les valeurs ci-dessous par votre configuration Firebase
+            const firebaseConfig = {
+                apiKey: "AIzaSyAmRegf6hzLaMhuGmfleze5xeg0nBmIlD4",
+                authDomain: "bicastre.firebaseapp.com",
+                databaseURL: "https://bicastre-default-rtdb.europe-west1.firebasedatabase.app",
+                projectId: "bicastre",
+                storageBucket: "bicastre.appspot.com",
+                messagingSenderId: "172210441241",
+                appId: "1:172210441241:web:3cb58bc84aeac5afe72e88"
+            };
+
+            // Initialiser Firebase
+            const firebase = initializeApp(firebaseConfig);
+
+            // Référence à la base de données
+            const database = getDatabase(firebase);
+
+            const ReponsesCoord = {
+                    email: document.getElementById("email").value,
+                    code_grp: document.getElementById("code_grp").value,
+                };
+
+            // Enregistrement des réponses dans la base de données Firebase
+            database.ref("ReponsesCoord").push(ReponsesCoord);
+
+            // Obtenez une référence à un nœud spécifique dans la base de données
+            const ref = database.ref('ReponsesCoord');
+
+            // Lire les données une seule fois
+            ref.once('value')
+            .then((snapshot) => {
+                // Les données sont disponibles sous forme de snapshot
+                const data = snapshot.val();
+                console.log(data); // Afficher les données dans la console
+            })
+            .catch((error) => {
+                console.error('Erreur lors de la lecture des données :', error);
+            });
+        </script>
 
         <script>
             
@@ -122,27 +140,9 @@
 
                 // Récupérer les réponses de la partie Coord
                 const reponsesCoord = new FormData(document.getElementById('Coord'));
-                const ReponsesCoord = {
-                    email: document.getElementById("email").value,
-                    code_grp: document.getElementById("code_grp").value,
-                };
+                
 
-                // Enregistrement des réponses dans la base de données Firebase
-                database.ref("ReponsesCoord").push(ReponsesCoord);
-
-                // Obtenez une référence à un nœud spécifique dans la base de données
-                const ref = database.ref('ReponsesCoord');
-
-                // Lire les données une seule fois
-                ref.once('value')
-                .then((snapshot) => {
-                    // Les données sont disponibles sous forme de snapshot
-                    const data = snapshot.val();
-                    console.log(data); // Afficher les données dans la console
-                })
-                .catch((error) => {
-                    console.error('Erreur lors de la lecture des données :', error);
-                });
+                
 
                 // Stocker les réponses dans une session ou un cookie
                 sessionStorage.setItem('reponsesCoord', JSON.stringify(Object.fromEntries(reponsesCoord.entries())));
