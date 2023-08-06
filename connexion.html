@@ -67,7 +67,7 @@
 
         <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-            import { getDatabase } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+            import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
 
             // Remplacez les valeurs ci-dessous par votre configuration Firebase
             const firebaseConfig = {
@@ -87,26 +87,26 @@
             const database = getDatabase(firebase);
 
             const ReponsesCoord = {
-                    email: document.getElementById("email").value,
-                    code_grp: document.getElementById("code_grp").value,
-                };
+                email: document.getElementById("email").value,
+                code_grp: document.getElementById("code_grp").value,
+            };
 
             // Enregistrement des réponses dans la base de données Firebase
-            database.ref("ReponsesCoord").push(ReponsesCoord);
+            ref(database, "ReponsesCoord").push(ReponsesCoord);
 
             // Obtenez une référence à un nœud spécifique dans la base de données
-            const ref = database.ref('ReponsesCoord');
+            const refReponsesCoord = ref(database, 'ReponsesCoord');
 
             // Lire les données une seule fois
-            ref.once('value')
-            .then((snapshot) => {
-                // Les données sont disponibles sous forme de snapshot
-                const data = snapshot.val();
-                console.log(data); // Afficher les données dans la console
-            })
-            .catch((error) => {
-                console.error('Erreur lors de la lecture des données :', error);
-            });
+            refReponsesCoord.once('value')
+                .then((snapshot) => {
+                    // Les données sont disponibles sous forme de snapshot
+                    const data = snapshot.val();
+                    console.log(data); // Afficher les données dans la console
+                })
+                .catch((error) => {
+                    console.error('Erreur lors de la lecture des données :', error);
+                });
         </script>
 
         <script>
