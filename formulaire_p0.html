@@ -77,6 +77,7 @@
             <p></p><br><br>
         </form> 
 
+        
         <script>
             function next02() {
                 // Supprimer les questions suivantes déjà affichées
@@ -149,9 +150,11 @@
                 }
 
 
+                
+
                 // Récupérer les réponses de la partie 0
                 const reponsesP0 = new FormData(document.getElementById('P0'));
-
+                
                 // Stocker les réponses dans une session ou un cookie
                 sessionStorage.setItem('reponsesP0', JSON.stringify(Object.fromEntries(reponsesP0.entries())));
 
@@ -159,7 +162,6 @@
                 window.location.href = "formulaire_p1.html";
             }
         </script>
-
 
         <hr>
 
