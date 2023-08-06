@@ -64,25 +64,8 @@
             </div>
         </div>
 
-        <script type="module">
-            // Import the functions you need from the SDKs you need
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-
-            // Remplacez les valeurs ci-dessous par votre configuration Firebase
-            const firebaseConfig = {
-                    apiKey: "AIzaSyAmRegf6hzLaMhuGmfleze5xeg0nBmIlD4",
-                    authDomain: "bicastre.firebaseapp.com",
-                    databaseURL: "https://bicastre-default-rtdb.europe-west1.firebasedatabase.app",
-                    projectId: "bicastre",
-                    storageBucket: "bicastre.appspot.com",
-                    messagingSenderId: "172210441241",
-                    appId: "1:172210441241:web:3cb58bc84aeac5afe72e88"
-                };
-
-                // Initialiser Firebase
-                firebase.initializeApp(firebaseConfig);
-        </script>
-        <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js"></script>
+        <script nomodule src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js"></script>
+        <script nomodule src="https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js"></script>
 
         <script>
             function Suivant0() {
@@ -106,6 +89,20 @@
                     alert("Veuillez entrer un code groupe valide.");
                     return;
                 }
+
+                // Remplacez les valeurs ci-dessous par votre configuration Firebase
+                const firebaseConfig = {
+                    apiKey: "AIzaSyAmRegf6hzLaMhuGmfleze5xeg0nBmIlD4",
+                    authDomain: "bicastre.firebaseapp.com",
+                    databaseURL: "https://bicastre-default-rtdb.europe-west1.firebasedatabase.app",
+                    projectId: "bicastre",
+                    storageBucket: "bicastre.appspot.com",
+                    messagingSenderId: "172210441241",
+                    appId: "1:172210441241:web:3cb58bc84aeac5afe72e88"
+                };
+
+                // Initialiser Firebase
+                firebase.initializeApp(firebaseConfig);
 
                 // Référence à la base de données
                 const database = firebase.database();
