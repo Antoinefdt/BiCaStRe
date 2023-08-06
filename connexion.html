@@ -18,23 +18,6 @@
         <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
             import { getDatabase } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
-
-            // Remplacez les valeurs ci-dessous par votre configuration Firebase
-            const firebaseConfig = {
-                apiKey: "AIzaSyAmRegf6hzLaMhuGmfleze5xeg0nBmIlD4",
-                authDomain: "bicastre.firebaseapp.com",
-                databaseURL: "https://bicastre-default-rtdb.europe-west1.firebasedatabase.app",
-                projectId: "bicastre",
-                storageBucket: "bicastre.appspot.com",
-                messagingSenderId: "172210441241",
-                appId: "1:172210441241:web:3cb58bc84aeac5afe72e88"
-            };
-
-            // Initialiser Firebase
-            const firebase = initializeApp(firebaseConfig);
-
-            // Référence à la base de données
-            const database = getDatabase(firebase);
         </script>
         
 
@@ -111,7 +94,22 @@
                     return;
                 }
 
-                
+                // Remplacez les valeurs ci-dessous par votre configuration Firebase
+                const firebaseConfig = {
+                    apiKey: "AIzaSyAmRegf6hzLaMhuGmfleze5xeg0nBmIlD4",
+                    authDomain: "bicastre.firebaseapp.com",
+                    databaseURL: "https://bicastre-default-rtdb.europe-west1.firebasedatabase.app",
+                    projectId: "bicastre",
+                    storageBucket: "bicastre.appspot.com",
+                    messagingSenderId: "172210441241",
+                    appId: "1:172210441241:web:3cb58bc84aeac5afe72e88"
+                };
+
+                // Initialiser Firebase
+                const firebase = initializeApp(firebaseConfig);
+
+                // Référence à la base de données
+                const database = getDatabase(firebase);
 
                 
 
