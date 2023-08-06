@@ -14,9 +14,10 @@
         type="text/css"
         />
 
-        <script type="module" src="https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js"></script>
+        
         <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+            import { getDatabase } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
 
             // Remplacez les valeurs ci-dessous par votre configuration Firebase
             const firebaseConfig = {
@@ -33,7 +34,7 @@
             const firebase = initializeApp(firebaseConfig);
 
             // Référence à la base de données
-            const database = firebase.database();
+            const database = getDatabase(firebase);
         </script>
         
 
@@ -61,7 +62,7 @@
 
             <hr><hr>
 
-            <h2>Connexion</h2><br><br>
+            <h2>Connexioooooon</h2><br><br>
             <p>Ce questionnaire vise à établir le bilan carbone de votre stage de recherche de M1. Il tente d'estimer le montant des émissions de Gaz à Effet de Serre (GES) engendrées par la réalisation de votre stage, quantifié en kgCO2e (masse de dioxyde de carbone équivalent). </p><br><br>
             <p>L'ensemble du questionnaire est constitué de trois parties, lesquelles sont précédées de questions générales. Seront notamment évaluées : <br>
             - les émissions dues aux transports <br>
