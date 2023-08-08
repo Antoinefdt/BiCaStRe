@@ -51,7 +51,10 @@
 
         <p>Vos résultats seront analysés dans les plus brefs délais. Vous recevrez votre bilan carbone à l'adresse mail institutionnelle que vous avez précisée en début de questionnaire dans un délai de quelques heures.</p><br><br><br><br><br>
 
-        <pre id="resume-reponses"></pre><br><br><br><br><br>
+        <pre id="resume-reponses"></pre><br><br><br>
+
+        <p>Pour les jours de la semaine travaillés au labo :</p><br><br>
+        <pre id="resume-reponses-jourshl"></pre><br><br><br><br><br>
 
         <button onclick="Accueil()">Revenir à l'accueil</button><br><br>
         <hr>
@@ -69,6 +72,9 @@
         // Afficher le résumé des réponses dans un élément HTML
         const resumeReponsesElement = document.getElementById('resume-reponses');
         resumeReponsesElement.innerText = JSON.stringify(reponsesCompletees, null, 10);
+
+        const resumeReponsesJourshlElement = document.getElementById('resume-reponses-jourshl');
+        resumeReponsesJourshlElement.innerText = JSON.stringify(dplcmt_hl_days, null, 10);
         
 
 
