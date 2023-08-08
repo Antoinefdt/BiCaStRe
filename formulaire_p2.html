@@ -369,6 +369,10 @@
                         }
                     });
 
+                    if (shouldReturn) {
+                        return;
+                    }
+
                     if (!auMoinsUneCochee) {
                         alert("Veuillez préciser au moins un consommable utilisé. S'il n'y en a aucun, merci de modifier la réponse à la question précédente en conséquence.");
                         return;
