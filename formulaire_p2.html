@@ -360,7 +360,7 @@
                             auMoinsUneCochee = true;
                             let MyPrix = document.getElementById("Prix_"+checkbox.value).value;
                             if (!MyPrix) {
-                                alert('Veuillez préciser le prix du/des consommable(s) lié(s) à la rubrique "${checkbox.value}".');
+                                alert('Veuillez préciser le prix du/des consommable(s) lié(s) à la rubrique \"'+checkbox.value+'\".');
                                 let shouldReturn = true;
                                 if (shouldReturn) {
                                     return;
