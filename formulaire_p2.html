@@ -359,7 +359,7 @@
                         if (checkbox.checked) {
                             auMoinsUneCochee = true;
                             let MyPrix = document.getElementById("Prix_"+checkbox.value+"_id").value;
-                            if (MyPrix == "XXX") {
+                            if (!MyPrix) {
                                 alert('Veuillez préciser le prix du/des consommable(s) lié(s) à la rubrique \"'+checkbox.value+'\".');
                                 let shouldReturn = true;
                                 
