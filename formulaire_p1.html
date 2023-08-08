@@ -990,7 +990,7 @@
 
                 // Récupérer les réponses de la partie 1
                 const reponsesPI = new FormData(document.getElementById('PI'));
-                const dplcmt_hl_days = Array.from(document.querySelectorAll('input[name="dplcmt_hl_days"]:checked')).map(input => input.value);
+                const dplcmt_hl_days = Array.from(document.querySelectorAll('input[name="dplcmt_hl_day"]:checked')).map(input => input.value);
 
                 // Stocker les réponses dans une session ou un cookie
                 sessionStorage.setItem('reponsesPI', JSON.stringify(Object.fromEntries(reponsesPI.entries())));
