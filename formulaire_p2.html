@@ -197,7 +197,7 @@
                 if (checkbox.checked) {
                     champValeurDiv.innerHTML = `
                     <label for="${champValeurId}">Prix total de la/des entité(s) concernée(s) :</label>
-                    <input type="number" step="1" id="${champValeurId}" name="${champValeurId}" placeholder="XXX" required> <span>€</span>
+                    <input type="number" step="1" id="${champValeurId}+_id" name="${champValeurId}" placeholder="XXX" required> <span>€</span>
                     `;
                 } else {
                 champValeurDiv.innerHTML = ""; // Effacer le champ texte lorsque la case est décochée
@@ -358,8 +358,8 @@
                     checkboxes_conso.forEach(checkbox => {
                         if (checkbox.checked) {
                             auMoinsUneCochee = true;
-                            let MyPrix = document.getElementById("Prix_"+checkbox.value).value;
-                            if (!MyPrix) {
+                            let MyPrix = document.getElementById("Prix_"+checkbox.value+"_id").value;
+                            if (MyPrix == "XXX") {
                                 alert('Veuillez préciser le prix du/des consommable(s) lié(s) à la rubrique \"'+checkbox.value+'\".');
                                 let shouldReturn = true;
                                 
