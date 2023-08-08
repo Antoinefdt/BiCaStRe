@@ -169,19 +169,19 @@
                             <label for="rec_four_type"> Quel type d'appareil ou de ressource numérique avez-vous acquis(e) et utilisé(e) ?</label></br><br>
                             <input type="checkbox" id="type1" name='fournitures' value="informatique" onclick="prix(this)">
                             <label for="type1">Matériel informatique : ordinateurs, écrans, imprimantes, serveurs</label></br>
-                            <div id="Prix_informatique"></div></br>
+                            <div id="Prix_informatique_container"></div></br>
                             
                             <input type="checkbox" id="type2" name='fournitures' value="audiovisuel" onclick="prix(this)">
                             <label for="type2">Matériel audiovisuel : réception, enregistrement, reproduction image et son</label></br>
-                            <div id="Prix_audiovisuel"></div></br>
+                            <div id="Prix_audiovisuel_container"></div></br>
                             
                             <input type="checkbox" id="type3" name='fournitures' value="composants électroniques" onclick="prix(this)">
                             <label for="type3">Composants électroniques et cartes</label></br>
-                            <div id="Prix_composants électroniques"></div></br>
+                            <div id="Prix_composants électroniques_container"></div></br>
                             
                             <input type="checkbox" id="type4" name='fournitures' value="logiciel" onclick="prix(this)">
                             <label for="type4">Logiciel</label></br>
-                            <div id="Prix_logiciel"></div></br>
+                            <div id="Prix_logiciel_container"></div></br>
                             
                         </div>
                     `;
@@ -192,7 +192,7 @@
 
             function prix(checkbox) {
                 const champValeurId = "Prix_" + checkbox.value;
-                const champValeurDiv = document.getElementById(champValeurId);
+                const champValeurDiv = document.getElementById(champValeurId+"_container");
 
                 if (checkbox.checked) {
                     champValeurDiv.innerHTML = `
@@ -218,43 +218,43 @@
                             <label for="rec_conso_type"> Quel type de consommable avez-vous utilisé ?</label></br><br>
                             <input type="checkbox" id="conso1" name='consommables' value="accessoires" onclick="prix(this)">
                             <label for="conso1">Accessoires (gants, blouses jetables, lunettes, etc.)</label></br>
-                            <div id="Prix_accessoires"></div></br>
+                            <div id="Prix_accessoires_container"></div></br>
                             
                             <input type="checkbox" id="conso2" name='consommables' value="protection individuelle" onclick="prix(this)">
                             <label for="conso2">Equipements de protection individuelle : radioprotection, vêtements de sécurité/de travail/de laboratoire réutilisables</label></br>
-                            <div id="Prix_protection individuelle"></div></br>
+                            <div id="Prix_protection individuelle_container"></div></br>
 
                             <input type="checkbox" id="conso3" name='consommables' value="gaz, hélium et azote liquides" onclick="prix(this)">
                             <label for="conso3">Gaz de qualité industrielle et grande pureté, hélium et azote liquides</label></br>
-                            <div id="Prix_gaz, hélium et azote liquides"></div></br>
+                            <div id="Prix_gaz, hélium et azote liquides_container"></div></br>
 
                             <input type="checkbox" id="conso4" name='consommables' value="produits chimiques" onclick="prix(this)">
                             <label for="conso4">Produits chimiques</label></br>
-                            <div id="Prix_produits chimiques"></div></br>
+                            <div id="Prix_produits chimiques_container"></div></br>
 
                             <input type="checkbox" id="conso5" name='consommables' value="plastique et résine" onclick="prix(this)">
                             <label for="conso5">Plastiques et résines : matériaux à usiner et résines pour la micro- et nanoélectronique</label></br>
-                            <div id="Prix_plastique et résine"></div></br>
+                            <div id="Prix_plastique et résine_container"></div></br>
 
                             <input type="checkbox" id="conso6" name='consommables' value="Animaux de laboratoire (petit)" onclick="prix(this)">
                             <label for="conso6">Animaux de laboratoire : petits mammifères (rongeurs..), amphibiens, animaux aquatiques, insectes et arachnides</label></br>
-                            <div id="Prix_Animaux de laboratoire (petit)"></div></br>
+                            <div id="Prix_Animaux de laboratoire (petit)_container"></div></br>
 
                             <input type="checkbox" id="conso7" name='consommables' value="Animaux de laboratoire (gros)" onclick="prix(this)">
                             <label for="conso7">Animaux de laboratoire : gros mammifères, porcins, ovins, caprins et primates + oiseaux, volailles et oeufs</label></br>
-                            <div id="Prix_Animaux de laboratoire (gros)"></div></br>
+                            <div id="Prix_Animaux de laboratoire (gros)_container"></div></br>
 
                             <input type="checkbox" id="conso8" name='consommables' value="végétal" onclick="prix(this)">
                             <label for="conso8">Expérimentation végétale : autres végétaux, végétaux marins, champignons, semences et tubercules, plantes et plants</label></br>
-                            <div id="Prix_végétal"></div></br>
+                            <div id="Prix_végétal_container"></div></br>
 
                             <input type="checkbox" id="conso9" name='consommables' value="pipette" onclick="prix(this)">
                             <label for="conso9">Pipettes réutilisables et à usage unique</label></br>
-                            <div id="Prix_pipette"></div></br>
+                            <div id="Prix_pipette_container"></div></br>
 
                             <input type="checkbox" id="conso10" name='consommables' value="lame" onclick="prix(this)">
                             <label for="conso10">Lames et lamelles en plastique et en verre </label></br>
-                            <div id="Prix_lame"></div></br>
+                            <div id="Prix_lame_container"></div></br>
                             
                         </div>
                     `;
@@ -360,6 +360,7 @@
                             auMoinsUneCochee = true;
                             let MyPrix = document.getElementById("Prix_"+checkbox.value).value;
                             console.log("document.blabla :"+document.getElementById("Prix_"+checkbox.value).value);
+                            let shouldReturn = false;
                             if (!MyPrix) {
                                 alert('Veuillez préciser le prix du/des consommable(s) lié(s) à la rubrique \"'+checkbox.value+'\".');
                                 let shouldReturn = true;
