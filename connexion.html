@@ -65,50 +65,6 @@
             </div>
         </div>
 
-        <script type="module">
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-            import { getDatabase, ref, set, push, get } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
-
-            // Remplacez les valeurs ci-dessous par votre configuration Firebase
-            const firebaseConfig = {
-                apiKey: "AIzaSyAmRegf6hzLaMhuGmfleze5xeg0nBmIlD4",
-                authDomain: "bicastre.firebaseapp.com",
-                databaseURL: "https://bicastre-default-rtdb.europe-west1.firebasedatabase.app",
-                projectId: "bicastre",
-                storageBucket: "bicastre.appspot.com",
-                messagingSenderId: "172210441241",
-                appId: "1:172210441241:web:3cb58bc84aeac5afe72e88"
-            };
-
-            // Initialiser Firebase
-            const firebase = initializeApp(firebaseConfig);
-
-            // Référence à la base de données
-            const database = getDatabase(firebase);
-
-            const ReponsesCoord = {
-                email: document.getElementById("email").value,
-                code_grp: document.getElementById("code_grp").value,
-            };
-
-            // Enregistrement des réponses dans la base de données Firebase
-            push(ref(database, "ReponsesCoord"), ReponsesCoord);
-
-            // Obtenez une référence à un nœud spécifique dans la base de données
-            const refReponsesCoord = ref(database, 'ReponsesCoord');
-
-            // Lire les données une seule fois
-            get(refReponsesCoord, 'value')
-                .then((snapshot) => {
-                    // Les données sont disponibles sous forme de snapshot
-                    const data = snapshot.val();
-                    console.log(data); // Afficher les données dans la console
-                })
-                .catch((error) => {
-                    console.error('Erreur lors de la lecture des données :', error);
-                });
-        </script>
-
         <script>
             
 
@@ -134,16 +90,9 @@
                     return;
                 }
 
-                
-
-                
-
                 // Récupérer les réponses de la partie Coord
                 const reponsesCoord = new FormData(document.getElementById('Coord'));
                 
-
-                
-
                 // Stocker les réponses dans une session ou un cookie
                 sessionStorage.setItem('reponsesCoord', JSON.stringify(Object.fromEntries(reponsesCoord.entries())));
 
