@@ -330,23 +330,18 @@
                     checkboxes_four.forEach(checkbox => {
                         if (checkbox.checked) {
                             auMoinsUneCochee = true;
-                            return;
+                            let MyPrix = document.getElementById("Prix_"+checkbox.value).value;
+                            if (!MyPrix) {
+                                alert('Veuillez préciser le prix de la/des fourniture(s) liée(s) à la rubrique "${checkbox.value}".');
+                                return;
+                            }
                         }
                     });
 
                     if (!auMoinsUneCochee) {
                         alert("Veuillez préciser au moins une fourniture acquise et utilisée. S'il n'y en a aucune, merci de modifier la réponse à la question précédente en conséquence.");
                         return;
-                    } 
-                    
-                    const checkboxes_four_checked = document.querySelectorAll('input[name="fournitures"]:checked');
-                    checkboxes_four_checked.forEach(checkbox => {
-                        let MyPrix = document.getElementById("Prix_"+checkbox.value).value;
-                        if (!MyPrix) {
-                            alert("Veuillez préciser le prix du/des consommable(s) lié(s) à la rubrique \""+checkbox.value+"\".");
-                            return;
-                        }
-                    });
+                    }   
                 }
 
                 let Myrec_conso = document.getElementById("rec_conso").value;
@@ -365,8 +360,11 @@
                             auMoinsUneCochee = true;
                             let MyPrix = document.getElementById("Prix_"+checkbox.value).value;
                             if (!MyPrix) {
-                                alert("Veuillez préciser le prix du/des consommable(s) lié(s) à la rubrique \""+checkbox.value+"\".");
-                                return;
+                                alert('Veuillez préciser le prix du/des consommable(s) lié(s) à la rubrique "${checkbox.value}".');
+                                let shouldReturn = true;
+                                if (shouldReturn) {
+                                    return;
+                                }
                             }
                         }
                     });
