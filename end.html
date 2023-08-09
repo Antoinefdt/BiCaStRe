@@ -91,15 +91,8 @@
         resumeReponsesConsommablesElement.innerText = JSON.stringify(consommables, null, 10);
 
 
-        // Exemple de données pour le CSV
-        const donnees = [
-        ['Nom', 'Age'],
-        ['Alice', 25],
-        ['Bob', 30]
-        ];
-
         // Convertir les données en format CSV
-        const csv = donnees.map(row => row.join(',')).join('\n');
+        const csv = reponsesCompletees.map(row => row.join(',')).join('\n');
 
         // Créer un objet Blob à partir du contenu CSV
         const blob = new Blob([csv], { type: 'text/csv' });
