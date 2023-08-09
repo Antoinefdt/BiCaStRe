@@ -62,7 +62,7 @@
         <p>Pour les consommables utilisés :</p><br><br>
         <p id="resume-reponses-consommables"></p><br><br><br><br><br>
 
-        <div id="fichier_csv"></div>
+        <div id="fichier_csv"></div><br><br><br>
 
         <button onclick="Accueil()">Revenir à l'accueil</button><br><br>
         <hr>
@@ -141,7 +141,22 @@
             reponsesCompletees.Voiture_hl_covoit,
         ];
 
-        const donneesCSV = [DF_Id, DF_dates, DF_lieu, DF_pro, DF_lieu, [dplcmt_hl_days]]; // Données du CSV
+        const DF_sup = [
+            reponsesCompletees.rec_sup,
+            reponsesCompletees.rec_sup_time,
+            reponsesCompletees.rec_sup_para,
+            reponsesCompletees.rec_sup_para_cpu,
+        ];
+
+        const DF_four = [
+            reponsesCompletees.rec_four,
+            reponsesCompletees.Prix_informatique,
+            reponsesCompletees.Prix_audiovisuel,
+            reponsesCompletees.Prix_composants_electroniques,
+            reponsesCompletees.Prix_logiciel,
+        ];
+
+        const donneesCSV = [DF_Id, DF_dates, DF_lieu, DF_pro, DF_hl, [dplcmt_hl_days], DF_sup, DF_four, [fournitures]]; // Données du CSV
 
 
         // Convertir les données en format CSV
