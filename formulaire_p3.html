@@ -1547,6 +1547,7 @@
                 // Récupérer les réponses de la partie 3
                 const reponsesPIII = new FormData(document.getElementById('PIII'));
                 const indexes = [depuisIndex, versIndex, loisirIndex];
+                console.log("indexes :"+indexes);
 
                 // Stocker les réponses dans une session ou un cookie
                 sessionStorage.setItem('reponsesPIII', JSON.stringify(Object.fromEntries(reponsesPIII.entries())));
