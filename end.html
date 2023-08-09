@@ -62,6 +62,8 @@
         <p>Pour les consommables utilisés :</p><br><br>
         <p id="resume-reponses-consommables"></p><br><br><br><br><br>
 
+        <div id="fichier_csv"></div>
+
         <button onclick="Accueil()">Revenir à l'accueil</button><br><br>
         <hr>
 
@@ -113,11 +115,13 @@
         // Créer un lien pour télécharger le fichier
         const lienTelechargement = document.createElement('a');
         lienTelechargement.href = url;
-        lienTelechargement.download = 'donnees.csv';
+        lienTelechargement.download = reponsesCompletees.code_grp+'.csv';
         lienTelechargement.textContent = 'Télécharger le fichier CSV';
 
+        const Divfichier_csv = document.getElementById('fichier_csv');
+
         // Ajouter le lien à la page
-        document.body.appendChild(lienTelechargement);
+        Divfichier_csv.appendChild(lienTelechargement);
 
 
 
