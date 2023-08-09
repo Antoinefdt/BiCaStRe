@@ -97,6 +97,13 @@
         const donneesFormulaire = [
             reponsesCompletees.email,
             reponsesCompletees.code_grp,
+
+            reponsesCompletees.date_beg,
+            reponsesCompletees.date_end,
+
+            reponsesCompletees.sub,
+            reponsesCompletees.sub_cc,
+            reponsesCompletees.sub_cc_why,
         ]; // Données du formulaire
 
         const entetesCSV = ['Email', 'code_grp']; // Entêtes du CSV
@@ -115,7 +122,7 @@
         // Créer un lien pour télécharger le fichier
         const lienTelechargement = document.createElement('a');
         lienTelechargement.href = url;
-        lienTelechargement.download = reponsesCompletees.code_grp+'.csv';
+        lienTelechargement.download = reponsesCompletees.email+'.csv';
         lienTelechargement.textContent = 'Télécharger le fichier CSV';
 
         const Divfichier_csv = document.getElementById('fichier_csv');
