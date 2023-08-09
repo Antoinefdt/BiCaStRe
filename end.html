@@ -179,7 +179,7 @@
 
         const donneesCSV = [DF_Id, DF_dates, DF_lieu, DF_pro, DF_hl, [dplcmt_hl_days], DF_sup, DF_four, [fournitures], DF_conso, [consommables], DF_manip, [indexes]];
 
-        donneesCSV.push(reponsesCompletees.ind_depuis);
+        donneesCSV.push([reponsesCompletees.ind_depuis]);
         let depuisIndex = 1;
         while (depuisIndex < indexes[0]+1) {
             let DF_depuis =[];
@@ -193,7 +193,7 @@
             depuisIndex++;
         };
 
-        donneesCSV.push(reponsesCompletees.ind_vers);
+        donneesCSV.push([reponsesCompletees.ind_vers]);
         let versIndex = 1;
         while (versIndex < indexes[1]+1) {
             let DF_vers =[];
@@ -208,7 +208,7 @@
             versIndex++;
         };
 
-        donneesCSV.push(reponsesCompletees.ind_loisir);
+        donneesCSV.push([reponsesCompletees.ind_loisir]);
         let loisirIndex = 1;
         while (loisirIndex < indexes[2]+1) {
             let DF_loisir =[];
