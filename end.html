@@ -182,7 +182,7 @@
         donneesCSV.push(reponsesCompletees.ind_depuis);
         let depuisIndex = 1;
         while (depuisIndex < indexes[0]+1) {
-            const DF_depuis =[];
+            let DF_depuis =[];
             DF_depuis.push(reponsesCompletees['ind_depuis_city'+depuisIndex]);
             DF_depuis.push(reponsesCompletees['ind_depuis_nb'+depuisIndex]);
             DF_depuis.push(reponsesCompletees['ind_depuis_mdt_aller'+depuisIndex]);
@@ -196,7 +196,7 @@
         donneesCSV.push(reponsesCompletees.ind_vers);
         let versIndex = 1;
         while (versIndex < indexes[1]+1) {
-            const DF_vers =[];
+            let DF_vers =[];
             DF_vers.push(reponsesCompletees['ind_vers_city'+depuisIndex]);
             DF_vers.push(reponsesCompletees['ind_vers_mdt_aller'+depuisIndex]);
             DF_vers.push(reponsesCompletees['Voiture_vers_aller'+depuisIndex+'_type']);
@@ -211,7 +211,7 @@
         donneesCSV.push(reponsesCompletees.ind_loisir);
         let loisirIndex = 1;
         while (loisirIndex < indexes[2]+1) {
-            const DF_loisir =[];
+            let DF_loisir =[];
             DF_loisir.push(reponsesCompletees['ind_loisir_country'+depuisIndex]);
             DF_loisir.push(reponsesCompletees['ind_loisir_city'+depuisIndex]);
             DF_loisir.push(reponsesCompletees['ind_loisir_mdt_aller'+depuisIndex]);
