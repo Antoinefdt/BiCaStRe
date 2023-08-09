@@ -51,7 +51,7 @@
 
         <p>Vous venez de terminer le renseignement du questionnaire permettant le calcul du bilan carbone de votre stage de recherche. L'ensemble de vos réponses a été regroupé dans le fichier CSV téléchargeable en cliquant sur le lien ci-dessous :</p><br><br>
 
-        <div id="fichier_csv" class="lien_telechargement"></div><br><br>
+        <button onclick="Telechargement()">Télécharger le fichier CSV</button><br><br>
 
         <h3>Plus qu'une étape !</h3><br><br>
 
@@ -228,12 +228,10 @@
         const lienTelechargement = document.createElement('a');
         lienTelechargement.href = url;
         lienTelechargement.download = reponsesCompletees.email+'.csv';
-        lienTelechargement.textContent = 'Télécharger le fichier CSV';
 
-        const Divfichier_csv = document.getElementById('fichier_csv');
-
-        // Ajouter le lien à la page
-        Divfichier_csv.appendChild(lienTelechargement);
+        function Telechargement() {
+            lienTelechargement.click();
+        }
 
         document.getElementById('code groupe').insertAdjacentHTML('beforeend', reponsesCompletees['code_grp']);
         document.getElementById('adresse mail').insertAdjacentHTML('beforeend', reponsesCompletees['email']);
