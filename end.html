@@ -91,6 +91,33 @@
         resumeReponsesConsommablesElement.innerText = JSON.stringify(consommables, null, 10);
 
 
+        // Exemple de données pour le CSV
+        const donnees = [
+        ['Nom', 'Age'],
+        ['Alice', 25],
+        ['Bob', 30]
+        ];
+
+        // Convertir les données en format CSV
+        const csv = donnees.map(row => row.join(',')).join('\n');
+
+        // Créer un objet Blob à partir du contenu CSV
+        const blob = new Blob([csv], { type: 'text/csv' });
+
+        // Créer un URL object pour le Blob
+        const url = URL.createObjectURL(blob);
+
+        // Créer un lien pour télécharger le fichier
+        const lienTelechargement = document.createElement('a');
+        lienTelechargement.href = url;
+        lienTelechargement.download = 'donnees.csv';
+        lienTelechargement.textContent = 'Télécharger le fichier CSV';
+
+        // Ajouter le lien à la page
+        document.body.appendChild(lienTelechargement);
+
+
+
         function Accueil() {
             window.location.href = "index.html";
         }
