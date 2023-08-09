@@ -53,16 +53,16 @@
 
         <div id="fichier_csv"></div><br><br>
 
-        <h3>Plus qu'une étape !</h3>
+        <h3>Plus qu'une étape !</h3><br><br>
 
         <p>Afin que vos résultats soient analysés, il vous est demandé de nous faire parvenir le fichier CSV téléchargeable grâce au lien ci-dessus par courriel :</p>
         
-        <p>A l'adresse : <br><br> antoine.feydit@ens-paris-saclay.fr</p><br><br>
-        <p>Objet : <br><br>BiCaStRe </p> <p id="code groupe"></p><br><br>
-        <p>Message : <br><br> Voici les données nécessaires à l'établissement du bilan carbone de mon stage de recherche réalisé dans le cadre de mon M1 à l'ENS Paris-Saclay. <br> Par ce courriel, j'accepte que mes résultats puissent être utilisés anonymement à des fins de statistiques. <br> Je désire recevoir mes résultats individuels.</p><br><br>
-        <p>Merci d'utiliser votre adresse mail institutionnelle </p><p id="adresse mail"></p>
+        <p><em>A l'adresse :</em> <br><br> antoine.feydit@ens-paris-saclay.fr</p><br><br>
+        <p><em>Objet : </em><br><br>BiCaStRe </p> <p id="code groupe"></p><br><br>
+        <p><em>Message : </em><br><br> Voici les données nécessaires à l'établissement du bilan carbone de mon stage de recherche réalisé dans le cadre de mon M1 à l'ENS Paris-Saclay. <br> Par ce courriel, j'accepte que mes résultats puissent être utilisés anonymement à des fins de statistiques. <br> Je désire recevoir mes résultats individuels.</p><br><br>
+        <p><em>Merci d'utiliser votre adresse mail institutionnelle </p><p id="adresse mail"></p></em><br><br>
 
-        <p> Merci beaucoup pour votre contribution ! Vous recevrez vos résultats individuels à l'adresse mail précisée dans un délai de quelques heures après l'envoi de votre fichier CSV par courriel.</p>
+        <p> Merci beaucoup pour votre contribution ! Vous recevrez vos résultats individuels à l'adresse mail précisée dans un délai de quelques heures après l'envoi de votre fichier CSV par courriel.</p><br><br>
 
         <button onclick="Accueil()">Revenir à l'accueil</button><br><br>
         <hr>
@@ -246,8 +246,8 @@
         // Ajouter le lien à la page
         Divfichier_csv.appendChild(lienTelechargement);
 
-        document.getElementById('code groupe').insertAdjacentHTML('afterbegin', reponsesCompletees['code_grp'].value);
-        document.getElementById('adresse mail').insertAdjacentHTML('afterbegin', reponsesCompletees['email'].value);
+        document.getElementById('code groupe').appendChild('afterbegin', reponsesCompletees['code_grp'].value);
+        document.getElementById('adresse mail').appendChild('afterbegin', reponsesCompletees['email'].value);
 
         function Accueil() {
             window.location.href = "index.html";
