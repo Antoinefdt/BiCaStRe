@@ -94,19 +94,23 @@
 
 
 
-        const donneesFormulaire0 = [
+        const DF_Id = [
             reponsesCompletees.email,
             reponsesCompletees.code_grp,
+        ];
 
+        const DF_dates = [
             reponsesCompletees.date_beg,
             reponsesCompletees.date_end,
+        ];
 
+        const DF_sujet = [
             reponsesCompletees.sub,
             reponsesCompletees.sub_cc,
             reponsesCompletees.sub_cc_why,
         ];
 
-        const donneesFormulaire1 = [
+        const DF_lieu = [
             reponsesCompletees.country_dep,
             reponsesCompletees.city_dep,
             reponsesCompletees.country_int,
@@ -119,22 +123,25 @@
             reponsesCompletees.mdt_retour,
             reponsesCompletees.Voiture_retour_type,
             reponsesCompletees.Voiture_retour_covoit,
+        ];
 
+        const DF_pro = [
             reponsesCompletees.dplcmt_pro,
             reponsesCompletees.dplcmt_pro_dist,
             reponsesCompletees.dplcmt_pro_mdt,
             reponsesCompletees.Voiture_pro_type,
             reponsesCompletees.Voiture_pro_covoit,
+        ];
 
+        const DF_hl = [
             reponsesCompletees.dplcmt_hl,
-            dplcmt_hl_days,
             reponsesCompletees.dplcmt_hl_dist,
             reponsesCompletees.dplcmt_hl_mdt,
             reponsesCompletees.Voiture_hl_type,
             reponsesCompletees.Voiture_hl_covoit,
         ];
 
-        const donneesCSV = [donneesFormulaire0, donneesFormulaire1]; // Données du CSV
+        const donneesCSV = [DF_Id, DF_dates, DF_lieu, DF_pro, DF_lieu, [dplcmt_hl_days]]; // Données du CSV
 
 
         // Convertir les données en format CSV
