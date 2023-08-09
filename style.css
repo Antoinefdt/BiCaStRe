@@ -443,3 +443,7 @@ button {
 .end .avancee img {
     margin-left: 20px;
 }
+
+.end .lien_telechargement {
+    color: rgb(130,190,50);
+}
