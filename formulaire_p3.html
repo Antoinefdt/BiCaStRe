@@ -1546,9 +1546,11 @@
 
                 // Récupérer les réponses de la partie 3
                 const reponsesPIII = new FormData(document.getElementById('PIII'));
+                const indexes = [depuisIndex, versIndex, loisirIndex];
 
                 // Stocker les réponses dans une session ou un cookie
                 sessionStorage.setItem('reponsesPIII', JSON.stringify(Object.fromEntries(reponsesPIII.entries())));
+                sessionStorage.setItem('indexes', JSON.stringify(indexes));
 
                 // Fusionner les réponses de la partie Coord, de la partie0, de la partie 1, de la partie 2 et de la partie 3
                 const reponsesCoord = JSON.parse(sessionStorage.getItem('reponsesCoord'));
