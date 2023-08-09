@@ -60,7 +60,7 @@
         <p><em>A l'adresse :</em> <br> antoine.feydit@ens-paris-saclay.fr</p><br><br>
         <p><em>Objet : </em></p><br><p id="code groupe">BiCaStRe</p><br><br>
         <p><em>Message : </em><br> Voici les données nécessaires à l'établissement du bilan carbone de mon stage de recherche réalisé dans le cadre de mon année de M1 à l'ENS Paris-Saclay. <br> Par ce courriel, j'accepte que mes résultats puissent être utilisés anonymement à des fins de statistiques. <br> Je désire recevoir mes résultats individuels.</p><br><br>
-        <p><em>Merci d'utiliser votre adresse mail institutionnelle :</p><br><p id="adresse mail"></p></em><br><br>
+        <p><em>Merci d'utiliser votre adresse mail institutionnelle :</em></p><br><p id="adresse mail"></p><br><br>
 
         <p> Merci beaucoup pour votre contribution ! Vous recevrez vos résultats individuels à l'adresse mail précisée dans un délai de quelques heures après l'envoi de votre fichier CSV par courriel.</p><br><br>
 
@@ -235,8 +235,8 @@
         // Ajouter le lien à la page
         Divfichier_csv.appendChild(lienTelechargement);
 
-        document.getElementById('code groupe').insertAdjacentHTML('afterbegin', reponsesCompletees['code_grp']);
-        document.getElementById('adresse mail').insertAdjacentHTML('afterbegin', reponsesCompletees['email']);
+        document.getElementById('code groupe').insertAdjacentHTML('beforeend', reponsesCompletees['code_grp']);
+        document.getElementById('adresse mail').insertAdjacentHTML('beforeend', reponsesCompletees['email']);
 
         function Accueil() {
             window.location.href = "index.html";
