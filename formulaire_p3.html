@@ -97,13 +97,13 @@
                     var new_quest = `
                         <div class="next_questIII1">
                             <label for="ind_depuis_city1"> De quelle ville vos proches sont-ils/elles parti.e.s pour rejoindre votre lieu de stage ?</label></br>
-                            <input size="24" type="text" id="ind_depuis_city1" name="ind_depuis_city" placeholder="ex : Gif-sur-Yvette"  required></br></br>
+                            <input size="24" type="text" id="ind_depuis_city1" name="ind_depuis_city1" placeholder="ex : Gif-sur-Yvette"  required></br></br>
         
                             <label for="ind_depuis_nb1"> Combien étaient-ils/elles ?</label></br>
-                            <input type="number" step="1" min="1" id="ind_depuis_nb1" name="ind_depuis_nb" placeholder="2"  required></br></br>
+                            <input type="number" step="1" min="1" id="ind_depuis_nb1" name="ind_depuis_nb1" placeholder="2"  required></br></br>
 
                             <label for="ind_depuis_mdt_aller1"> Quel moyen de transport ont-ils/elles utilisé pour le voyage aller ?</label></br>
-                            <select name="ind_depuis_mdt_aller" id="ind_depuis_mdt_aller1" onchange="Voiture_depuis_aller1()" required>
+                            <select name="ind_depuis_mdt_aller1" id="ind_depuis_mdt_aller1" onchange="Voiture_depuis_aller1()" required>
                                 <option value="" selected="selected">------- </option>
 
                                 <option value="Avion">Avion </option>                                
@@ -118,7 +118,7 @@
                             <div id="Voiture_depuis_aller1"></div>
 
                             <label for="ind_depuis_mdt_retour1"> Quel moyen de transport ont-ils/elles utilisé pour le voyage retour ?</label></br>
-                            <select name="ind_depuis_mdt_retour" id="ind_depuis_mdt_retour1" onchange="Voiture_depuis_retour1()" required>
+                            <select name="ind_depuis_mdt_retour1" id="ind_depuis_mdt_retour1" onchange="Voiture_depuis_retour1()" required>
                                 <option value="" selected="selected">------- </option>
 
                                 <option value="Avion">Avion </option>
@@ -159,7 +159,7 @@
                     var new_quest = `
                         <div class="next_questmdt_depuis_aller1">
                             <label for="Voiture_depuis_aller1_type">Quel type de voiture ont-ils/elles utilisé ?</label><br>
-                            <select name="Voiture_depuis_aller_type" id="Voiture_depuis_aller1_type">
+                            <select name="Voiture_depuis_aller1_type" id="Voiture_depuis_aller1_type">
                                 <option value="">-------</option>
 
                                 <option value="Essence">Essence</option>
@@ -188,7 +188,7 @@
                     var new_quest = `
                         <div class="next_questmdt_depuis_retour1">
                             <label for="Voiture_depuis_retour1_type">Quel type de voiture ont-ils/elles utilisé ?</label><br>
-                            <select name="Voiture_depuis_retour_type" id="Voiture_depuis_retour1_type">
+                            <select name="Voiture_depuis_retour1_type" id="Voiture_depuis_retour1_type">
                                 <option value="">-------</option>
 
                                 <option value="Essence">Essence</option>
@@ -215,13 +215,13 @@
                 var nouvelleVisiteDiv = `
                     <h4>Visite depuis la France n°${depuisIndex}</h4><br><br>
                     <label for="ind_depuis_city${depuisIndex}"> De quelle ville vos proches sont-ils/elles parti.e.s pour rejoindre votre lieu de stage ?</label></br>
-                    <input size="24" type="text" id="ind_depuis_city${depuisIndex}" name="ind_depuis_city" placeholder="ex : Gif-sur-Yvette"  required></br></br>
+                    <input size="24" type="text" id="ind_depuis_city${depuisIndex}" name="ind_depuis_city${depuisIndex}" placeholder="ex : Gif-sur-Yvette"  required></br></br>
             
                     <label for="ind_depuis_nb${depuisIndex}"> Combien étaient-ils/elles ?</label></br>
-                    <input type="number" min="1" step="1" id="ind_depuis_nb${depuisIndex}" name="ind_depuis_nb" placeholder="2"  required></br></br>
+                    <input type="number" min="1" step="1" id="ind_depuis_nb${depuisIndex}" name="ind_depuis_nb${depuisIndex}" placeholder="2"  required></br></br>
 
                     <label for="ind_depuis_mdt_aller${depuisIndex}"> Quel moyen de transport ont-ils/elles utilisé pour le voyage aller ?</label></br>
-                    <select name="ind_depuis_mdt_aller" id="ind_depuis_mdt_aller${depuisIndex}" onchange="Voiture_depuis_aller()" required>
+                    <select name="ind_depuis_mdt_aller${depuisIndex}" id="ind_depuis_mdt_aller${depuisIndex}" onchange="Voiture_depuis_aller()" required>
                         <option value="" selected="selected">------- </option>
 
                         <option value="Avion">Avion </option>
@@ -236,7 +236,7 @@
                     <div id="Voiture_depuis_aller${depuisIndex}"></div>
 
                     <label for="ind_depuis_mdt_retour${depuisIndex}"> Quel moyen de transport ont-ils/elles utilisé pour le voyage retour ?</label></br>
-                    <select name="ind_depuis_mdt_retour" id="ind_depuis_mdt_retour${depuisIndex}" onchange="Voiture_depuis_retour()" required>
+                    <select name="ind_depuis_mdt_retour${depuisIndex}" id="ind_depuis_mdt_retour${depuisIndex}" onchange="Voiture_depuis_retour()" required>
                         <option value="" selected="selected">------- </option>
 
                         <option value="Avion">Avion </option>
@@ -264,7 +264,7 @@
                     var new_quest = `
                         <div class="new_questVoiture_depuis_aller${depuisIndex}">
                             <label for="Voiture_depuis_aller${depuisIndex}_type">Quel type de voiture ont-ils/elles utilisé ?</label><br>
-                            <select name="Voiture_depuis_aller_type" id="Voiture_depuis_aller${depuisIndex}_type">
+                            <select name="Voiture_depuis_aller_type${depuisIndex}" id="Voiture_depuis_aller${depuisIndex}_type">
                                 <option value="">-------</option>
                                 
                                 <option value="Essence">Essence</option>
@@ -307,7 +307,7 @@
                     var new_quest = `
                         <div class="new_questVoiture_depuis_retour${depuisIndex}">
                             <label for="Voiture_depuis_retour${depuisIndex}_type">Quel type de voiture ont-ils/elles utilisé ?</label><br>
-                            <select name="Voiture_depuis_retour_type" id="Voiture_depuis_retour${depuisIndex}_type">
+                            <select name="Voiture_depuis_retour_type${depuisIndex}" id="Voiture_depuis_retour${depuisIndex}_type">
                                 <option value="">-------</option>
                                 
                                 <option value="Essence">Essence</option>
@@ -360,10 +360,10 @@
                     var new_quest = `
                         <div class="next_questIII2">
                             <label for="ind_vers_city1"> Quelle ville française avez-vous rejointe pour rendre visite à vos proches ?</label></br>
-                            <input size="24" type="text" id="ind_vers_city1" name="ind_vers_city" placeholder="ex : Gif-sur-Yvette"  required></br></br>
+                            <input size="24" type="text" id="ind_vers_city1" name="ind_vers_city1" placeholder="ex : Gif-sur-Yvette"  required></br></br>
         
                             <label for="ind_vers_mdt_aller1"> Quel moyen de transport avez-vous utilisé pour le voyage aller ?</label></br>
-                            <select name="ind_vers_mdt_aller" id="ind_vers_mdt_aller1" onchange="Voiture_vers_aller1()" required>
+                            <select name="ind_vers_mdt_aller1" id="ind_vers_mdt_aller1" onchange="Voiture_vers_aller1()" required>
                                 <option value="" selected="selected">------- </option>
 
                                 <option value="Avion">Avion </option>                                
@@ -378,7 +378,7 @@
                             <div id="Voiture_vers_aller1"></div>
 
                             <label for="ind_vers_mdt_retour1"> Quel moyen de transport avez-vous utilisé pour le voyage retour ?</label></br>
-                            <select name="ind_vers_mdt_retour" id="ind_vers_mdt_retour1" onchange="Voiture_vers_retour1()" required>
+                            <select name="ind_vers_mdt_retour1" id="ind_vers_mdt_retour1" onchange="Voiture_vers_retour1()" required>
                                 <option value="" selected="selected">------- </option>
 
                                 <option value="Avion">Avion </option>
@@ -421,7 +421,7 @@
                     var new_quest = `
                         <div class="next_questmdt_vers_aller1">
                             <label for="Voiture_vers_aller1_type">Quel type de voiture avez-vous utilisé ?</label><br>
-                            <select name="Voiture_vers_aller_type" id="Voiture_vers_aller1_type">
+                            <select name="Voiture_vers_aller1_type" id="Voiture_vers_aller1_type">
                                 <option value="">-------</option>
                                 
                                 <option value="Essence">Essence</option>
@@ -435,7 +435,7 @@
 
                             <label for="Voiture_vers_aller1_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
                             <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
-                            <input type="number" min="0" step="1" id="Voiture_vers_aller1_covoit" name="Voiture_vers_aller_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                            <input type="number" min="0" step="1" id="Voiture_vers_aller1_covoit" name="Voiture_vers_aller1_covoit" placeholder="2"> <span>personnes</span><br><br> 
                         </div>
                     `;
                     document.getElementById("Voiture_vers_aller1").insertAdjacentHTML('afterbegin', new_quest);
@@ -454,7 +454,7 @@
                     var new_quest = `
                         <div class="next_questmdt_vers_retour1">
                             <label for="Voiture_vers_retour1_type">Quel type de voiture avez-vous utilisé ?</label><br>
-                            <select name="Voiture_vers_retour_type" id="Voiture_vers_retour1_type">
+                            <select name="Voiture_vers_retour1_type" id="Voiture_vers_retour1_type">
                                 <option value="">-------</option>
                                 
                                 <option value="Essence">Essence</option>
@@ -468,7 +468,7 @@
 
                             <label for="Voiture_vers_retour1_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
                             <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
-                            <input type="number" min="0" step="1" id="Voiture_vers_retour1_covoit" name="Voiture_vers_retour_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                            <input type="number" min="0" step="1" id="Voiture_vers_retour1_covoit" name="Voiture_vers_retour1_covoit" placeholder="2"> <span>personnes</span><br><br> 
                         </div>
                     `;
                     document.getElementById("Voiture_vers_retour1").insertAdjacentHTML('afterbegin', new_quest);
@@ -485,10 +485,10 @@
                 var nouvelleVisiteDiv = `
                     <h4>Visite en France n°${versIndex}</h4><br><br>
                     <label for="ind_vers_city${versIndex}"> Quelle ville française avez-vous rejointe pour rendre visite à vos proches ?</label></br>
-                    <input size="24" type="text" id="ind_vers_city${versIndex}" name="ind_vers_city" placeholder="ex : Gif-sur-Yvette"  required></br></br>
+                    <input size="24" type="text" id="ind_vers_city${versIndex}" name="ind_vers_city${versIndex}" placeholder="ex : Gif-sur-Yvette"  required></br></br>
             
                     <label for="ind_vers_mdt_aller${versIndex}"> Quel moyen de transport avez-vous utilisé pour le voyage aller ?</label></br>
-                    <select name="ind_vers_mdt_aller" id="ind_vers_mdt_aller${versIndex}" onchange="Voiture_vers_aller()" required>
+                    <select name="ind_vers_mdt_aller${versIndex}" id="ind_vers_mdt_aller${versIndex}" onchange="Voiture_vers_aller()" required>
                         <option value="" selected="selected">------- </option>
 
                         <option value="Avion">Avion </option>
@@ -504,7 +504,7 @@
         
 
                     <label for="ind_vers_mdt_retour${versIndex}"> Quel moyen de transport avez-vous utilisé pour le voyage retour ?</label></br>
-                    <select name="ind_vers_mdt_retour" id="ind_vers_mdt_retour${versIndex}" onchange="Voiture_vers_retour()" required>
+                    <select name="ind_vers_mdt_retour${versIndex}" id="ind_vers_mdt_retour${versIndex}" onchange="Voiture_vers_retour()" required>
                         <option value="" selected="selected">------- </option>
 
                         <option value="Avion">Avion </option>
@@ -533,7 +533,7 @@
                     var new_quest = `
                         <div class="new_questVoiture_vers_aller${versIndex}">
                             <label for="Voiture_vers_aller${versIndex}_type">Quel type de voiture avez-vous utilisé ?</label><br>
-                            <select name="Voiture_vers_aller_type" id="Voiture_vers_aller${versIndex}_type">
+                            <select name="Voiture_vers_aller${versIndex}_type" id="Voiture_vers_aller${versIndex}_type">
                                 <option value="">-------</option>
                                 
                                 <option value="Essence">Essence</option>
@@ -547,7 +547,7 @@
 
                             <label for="Voiture_vers_aller${versIndex}_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
                             <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
-                            <input type="number" min="0" step="1" id="Voiture_vers_aller${versIndex}_covoit" name="Voiture_vers_aller_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                            <input type="number" min="0" step="1" id="Voiture_vers_aller${versIndex}_covoit" name="Voiture_vers_aller${versIndex}_covoit" placeholder="2"> <span>personnes</span><br><br> 
                         </div>
                     `;
                     document.getElementById(`Voiture_vers_aller${versIndex}`).insertAdjacentHTML('afterbegin', new_quest);
@@ -580,7 +580,7 @@
                     var new_quest = `
                         <div class="new_questVoiture_vers_retour${versIndex}">
                             <label for="Voiture_vers_retour${versIndex}_type">Quel type de voiture avez-vous utilisé ?</label><br>
-                            <select name="Voiture_vers_retour_type" id="Voiture_vers_retour${versIndex}_type">
+                            <select name="Voiture_vers_retour${versIndex}_type" id="Voiture_vers_retour${versIndex}_type">
                                 <option value="">-------</option>
                                 
                                 <option value="Essence">Essence</option>
@@ -594,7 +594,7 @@
 
                             <label for="Voiture_vers_retour${versIndex}_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
                             <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
-                            <input type="number" min="0" step="1" id="Voiture_vers_retour${versIndex}_covoit" name="Voiture_vers_retour_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                            <input type="number" min="0" step="1" id="Voiture_vers_retour${versIndex}_covoit" name="Voiture_vers_retour${versIndex}_covoit" placeholder="2"> <span>personnes</span><br><br> 
                         </div>
                     `;
                     document.getElementById(`Voiture_vers_retour${versIndex}`).insertAdjacentHTML('afterbegin', new_quest);
@@ -637,7 +637,7 @@
                     var new_quest = `
                         <div class="next_questIII3">
                             <label for="ind_loisir_country1"> Quel pays avez-vous rejoint dans le cadre de vos loisirs ?</label></br>
-                            <select name="ind_loisir_country" id="ind_loisir_country1" required>
+                            <select name="ind_loisir_country1" id="ind_loisir_country1" required>
                                 <option value="">-------</option>
 
                                 <option value="Afghanistan">Afghanistan </option>
@@ -870,10 +870,10 @@
                             </select></br></br>
 
                             <label for="ind_loisir_city1"> Quelle ville avez-vous rejointe dans le cadre de vos loisirs ?</label></br>
-                            <input size="24" type="text" id="ind_loisir_city1" name="ind_loisir_city" placeholder="ex : Gif-sur-Yvette"  required></br></br>
+                            <input size="24" type="text" id="ind_loisir_city1" name="ind_loisir_city1" placeholder="ex : Gif-sur-Yvette"  required></br></br>
         
                             <label for="ind_loisir_mdt_aller1"> Quel moyen de transport avez-vous utilisé pour le voyage aller ?</label></br>
-                            <select name="ind_loisir_mdt_aller" id="ind_loisir_mdt_aller1" onchange="Voiture_loisir_aller1()" required>
+                            <select name="ind_loisir_mdt_aller1" id="ind_loisir_mdt_aller1" onchange="Voiture_loisir_aller1()" required>
                                 <option value="" selected="selected">------- </option>
 
                                 <option value="Avion">Avion </option>                                
@@ -888,7 +888,7 @@
                             <div id="Voiture_loisir_aller1"></div>
 
                             <label for="ind_loisir_mdt_retour1"> Quel moyen de transport avez-vous utilisé pour le voyage retour ?</label></br>
-                            <select name="ind_loisir_mdt_retour" id="ind_loisir_mdt_retour1" onchange="Voiture_loisir_retour1()" required>
+                            <select name="ind_loisir_mdt_retour1" id="ind_loisir_mdt_retour1" onchange="Voiture_loisir_retour1()" required>
                                 <option value="" selected="selected">------- </option>
 
                                 <option value="Avion">Avion </option>
@@ -931,7 +931,7 @@
                     var new_quest = `
                         <div class="next_questmdt_loisir_aller1">
                             <label for="Voiture_loisir_aller1_type">Quel type de voiture avez-vous utilisé ?</label><br>
-                            <select name="Voiture_loisir_aller_type" id="Voiture_loisir_aller1_type">
+                            <select name="Voiture_loisir_aller1_type" id="Voiture_loisir_aller1_type">
                                 <option value="">-------</option>
                                 
                                 <option value="Essence">Essence</option>
@@ -945,7 +945,7 @@
 
                             <label for="Voiture_loisir_aller1_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
                             <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
-                            <input type="number" min="0" step="1" id="Voiture_loisir_aller1_covoit" name="Voiture_loisir_aller_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                            <input type="number" min="0" step="1" id="Voiture_loisir_aller1_covoit" name="Voiture_loisir_aller1_covoit" placeholder="2"> <span>personnes</span><br><br> 
                         </div>
                     `;
                     document.getElementById("Voiture_loisir_aller1").insertAdjacentHTML('afterbegin', new_quest);
@@ -964,7 +964,7 @@
                     var new_quest = `
                         <div class="next_questmdt_loisir_retour1">
                             <label for="Voiture_loisir_retour1_type">Quel type de voiture avez-vous utilisé ?</label><br>
-                            <select name="Voiture_loisir_retour_type" id="Voiture_loisir_retour1_type">
+                            <select name="Voiture_loisir_retour1_type" id="Voiture_loisir_retour1_type">
                                 <option value="">-------</option>
                                 
                                 <option value="Essence">Essence</option>
@@ -978,7 +978,7 @@
 
                             <label for="Voiture_loisir_retour1_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
                             <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
-                            <input type="number" min="0" step="1" id="Voiture_loisir_retour1_covoit" name="Voiture_loisir_retour_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                            <input type="number" min="0" step="1" id="Voiture_loisir_retour1_covoit" name="Voiture_loisir_retour1_covoit" placeholder="2"> <span>personnes</span><br><br> 
                         </div>
                     `;
                     document.getElementById("Voiture_loisir_retour1").insertAdjacentHTML('afterbegin', new_quest);
@@ -995,7 +995,7 @@
                 var nouvelleVisiteDiv = `
                     <h4>Voyage n°${loisirIndex}</h4><br><br>
                     <label for="ind_loisir_country${loisirIndex}"> Quel pays avez-vous rejoint dans le cadre de vos loisirs ?</label></br>
-                    <select name="ind_loisir_country" id="ind_loisir_country${loisirIndex}" required>
+                    <select name="ind_loisir_country${loisirIndex}" id="ind_loisir_country${loisirIndex}" required>
                         <option value="">-------</option>
 
                         <option value="Afghanistan">Afghanistan </option>
@@ -1228,10 +1228,10 @@
                     </select></br></br>
 
                     <label for="ind_loisir_city${loisirIndex}"> Quelle ville avez-vous rejointe dans le cadre de vos loisirs ?</label></br>
-                    <input size="24" type="text" id="ind_loisir_city${loisirIndex}" name="ind_loisir_city" placeholder="ex : Gif-sur-Yvette"  required></br></br>
+                    <input size="24" type="text" id="ind_loisir_city${loisirIndex}" name="ind_loisir_city${loisirIndex}" placeholder="ex : Gif-sur-Yvette"  required></br></br>
             
                     <label for="ind_loisir_mdt_aller${loisirIndex}"> Quel moyen de transport avez-vous utilisé pour le voyage aller ?</label></br>
-                    <select name="ind_loisir_mdt_aller" id="ind_loisir_mdt_aller${loisirIndex}" onchange="Voiture_loisir_aller()" required>
+                    <select name="ind_loisir_mdt_aller${loisirIndex}" id="ind_loisir_mdt_aller${loisirIndex}" onchange="Voiture_loisir_aller()" required>
                         <option value="" selected="selected">------- </option>
 
                         <option value="Avion">Avion </option>
@@ -1246,7 +1246,7 @@
                     <div id="Voiture_loisir_aller${loisirIndex}"></div>
 
                     <label for="ind_loisir_mdt_retour${loisirIndex}"> Quel moyen de transport avez-vous utilisé pour le voyage retour ?</label></br>
-                    <select name="ind_loisir_mdt_retour" id="ind_loisir_mdt_retour${loisirIndex}" onchange="Voiture_loisir_retour()" required>
+                    <select name="ind_loisir_mdt_retour${loisirIndex}" id="ind_loisir_mdt_retour${loisirIndex}" onchange="Voiture_loisir_retour()" required>
                         <option value="" selected="selected">------- </option>
 
                         <option value="Avion">Avion </option>
@@ -1274,7 +1274,7 @@
                     var new_quest = `
                         <div class="new_questVoiture_loisir_aller${loisirIndex}">
                             <label for="Voiture_loisir_aller${loisirIndex}_type">Quel type de voiture avez-vous utilisé ?</label><br>
-                            <select name="Voiture_loisir_aller_type" id="Voiture_loisir_aller${loisirIndex}_type">
+                            <select name="Voiture_loisir_aller${loisirIndex}_type" id="Voiture_loisir_aller${loisirIndex}_type">
                                 <option value="">-------</option>
                                 
                                 <option value="Essence">Essence</option>
@@ -1288,7 +1288,7 @@
 
                             <label for="Voiture_loisir_aller${loisirIndex}_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
                             <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
-                            <input type="number" min="0" step="1" id="Voiture_loisir_aller${loisirIndex}_covoit" name="Voiture_loisir_aller_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                            <input type="number" min="0" step="1" id="Voiture_loisir_aller${loisirIndex}_covoit" name="Voiture_loisir_aller${loisirIndex}_covoit" placeholder="2"> <span>personnes</span><br><br> 
                         </div>
                     `;
                     document.getElementById(`Voiture_loisir_aller${loisirIndex}`).insertAdjacentHTML('afterbegin', new_quest);
@@ -1321,7 +1321,7 @@
                     var new_quest = `
                         <div class="new_questVoiture_loisir_retour${loisirIndex}">
                             <label for="Voiture_vers_retour${loisirIndex}_type">Quel type de voiture avez-vous utilisé ?</label><br>
-                            <select name="Voiture_loisir_retour_type" id="Voiture_loisir_retour${loisirIndex}_type">
+                            <select name="Voiture_loisir_retour${loisirIndex}_type" id="Voiture_loisir_retour${loisirIndex}_type">
                                 <option value="">-------</option>
                                 
                                 <option value="Essence">Essence</option>
@@ -1335,7 +1335,7 @@
 
                             <label for="Voiture_loisir_retour${loisirIndex}_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
                             <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
-                            <input type="number" min="0" step="1" id="Voiture_loisir_retour${loisirIndex}_covoit" name="Voiture_loisir_retour_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                            <input type="number" min="0" step="1" id="Voiture_loisir_retour${loisirIndex}_covoit" name="Voiture_loisir_retour${loisirIndex}_covoit" placeholder="2"> <span>personnes</span><br><br> 
                         </div>
                     `;
                     document.getElementById(`Voiture_loisir_retour${loisirIndex}`).insertAdjacentHTML('afterbegin', new_quest);
