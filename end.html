@@ -91,8 +91,18 @@
         resumeReponsesConsommablesElement.innerText = JSON.stringify(consommables, null, 10);
 
 
+
+        const donneesFormulaire = [
+            reponsesCompletees.email,
+            reponsesCompletees.code_grp,
+        ]; // Données du formulaire
+
+        const entetesCSV = ['Email', 'code_grp']; // Entêtes du CSV
+        const donneesCSV = [entetesCSV, donneesFormulaire]; // Données du CSV
+
+
         // Convertir les données en format CSV
-        const csv = reponsesCompletees.map(row => row.join(',')).join('\n');
+        const csv = donneesCSV.map(row => row.join(',')).join('\n');
 
         // Créer un objet Blob à partir du contenu CSV
         const blob = new Blob([csv], { type: 'text/csv' });
