@@ -197,13 +197,13 @@
         let versIndex = 1;
         while (versIndex < indexes[1]+1) {
             let DF_vers =[];
-            DF_vers.push(reponsesCompletees['ind_vers_city'+depuisIndex]);
-            DF_vers.push(reponsesCompletees['ind_vers_mdt_aller'+depuisIndex]);
-            DF_vers.push(reponsesCompletees['Voiture_vers_aller'+depuisIndex+'_type']);
-            DF_vers.push(reponsesCompletees['Voiture_vers_aller'+depuisIndex+'_covoit']);
-            DF_vers.push(reponsesCompletees['ind_vers_mdt_retour'+depuisIndex]);
-            DF_vers.push(reponsesCompletees['Voiture_vers_retour'+depuisIndex+'_type']);
-            DF_vers.push(reponsesCompletees['Voiture_vers_retour'+depuisIndex+'_covoit']);
+            DF_vers.push(reponsesCompletees['ind_vers_city'+versIndex]);
+            DF_vers.push(reponsesCompletees['ind_vers_mdt_aller'+versIndex]);
+            DF_vers.push(reponsesCompletees['Voiture_vers_aller'+versIndex+'_type']);
+            DF_vers.push(reponsesCompletees['Voiture_vers_aller'+versIndex+'_covoit']);
+            DF_vers.push(reponsesCompletees['ind_vers_mdt_retour'+versIndex]);
+            DF_vers.push(reponsesCompletees['Voiture_vers_retour'+versIndex+'_type']);
+            DF_vers.push(reponsesCompletees['Voiture_vers_retour'+versIndex+'_covoit']);
             donneesCSV.push(DF_vers);
             versIndex++;
         };
@@ -212,14 +212,14 @@
         let loisirIndex = 1;
         while (loisirIndex < indexes[2]+1) {
             let DF_loisir =[];
-            DF_loisir.push(reponsesCompletees['ind_loisir_country'+depuisIndex]);
-            DF_loisir.push(reponsesCompletees['ind_loisir_city'+depuisIndex]);
-            DF_loisir.push(reponsesCompletees['ind_loisir_mdt_aller'+depuisIndex]);
-            DF_loisir.push(reponsesCompletees['Voiture_loisir_aller'+depuisIndex+'_type']);
-            DF_loisir.push(reponsesCompletees['Voiture_loisir_aller'+depuisIndex+'_covoit']);
-            DF_loisir.push(reponsesCompletees['ind_loisir_mdt_retour'+depuisIndex]);
-            DF_loisir.push(reponsesCompletees['Voiture_loisir_retour'+depuisIndex+'_type']);
-            DF_loisir.push(reponsesCompletees['Voiture_loisir_retour'+depuisIndex+'_covoit']);
+            DF_loisir.push(reponsesCompletees['ind_loisir_country'+loisirIndex]);
+            DF_loisir.push(reponsesCompletees['ind_loisir_city'+loisirIndex]);
+            DF_loisir.push(reponsesCompletees['ind_loisir_mdt_aller'+loisirIndex]);
+            DF_loisir.push(reponsesCompletees['Voiture_loisir_aller'+loisirIndex+'_type']);
+            DF_loisir.push(reponsesCompletees['Voiture_loisir_aller'+loisirIndex+'_covoit']);
+            DF_loisir.push(reponsesCompletees['ind_loisir_mdt_retour'+loisirIndex]);
+            DF_loisir.push(reponsesCompletees['Voiture_loisir_retour'+loisirIndex+'_type']);
+            DF_loisir.push(reponsesCompletees['Voiture_loisir_retour'+loisirIndex+'_covoit']);
             donneesCSV.push(DF_loisir);
             loisirIndex++;
         };
