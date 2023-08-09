@@ -197,7 +197,7 @@
                 if (checkbox.checked) {
                     champValeurDiv.innerHTML = `
                     <label for="${champValeurId}">Prix total de la/des entité(s) concernée(s) :</label>
-                    <input type="number" step="1" id="${champValeurId}" name="${champValeurId}" placeholder="XXX" required> <span>€</span>
+                    <input type="number" min="1" step="0.01" id="${champValeurId}" name="${champValeurId}" placeholder="XXX" required> <span>€</span>
                     `;
                 } else {
                 champValeurDiv.innerHTML = ""; // Effacer le champ texte lorsque la case est décochée

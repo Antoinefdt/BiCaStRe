@@ -218,7 +218,7 @@
                     <input size="24" type="text" id="ind_depuis_city${depuisIndex}" name="ind_depuis_city" placeholder="ex : Gif-sur-Yvette"  required></br></br>
             
                     <label for="ind_depuis_nb${depuisIndex}"> Combien étaient-ils/elles ?</label></br>
-                    <input type="number" step="1" id="ind_depuis_nb${depuisIndex}" name="ind_depuis_nb" placeholder="2"  required></br></br>
+                    <input type="number" min="1" step="1" id="ind_depuis_nb${depuisIndex}" name="ind_depuis_nb" placeholder="2"  required></br></br>
 
                     <label for="ind_depuis_mdt_aller${depuisIndex}"> Quel moyen de transport ont-ils/elles utilisé pour le voyage aller ?</label></br>
                     <select name="ind_depuis_mdt_aller" id="ind_depuis_mdt_aller${depuisIndex}" onchange="Voiture_depuis_aller()" required>
