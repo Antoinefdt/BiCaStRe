@@ -355,23 +355,26 @@
   
                     // Vérifier si au moins une case est cochée
                     let auMoinsUneCochee = false;
+                    let shouldReturn;
                     checkboxes_conso.forEach(checkbox => {
                         if (checkbox.checked) {
                             auMoinsUneCochee = true;
                             let MyPrix = document.getElementById("Prix_"+checkbox.value).value;
                             console.log("document.blabla :"+document.getElementById("Prix_"+checkbox.value).value);
-                            let shouldReturn;
+                            
                             if (!MyPrix) {
                                 alert('Veuillez préciser le prix du/des consommable(s) lié(s) à la rubrique \"'+checkbox.value+'\".');
                                 shouldReturn = true;
                                 
                             }
                             console.log("shouldReturn :"+shouldReturn);
-                            if (shouldReturn == true) {
-                                    return;
-                                }
+                            
                         }
                     });
+
+                    if (shouldReturn == true) {
+                        return;
+                    }
 
                     if (!auMoinsUneCochee) {
                         alert("Veuillez préciser au moins un consommable utilisé. S'il n'y en a aucun, merci de modifier la réponse à la question précédente en conséquence.");
