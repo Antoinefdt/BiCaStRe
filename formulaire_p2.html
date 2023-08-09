@@ -404,6 +404,8 @@
 
                 // Stocker les réponses dans une session ou un cookie
                 sessionStorage.setItem('reponsesPII', JSON.stringify(Object.fromEntries(reponsesPII.entries())));
+                sessionStorage.setItem('fournitures', JSON.stringify(fournitures));
+                sessionStorage.setItem('consommables', JSON.stringify(consommables));
 
                 // Rediriger vers la page de la partie 3
                 window.location.href = "formulaire_p3.html";

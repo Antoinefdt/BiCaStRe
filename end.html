@@ -56,6 +56,12 @@
         <p>Pour les jours de la semaine travaillés au labo :</p><br><br>
         <p id="resume-reponses-jourshl"></p><br><br><br><br><br>
 
+        <p>Pour les fournitures utilisées :</p><br><br>
+        <p id="resume-reponses-fournitures"></p><br><br><br><br><br>
+
+        <p>Pour les consommables utilisés :</p><br><br>
+        <p id="resume-reponses-consommables"></p><br><br><br><br><br>
+
         <button onclick="Accueil()">Revenir à l'accueil</button><br><br>
         <hr>
 
@@ -68,6 +74,8 @@
         // Récupérer les réponses complètes depuis la session
         const reponsesCompletees = JSON.parse(sessionStorage.getItem('reponsesCompletees'));
         const dplcmt_hl_days = JSON.parse(sessionStorage.getItem('dplcmt_hl_days'));
+        const fournitures = JSON.parse(sessionStorage.getItem('fournitures'));
+        const consommables = JSON.parse(sessionStorage.getItem('consommables'));
 
         // Afficher le résumé des réponses dans un élément HTML
         const resumeReponsesElement = document.getElementById('resume-reponses');
@@ -76,6 +84,11 @@
         const resumeReponsesJourshlElement = document.getElementById('resume-reponses-jourshl');
         resumeReponsesJourshlElement.innerText = JSON.stringify(dplcmt_hl_days, null, 10);
         
+        const resumeReponsesFournituresElement = document.getElementById('resume-reponses-fournitures');
+        resumeReponsesFournituresElement.innerText = JSON.stringify(fournitures, null, 10);
+
+        const resumeReponsesConsommablesElement = document.getElementById('resume-reponses-consommables');
+        resumeReponsesConsommablesElement.innerText = JSON.stringify(consommables, null, 10);
 
 
         function Accueil() {
