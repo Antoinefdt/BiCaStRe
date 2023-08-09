@@ -49,20 +49,20 @@
 
         <h2>Merci pour votre réponse au questionnaire !</h2><br><br>
 
-        <p>Vos résultats seront analysés dans les plus brefs délais. Vous recevrez votre bilan carbone à l'adresse mail institutionnelle que vous avez précisée en début de questionnaire dans un délai de quelques heures.</p><br><br><br><br><br>
-
-        <pre id="resume-reponses"></pre><br><br><br>
-
-        <p>Pour les jours de la semaine travaillés au labo :</p><br><br>
-        <p id="resume-reponses-jourshl"></p><br><br><br><br><br>
-
-        <p>Pour les fournitures utilisées :</p><br><br>
-        <p id="resume-reponses-fournitures"></p><br><br><br><br><br>
-
-        <p>Pour les consommables utilisés :</p><br><br>
-        <p id="resume-reponses-consommables"></p><br><br><br><br><br>
+        <p>Vous venez de terminer le renseignement du questionnaire permettant le calcul du bilan carbone de votre stage de recherche. L'ensemble de vos réponses a été regroupé dans le fichier CSV téléchargeable en cliquant sur le lien ci-dessous :</p><br><br>
 
         <div id="fichier_csv"></div><br><br><br>
+
+        <h3>Plus qu'une étape !</h3>
+
+        <p>Afin que vos résultats soient analysés, il vous est demandé de nous faire parvenir le fichier CSV téléchargeable grâce au lien ci-dessus par courriel :</p>
+        
+        <p>A l'adresse : <br><br> antoine.feydit@ens-paris-saclay.fr</p><br><br>
+        <p>Objet : <br><br>BiCaStRe </p> <p id="code groupe"></p><br><br>
+        <p>Message : <br><br> Voici les données nécessaires à l'établissement du bilan carbone de mon stage de recherche réalisé dans le cadre de mon M1 à l'ENS Paris-Saclay. <br> Par ce courriel, j'accepte que mes résultats puissent être utilisés anonymement à des fins de statistiques. <br> Je désire recevoir mes résultats individuels.</p><br><br>
+        <p>Merci d'utiliser votre adresse mail institutionnelle </p><p id="adresse mail"></p>
+
+        Merci beaucoup pour votre contribution ! Vous recevrez vos résultats individuels à l'adresse mail précisée dans un délai de quelques heures après l'envoi de votre fichier CSV par courriel.
 
         <button onclick="Accueil()">Revenir à l'accueil</button><br><br>
         <hr>
@@ -246,7 +246,8 @@
         // Ajouter le lien à la page
         Divfichier_csv.appendChild(lienTelechargement);
 
-
+        document.getElementById('code groupe').insertAdjacentHTML('afterbegin', reponsesCompletees.code_grp);
+        document.getElementById('adresse mail').insertAdjacentHTML('afterbegin', reponsesCompletees.email);
 
         function Accueil() {
             window.location.href = "index.html";
