@@ -444,6 +444,6 @@ button {
     margin-left: 20px;
 }
 
-.end .lien_telechargement {
+.end .lien_telechargement p {
     color: rgb(130,190,50);
 }
