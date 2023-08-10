@@ -29,10 +29,10 @@
             </div>
             <div class="onglets">
                 <ul>
-                    <li><a href="">A propos</a></li>
-                    <li><a href="">Simulation</a></li>
-                    <li><a href="">Méthodologie</a></li>
-                    <li><a href="">Rapports</a></li>
+                    <li><a href="A_propos.html">A propos</a></li>
+                    <li><a href="Simulation.html">Simulation</a></li>
+                    <li><a href="Methodologie.html">Méthodologie</a></li>
+                    <li><a href="Rapports.html">Rapports</a></li>
                 </ul>
             </div>
         </div>
@@ -66,7 +66,7 @@
 
         <button onclick="window.location.href='https://webmail.ens-paris-saclay.fr/login.php';">Accès webmail ENS</button>
 
-        <button onclick="Accueil()">Revenir à l'accueil</button><br><br>
+        <button onclick="window.location.href ='index.html';">Revenir à l'accueil</button><br><br>
         <hr>
 
         <div class="footer">
@@ -238,8 +238,5 @@
         document.getElementById('code groupe').insertAdjacentHTML('beforeend', reponsesCompletees['code_grp']);
         document.getElementById('adresse mail').insertAdjacentHTML('beforeend', reponsesCompletees['email']);
 
-        function Accueil() {
-            window.location.href = "index.html";
-        }
     </script>
 </body>

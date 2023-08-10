@@ -115,10 +115,6 @@ button:hover {
 
 /*------HEADER-------*/
 
-
-
-
-
 @media (min-width: 900px) {
     .sec1 header {
         height: 150px;
@@ -255,6 +251,300 @@ button:hover {
     font-size: 2em;
     color: white;
 }
+
+/*-------A PROPOS--------*/
+
+@media (min-width: 900px) {
+    .propos h1 {
+        color: rgb(0, 150, 170);
+        font-size: 4em;
+        margin-left: 2%;
+    }
+    
+    .propos .container {
+        width: 100%;
+        margin: 0 auto;
+        margin-left: 30px;
+        margin-top: 5px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    
+    .propos .container ul {
+        display: flex;
+        align-items: center;
+    }
+    
+    .propos .container ul a {
+        font-size: 1.3em;
+        margin: 0 40px;
+        color: rgb(0,150,170);
+    }
+
+    .propos img {
+        margin-left: 42.5%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 900px) {
+    .propos h1 {
+        color: rgb(0, 150, 170);
+        font-size: 3em;
+        margin-left: 2%;
+    }
+    
+    .propos .container {
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .propos .container ul {
+        align-items: center;
+    }
+    
+    .propos .container ul a {
+        font-size: 1.3em;
+        margin: 0 10px;
+        color: rgb(0,150,170);
+    }
+
+    .propos img {
+        margin-left: 42.5%;
+        justify-content: center;
+    }
+}
+
+
+/*-------SIMULATION--------*/
+
+@media (min-width: 900px) {
+    .simulation h1 {
+        color: rgb(0, 150, 170);
+        font-size: 4em;
+        margin-left: 2%;
+    }
+    
+    .simulation .container {
+        width: 100%;
+        margin: 0 auto;
+        margin-left: 30px;
+        margin-top: 5px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    
+    .simulation .container ul {
+        display: flex;
+        align-items: center;
+    }
+    
+    .simulation .container ul a {
+        font-size: 1.3em;
+        margin: 0 40px;
+        color: rgb(0,150,170);
+    }
+
+    .simulation img {
+        margin-left: 42.5%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 900px) {
+    .simulation h1 {
+        color: rgb(0, 150, 170);
+        font-size: 3em;
+        margin-left: 2%;
+    }
+    
+    .simulation .container {
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .simulation .container ul {
+        align-items: center;
+    }
+    
+    .simulation .container ul a {
+        font-size: 1.3em;
+        margin: 0 10px;
+        color: rgb(0,150,170);
+    }
+
+    .simulation img {
+        margin-left: 42.5%;
+        justify-content: center;
+    }
+}
+
+/*-------METHODOLOGIE--------*/
+
+@media (min-width: 900px) {
+    .methodologie h1 {
+        color: rgb(0, 150, 170);
+        font-size: 4em;
+        margin-left: 2%;
+    }
+    
+    .methodologie .container {
+        width: 100%;
+        margin: 0 auto;
+        margin-left: 30px;
+        margin-top: 5px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    
+    .methodologie .container ul {
+        display: flex;
+        align-items: center;
+    }
+    
+    .methodologie .container ul a {
+        font-size: 1.3em;
+        margin: 0 40px;
+        color: rgb(0,150,170);
+    }
+
+    .methodologie img {
+        margin-left: 42.5%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 900px) {
+    .methodologie h1 {
+        color: rgb(0, 150, 170);
+        font-size: 3em;
+        margin-left: 2%;
+    }
+    
+    .methodologie .container {
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .methodologie .container ul {
+        align-items: center;
+    }
+    
+    .methodologie .container ul a {
+        font-size: 1.3em;
+        margin: 0 10px;
+        color: rgb(0,150,170);
+    }
+
+    .methodologie img {
+        margin-left: 42.5%;
+        justify-content: center;
+    }
+}
+
+/*-------METHODOLOGIE--------*/
+
+@media (min-width: 900px) {
+    .rapports h1 {
+        color: rgb(0, 150, 170);
+        font-size: 4em;
+        margin-left: 2%;
+    }
+    
+    .rapports .container {
+        width: 100%;
+        margin: 0 auto;
+        margin-left: 30px;
+        margin-top: 5px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    
+    .rapports .container ul {
+        display: flex;
+        align-items: center;
+    }
+    
+    .rapports .container ul a {
+        font-size: 1.3em;
+        margin: 0 40px;
+        color: rgb(0,150,170);
+    }
+
+    .rapports img {
+        margin-left: 42.5%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 900px) {
+    .rapports h1 {
+        color: rgb(0, 150, 170);
+        font-size: 3em;
+        margin-left: 2%;
+    }
+    
+    .rapports .container {
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .rapports .container ul {
+        align-items: center;
+    }
+    
+    .rapports .container ul a {
+        font-size: 1.3em;
+        margin: 0 10px;
+        color: rgb(0,150,170);
+    }
+
+    .rapports img {
+        margin-left: 42.5%;
+        justify-content: center;
+    }
+}
+
 
 /*------CONNEXION--------*/
 
