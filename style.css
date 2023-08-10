@@ -284,8 +284,8 @@ button:hover {
         color: rgb(0,150,170);
     }
 
-    .propos img {
-        margin-left: 42.5%;
+    .propos .chantier {
+        display: flex;
         justify-content: center;
     }
 }
@@ -319,8 +319,8 @@ button:hover {
         color: rgb(0,150,170);
     }
 
-    .propos img {
-        margin-left: 42.5%;
+    .propos .chantier {
+        display: flex;
         justify-content: center;
     }
 }
@@ -358,8 +358,8 @@ button:hover {
         color: rgb(0,150,170);
     }
 
-    .simulation img {
-        margin-left: 42.5%;
+    .simulation .chantier {
+        display: flex;
         justify-content: center;
     }
 }
@@ -393,8 +393,8 @@ button:hover {
         color: rgb(0,150,170);
     }
 
-    .simulation img {
-        margin-left: 42.5%;
+    .simulation .chantier {
+        display: flex;
         justify-content: center;
     }
 }
@@ -431,8 +431,8 @@ button:hover {
         color: rgb(0,150,170);
     }
 
-    .methodologie img {
-        margin-left: 42.5%;
+    .methodologie .chantier {
+        display: flex;
         justify-content: center;
     }
 }
@@ -466,8 +466,8 @@ button:hover {
         color: rgb(0,150,170);
     }
 
-    .methodologie img {
-        margin-left: 42.5%;
+    .methodologie .chantier {
+        display: flex;
         justify-content: center;
     }
 }
@@ -504,8 +504,8 @@ button:hover {
         color: rgb(0,150,170);
     }
 
-    .rapports img {
-        margin-left: 42.5%;
+    .rapports .chantier {
+        display: flex;
         justify-content: center;
     }
 }
@@ -539,8 +539,8 @@ button:hover {
         color: rgb(0,150,170);
     }
 
-    .rapports img {
-        margin-left: 42.5%;
+    .rapports .chantier {
+        display: flex;
         justify-content: center;
     }
 }
