@@ -298,7 +298,6 @@
                         margin-left: 70px;
                     }
                 `;
-
                 const styleElement = document.createElement('style');
                 styleElement.innerHTML = styles;
 
@@ -451,7 +450,7 @@
 
                             <label for="Voiture_vers_aller1_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
                             <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
-                            <input type="number" min="0" step="1" id="Voiture_vers_aller1_covoit" name="Voiture_vers_aller1_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                            <input type="number" min="0" max="6" step="1" id="Voiture_vers_aller1_covoit" name="Voiture_vers_aller1_covoit" placeholder="2"> <span>personnes</span><br><br> 
                         </div>
                     `;
                     document.getElementById("Voiture_vers_aller1").insertAdjacentHTML('afterbegin', new_quest);
@@ -484,7 +483,7 @@
 
                             <label for="Voiture_vers_retour1_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
                             <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
-                            <input type="number" min="0" step="1" id="Voiture_vers_retour1_covoit" name="Voiture_vers_retour1_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                            <input type="number" min="0" max="6" step="1" id="Voiture_vers_retour1_covoit" name="Voiture_vers_retour1_covoit" placeholder="2"> <span>personnes</span><br><br> 
                         </div>
                     `;
                     document.getElementById("Voiture_vers_retour1").insertAdjacentHTML('afterbegin', new_quest);
@@ -569,7 +568,7 @@
 
                             <label for="Voiture_vers_aller${versIndex}_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
                             <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
-                            <input type="number" min="0" step="1" id="Voiture_vers_aller${versIndex}_covoit" name="Voiture_vers_aller${versIndex}_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                            <input type="number" min="0" max="6" step="1" id="Voiture_vers_aller${versIndex}_covoit" name="Voiture_vers_aller${versIndex}_covoit" placeholder="2"> <span>personnes</span><br><br> 
                         </div>
                     `;
                     document.getElementById(`Voiture_vers_aller${versIndex}`).insertAdjacentHTML('afterbegin', new_quest);
@@ -616,7 +615,7 @@
 
                             <label for="Voiture_vers_retour${versIndex}_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
                             <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
-                            <input type="number" min="0" step="1" id="Voiture_vers_retour${versIndex}_covoit" name="Voiture_vers_retour${versIndex}_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                            <input type="number" min="0" max="6" step="1" id="Voiture_vers_retour${versIndex}_covoit" name="Voiture_vers_retour${versIndex}_covoit" placeholder="2"> <span>personnes</span><br><br> 
                         </div>
                     `;
                     document.getElementById(`Voiture_vers_retour${versIndex}`).insertAdjacentHTML('afterbegin', new_quest);
@@ -969,7 +968,7 @@
 
                             <label for="Voiture_loisir_aller1_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
                             <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
-                            <input type="number" min="0" step="1" id="Voiture_loisir_aller1_covoit" name="Voiture_loisir_aller1_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                            <input type="number" min="0" max="6" step="1" id="Voiture_loisir_aller1_covoit" name="Voiture_loisir_aller1_covoit" placeholder="2"> <span>personnes</span><br><br> 
                         </div>
                     `;
                     document.getElementById("Voiture_loisir_aller1").insertAdjacentHTML('afterbegin', new_quest);
@@ -1002,7 +1001,7 @@
 
                             <label for="Voiture_loisir_retour1_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
                             <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
-                            <input type="number" min="0" step="1" id="Voiture_loisir_retour1_covoit" name="Voiture_loisir_retour1_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                            <input type="number" min="0" max="6" step="1" id="Voiture_loisir_retour1_covoit" name="Voiture_loisir_retour1_covoit" placeholder="2"> <span>personnes</span><br><br> 
                         </div>
                     `;
                     document.getElementById("Voiture_loisir_retour1").insertAdjacentHTML('afterbegin', new_quest);
@@ -1315,7 +1314,7 @@
 
                             <label for="Voiture_loisir_aller${loisirIndex}_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
                             <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
-                            <input type="number" min="0" step="1" id="Voiture_loisir_aller${loisirIndex}_covoit" name="Voiture_loisir_aller${loisirIndex}_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                            <input type="number" min="0" max="6" step="1" id="Voiture_loisir_aller${loisirIndex}_covoit" name="Voiture_loisir_aller${loisirIndex}_covoit" placeholder="2"> <span>personnes</span><br><br> 
                         </div>
                     `;
                     document.getElementById(`Voiture_loisir_aller${loisirIndex}`).insertAdjacentHTML('afterbegin', new_quest);
@@ -1362,7 +1361,7 @@
 
                             <label for="Voiture_loisir_retour${loisirIndex}_covoit">Covoiturage : combien de personnes ont-elles voyagé avec vous ?</label><br><br>
                             <p><em>Attention : il s'agit du nombre de voyageurs/voyageuses EN PLUS. Merci de ne pas vous compter.</em></p><br><br>
-                            <input type="number" min="0" step="1" id="Voiture_loisir_retour${loisirIndex}_covoit" name="Voiture_loisir_retour${loisirIndex}_covoit" placeholder="2"> <span>personnes</span><br><br> 
+                            <input type="number" min="0" max="6" step="1" id="Voiture_loisir_retour${loisirIndex}_covoit" name="Voiture_loisir_retour${loisirIndex}_covoit" placeholder="2"> <span>personnes</span><br><br> 
                         </div>
                     `;
                     document.getElementById(`Voiture_loisir_retour${loisirIndex}`).insertAdjacentHTML('afterbegin', new_quest);
