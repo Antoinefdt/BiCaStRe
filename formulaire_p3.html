@@ -1401,10 +1401,16 @@
                 }
                 else if (Myind_depuis == "Oui") {
                     let Myind_depuis_city1 = document.getElementById("ind_depuis_city1").value;
+                    let MyRegEx = /^[a-zA-ZÀ-ÿ-\s]+$/;
                     
                     if (!Myind_depuis_city1) {
                         alert("Veuillez renseigner la ville de départ de vos proches lors qu'ils/elles vous ont rendu visite sur votre lieu de stage.");
                         return;
+                    }
+
+                    if (MyRegEx.test(Myind_depuis_city1) == false) {
+                    alert("Seuls les lettres, les tirets et les espaces sont tolérés pour le renseignement de la ville de départ de vos proches. Si vous avez utilisé des virgules, sachez qu'il n'est pas nécessaire de préciser la Région, le Comté, ou l'Etat. Le nom de la ville suffit.");
+                    return;
                     }
 
                     let Myind_depuis_nb1 = document.getElementById("ind_depuis_nb1").value;
@@ -1453,10 +1459,16 @@
                 }
                 else if (Myind_vers == "Oui") {
                     let Myind_vers_city1 = document.getElementById("ind_vers_city1").value;
-                    
+                    let MyRegEx = /^[a-zA-ZÀ-ÿ-\s]+$/;
+
                     if (!Myind_vers_city1) {
                         alert("Veuillez renseigner la ville française que vous avez rejointe pour rendre visite à vos proches durant votre stage.");
                         return;
+                    }
+
+                    if (MyRegEx.test(Myind_vers_city1) == false) {
+                    alert("Seuls les lettres, les tirets et les espaces sont tolérés pour le renseignement de la ville rejointe en France. Si vous avez utilisé des virgules, sachez qu'il n'est pas nécessaire de préciser la Région, le Comté, ou l'Etat. Le nom de la ville suffit.");
+                    return;
                     }
 
                     let Myind_vers_mdt_aller1 = document.getElementById("ind_vers_mdt_aller1").value;
@@ -1519,10 +1531,16 @@
                     }
 
                     let Myind_loisir_city1 = document.getElementById("ind_loisir_city1").value;
+                    let MyRegEx = /^[a-zA-ZÀ-ÿ-\s]+$/;
                     
                     if (!Myind_loisir_city1) {
                         alert("Veuillez renseigner la ville que vous avez rejointe dans le cadre de vos loisirs.");
                         return;
+                    }
+
+                    (MyRegEx.test(Myind_loisir_city1) == false) {
+                    alert("Seuls les lettres, les tirets et les espaces sont tolérés pour le renseignement de la ville rejointe dans le cadre de vos loisirs. Si vous avez utilisé des virgules, sachez qu'il n'est pas nécessaire de préciser la Région, le Comté, ou l'Etat. Le nom de la ville suffit.");
+                    return;
                     }
 
                     let Myind_loisir_mdt_aller1 = document.getElementById("ind_loisir_mdt_aller1").value;
