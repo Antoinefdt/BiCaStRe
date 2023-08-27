@@ -5,6 +5,16 @@
     text-decoration: none;
 }
 
+@font-face {
+    font-family: "Torus Notched SemiBold";
+    src: url("https://db.onlinewebfonts.com/t/6aa06a9a432b8417171f60d8351aa310.eot");
+    src: url("https://db.onlinewebfonts.com/t/6aa06a9a432b8417171f60d8351aa310.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/6aa06a9a432b8417171f60d8351aa310.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/6aa06a9a432b8417171f60d8351aa310.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/6aa06a9a432b8417171f60d8351aa310.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/6aa06a9a432b8417171f60d8351aa310.svg#Torus Notched SemiBold")format("svg");
+}
+
 
 body{
     overflow-x: hidden;
@@ -27,7 +37,7 @@ input,
 select,
 span,
 button {
-    font-family: "Torus Notched";
+    font-family: "Torus Notched SemiBold";
     margin-left: 2%;
     margin-right: 2%;
     display: inline-block;
