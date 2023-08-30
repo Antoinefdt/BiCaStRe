@@ -66,6 +66,15 @@
 
             <div id="Next_quest02"></div>
 
+            <h3>0.3 Choix du lieu de stage</h3><br><br>
+            <label for="motiv"> Quel facteur a principalement motivé votre choix du lieu de stage ?</label></br>
+            <select name="motiv" id="motiv" required>
+                <option value="">-------</option>
+                <option value="pays">Le désir de se rendre dans le pays concerné</option>
+                <option value="sujet">La présence d'un laboratoire traitant du sujet vous intéressant</option>
+                <option value="excellence">La présence d'une structure renommée au sein de laquelle effectuer un stage</option>
+            </select></br></br>
+
             <button onclick=Suivant1()>Passer à la partie I</button>
             <p></p><br><br>
         </form> 
@@ -86,7 +95,7 @@
                             <select name="sub_cc_why" id="sub_cc_why" style="max-width: 300px;">
                                 <option value="" selected="selected">------------------------------------------------ </option>
 
-                                <option value="Modelling">Modélisation : meilleure compréhension des phénomènes climatiques et/ou environnementaux. </option>
+                                <option value="Ecology">Ecologie : meilleure compréhension des phénomènes climatiques et/ou environnementaux. </option>
                                 <option value="Energy">Energie : meilleure gestion des ressources énergétiques et/ou électriques, décarbonation de la production. </option>
                                 <option value="Environment">Environnement : réduction de l'empreinte environnementale d'un procédé et/ou d'une industrie. </option>
                             </select></br></br>
@@ -142,7 +151,12 @@
                     }  
                 }
 
+                let Mymotiv = document.getElementById('motiv').value;
 
+                if (!Mymotiv) {
+                    alert('Veuillez préciser la motivation principale du choix de votre lieu de stage.');
+                    return;
+                }
                 
 
                 // Récupérer les réponses de la partie 0
