@@ -88,7 +88,7 @@ span {
 }
 
 .footer {
-    height: 30px;
+    height: 60px;
     width: 100%;
     bottom: 0;
     text-align: center;
@@ -96,6 +96,10 @@ span {
 }
 
 .footer p {
+    color: white;
+}
+
+.footer h6 {
     color: white;
 }
 
