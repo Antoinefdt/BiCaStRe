@@ -71,6 +71,7 @@
         // Récupérer les réponses complètes depuis la session
         const reponsesCompletees = JSON.parse(sessionStorage.getItem('reponsesCompletees'));
         const dplcmt_hl_days = JSON.parse(sessionStorage.getItem('dplcmt_hl_days'));
+        const indexes_escales = JSON.parse(sessionStorage.getItem('indexes_escales'));
         const fournitures = JSON.parse(sessionStorage.getItem('fournitures'));
         const consommables = JSON.parse(sessionStorage.getItem('consommables'));
         const indexes = JSON.parse(sessionStorage.getItem('indexes'));
@@ -103,13 +104,31 @@
             reponsesCompletees.city_int,
 
             reponsesCompletees.mdt_aller,
+            reponsesCompletees.Escale_aller,
             reponsesCompletees.Voiture_aller_type,
             reponsesCompletees.Voiture_aller_covoit,
 
             reponsesCompletees.mdt_retour,
+            reponsesCompletees.Escale_retour,
             reponsesCompletees.Voiture_retour_type,
             reponsesCompletees.Voiture_retour_covoit,
         ];
+
+        const DF_escales_aller = [];
+        let EscaleAllerIndex = 1;
+        while (EscaleAllerIndex < indexes_escales[0]+1) {
+            DF_escales_aller.push(reponsesCompletees['Escale_aller_pays'+EscaleAllerIndex]);
+            DF_escales_aller.push(reponsesCompletees['Escale_aller_ville'+EscaleAllerIndex]);
+            EscaleAllerIndex++;
+        };
+
+        const DF_escales_retour = [];
+        let EscaleRetourIndex = 1;
+        while (EscaleRetourIndex < indexes_escales[1]+1) {
+            DF_escales_aller.push(reponsesCompletees['Escale_retour_pays'+EscaleRetourIndex]);
+            DF_escales_aller.push(reponsesCompletees['Escale_retour_ville'+EscaleRetourIndex]);
+            EscaleRetourIndex++;
+        };
 
         const DF_pro = [
             reponsesCompletees.dplcmt_pro,
@@ -162,7 +181,7 @@
         ];
 
 
-        const donneesCSV = [DF_Id, DF_dates, DF_sujet, DF_lieu, DF_pro, DF_hl, [dplcmt_hl_days], DF_sup, DF_four, [fournitures], DF_conso, [consommables], DF_manip, [indexes]];
+        const donneesCSV = [DF_Id, DF_dates, DF_sujet, DF_lieu, DF_escales_aller, DF_escales_retour, DF_pro, DF_hl, [dplcmt_hl_days], DF_sup, DF_four, [fournitures], DF_conso, [consommables], DF_manip, [indexes]];
 
         donneesCSV.push([reponsesCompletees.ind_depuis]);
         let depuisIndex = 1;
