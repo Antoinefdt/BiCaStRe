@@ -612,10 +612,26 @@
                     document.getElementById("Voyage_aller").insertAdjacentHTML('afterbegin', new_quest);
                 }
 
-                if (document.getElementById('mdt_aller').value === "Avion") {
+                else if (document.getElementById('mdt_aller').value === "Avion") {
                     var new_quest = `
                         <div class="next_questmdt_aller">
                             <label for="Escale_aller">Avez-vous réalisé une ou plusieurs escale(s) ?</label><br>
+                            <select name="Escale_aller" id="Escale_aller" onchange="escale_aller()" required>
+                                <option value="">-------</option>
+                                <option value="Oui">Oui </option>
+                                <option value="Non">Non </option>
+                            </select></br></br>
+
+                            <div id="Escale_aller_precisions"></div>
+                        </div>
+                    `;
+                    document.getElementById("Voyage_aller").insertAdjacentHTML('afterbegin', new_quest);
+                }
+
+                else if (document.getElementById('mdt_aller').value === "Train") {
+                    var new_quest = `
+                        <div class="next_questmdt_aller">
+                            <label for="Escale_aller">Avez-vous effectué une ou plusieurs correspondance(s) ?</label><br>
                             <select name="Escale_aller" id="Escale_aller" onchange="escale_aller()" required>
                                 <option value="">-------</option>
                                 <option value="Oui">Oui </option>
@@ -638,10 +654,10 @@
                 if (document.getElementById('Escale_aller').value === "Oui") {
                     var new_quest = `
                         <div class="next_questmdt_aller_escale">
-                            <p><em>Merci de préciser l'ensemble des lieux où vous avez effectué une escale durant votre voyage aller pour rejoindre votre lieu de stage. S'il y en a plusieurs, veuillez utiliser le bouton "Ajouter une escale". L'appui sur le bouton "Réinitialiser" supprimera l'ensemble des escales ajoutées lors de l'appui sur le bouton "Ajouter une escale".</em></p><br><br>
+                            <p><em>Merci de préciser l'ensemble des lieux où vous avez effectué une escale/correspondance durant votre voyage aller pour rejoindre votre lieu de stage. S'il y en a plusieurs, veuillez utiliser le bouton "Ajouter une escale". L'appui sur le bouton "Réinitialiser" supprimera l'ensemble des escales ajoutées lors de l'appui sur le bouton "Ajouter une escale".</em></p><br><br>
                             <p><em> <img src="Attention.png" alt="" height="30" style="vertical-align: middle; margin-right: 2px;"> Attention : Merci de préciser vos escales DANS L'ORDRE dans lequel elles ont été effectuées entre votre lieu de départ et votre arrivée sur votre lieu de stage.</em></p><br><br>
                         
-                            <label for="Escale_aller_pays1">Dans quel pays avez-vous fait escale ?</label><br>
+                            <label for="Escale_aller_pays1">Dans quel pays avez-vous fait escale ou effectué une correspondance ?</label><br>
                             <select name="Escale_aller_pays1" id="Escale_aller_pays1" required>
                                 <option value="Japon" selected="selected">Japon </option>
 
@@ -871,7 +887,7 @@
 
                             </select></br></br>
 
-                            <label for="Escale_aller_ville1">Dans quel ville avez-vous fait escale ?</label><br>
+                            <label for="Escale_aller_ville1">Dans quel ville avez-vous fait escale ou effectué une correspondance ?</label><br>
                             <input size="24" type="text" id="Escale_aller_ville1" name="Escale_aller_ville1" placeholder="ex : Tokyo"  required></br></br>
 
                             <div id="Escales_aller"></div>
@@ -892,7 +908,7 @@
                 //créer une nouvelle escale
                 var nouvelleEscaleDiv = `
                     <h4>Escale durant le voyage aller n°${EscaleAllerIndex}</h4><br><br>
-                    <label for="Escale_aller_pays${EscaleAllerIndex}">Dans quel pays avez-vous fait escale ?</label><br>
+                    <label for="Escale_aller_pays${EscaleAllerIndex}">Dans quel pays avez-vous fait escale ou effectué une correspondance ?</label><br>
                     <select name="Escale_aller_pays${EscaleAllerIndex}" id="Escale_aller_pays${EscaleAllerIndex}" required>
                         <option value="Japon" selected="selected">Japon </option>
 
@@ -1122,7 +1138,7 @@
 
                     </select></br></br>
 
-                    <label for="Escale_aller_ville${EscaleAllerIndex}">Dans quel ville avez-vous fait escale ?</label><br>
+                    <label for="Escale_aller_ville${EscaleAllerIndex}">Dans quel ville avez-vous fait escale ou effectué une correspondance ?</label><br>
                     <input size="24" type="text" id="Escale_aller_ville${EscaleAllerIndex}" name="Escale_aller_ville${EscaleAllerIndex}" placeholder="ex : Tokyo"  required></br></br>
                 `;
 
@@ -1167,10 +1183,26 @@
                     document.getElementById("Voyage_retour").insertAdjacentHTML('afterbegin', new_quest);
                 }
 
-                if (document.getElementById('mdt_retour').value === "Avion") {
+                else if (document.getElementById('mdt_retour').value === "Avion") {
                     var new_quest = `
                         <div class="next_questmdt_retour">
                             <label for="Escale_retour">Avez-vous réalisé une ou plusieurs escale(s) ?</label><br>
+                            <select name="Escale_retour" id="Escale_retour" onchange="escale_retour()" required>
+                                <option value="">-------</option>
+                                <option value="Oui">Oui </option>
+                                <option value="Non">Non </option>
+                            </select></br></br>
+
+                            <div id="Escale_retour_precisions"></div>
+                        </div>
+                    `;
+                    document.getElementById("Voyage_retour").insertAdjacentHTML('afterbegin', new_quest);
+                }
+
+                else if (document.getElementById('mdt_retour').value === "Train") {
+                    var new_quest = `
+                        <div class="next_questmdt_retour">
+                            <label for="Escale_retour">Avez-vous effectué une ou plusieurs correspondance(s) ?</label><br>
                             <select name="Escale_retour" id="Escale_retour" onchange="escale_retour()" required>
                                 <option value="">-------</option>
                                 <option value="Oui">Oui </option>
@@ -1193,10 +1225,10 @@
                 if (document.getElementById('Escale_retour').value === "Oui") {
                     var new_quest = `
                         <div class="next_questmdt_retour_escale">
-                            <p><em>Merci de préciser l'ensemble des lieux où vous avez effectué une escale durant votre voyage retour depuis votre lieu de stage. S'il y en a plusieurs, veuillez utiliser le bouton "Ajouter une escale". L'appui sur le bouton "Réinitialiser" supprimera l'ensemble des escales ajoutées lors de l'appui sur le bouton "Ajouter une escale".</em></p><br><br>
+                            <p><em>Merci de préciser l'ensemble des lieux où vous avez effectué une escale/correspondance durant votre voyage retour depuis votre lieu de stage. S'il y en a plusieurs, veuillez utiliser le bouton "Ajouter une escale". L'appui sur le bouton "Réinitialiser" supprimera l'ensemble des escales ajoutées lors de l'appui sur le bouton "Ajouter une escale".</em></p><br><br>
                             <p><em> <img src="Attention.png" alt="" height="30" style="vertical-align: middle; margin-right: 2px;"> Attention : Merci de préciser vos escales DANS L'ORDRE dans lequel elles ont été effectuées entre votre lieu de stage et votre lieu d'arrivée.</em></p><br><br>
                         
-                            <label for="Escale_retour_pays1">Dans quel pays avez-vous fait escale ?</label><br>
+                            <label for="Escale_retour_pays1">Dans quel pays avez-vous fait escale ou effectué une correspondance ?</label><br>
                             <select name="Escale_retour_pays1" id="Escale_retour_pays1" required>
                                 <option value="Japon" selected="selected">Japon </option>
 
@@ -1426,7 +1458,7 @@
 
                             </select></br></br>
 
-                            <label for="Escale_retour_ville1">Dans quel ville avez-vous fait escale ?</label><br>
+                            <label for="Escale_retour_ville1">Dans quel ville avez-vous fait escale ou effectué une correspondance ?</label><br>
                             <input size="24" type="text" id="Escale_retour_ville1" name="Escale_retour_ville1" placeholder="ex : Tokyo"  required></br></br>
 
                             <div id="Escales_retour"></div>
@@ -1447,7 +1479,7 @@
                 //créer une nouvelle escale
                 var nouvelleEscaleDiv = `
                     <h4>Escale durant le voyage retour n°${EscaleRetourIndex}</h4><br><br>
-                    <label for="Escale_retour_pays${EscaleRetourIndex}">Dans quel pays avez-vous fait escale ?</label><br>
+                    <label for="Escale_retour_pays${EscaleRetourIndex}">Dans quel pays avez-vous fait escale ou effectué une correspondance ?</label><br>
                     <select name="Escale_retour_pays${EscaleRetourIndex}" id="Escale_retour_pays${EscaleRetourIndex}" required>
                         <option value="Japon" selected="selected">Japon </option>
 
@@ -1677,7 +1709,7 @@
 
                     </select></br></br>
 
-                    <label for="Escale_retour_ville${EscaleRetourIndex}">Dans quel ville avez-vous fait escale ?</label><br>
+                    <label for="Escale_retour_ville${EscaleRetourIndex}">Dans quel ville avez-vous fait escale ou effectué une correspondance ?</label><br>
                     <input size="24" type="text" id="Escale_retour_ville${EscaleRetourIndex}" name="Escale_retour_ville${EscaleRetourIndex}" placeholder="ex : Tokyo"  required></br></br>
                 `;
 
