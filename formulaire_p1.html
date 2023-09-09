@@ -643,6 +643,22 @@
                     `;
                     document.getElementById("Voyage_aller").insertAdjacentHTML('afterbegin', new_quest);
                 }
+
+                else if (document.getElementById('mdt_aller').value === "Bus") {
+                    var new_quest = `
+                        <div class="next_questmdt_aller">
+                            <label for="Escale_aller">Avez-vous effectué une ou plusieurs correspondance(s) ?</label><br>
+                            <select name="Escale_aller" id="Escale_aller" onchange="escale_aller()" required>
+                                <option value="">-------</option>
+                                <option value="Oui">Oui </option>
+                                <option value="Non">Non </option>
+                            </select></br></br>
+
+                            <div id="Escale_aller_precisions"></div>
+                        </div>
+                    `;
+                    document.getElementById("Voyage_aller").insertAdjacentHTML('afterbegin', new_quest);
+                }
             }
 
             function escale_aller() {
@@ -1200,6 +1216,22 @@
                 }
 
                 else if (document.getElementById('mdt_retour').value === "Train") {
+                    var new_quest = `
+                        <div class="next_questmdt_retour">
+                            <label for="Escale_retour">Avez-vous effectué une ou plusieurs correspondance(s) ?</label><br>
+                            <select name="Escale_retour" id="Escale_retour" onchange="escale_retour()" required>
+                                <option value="">-------</option>
+                                <option value="Oui">Oui </option>
+                                <option value="Non">Non </option>
+                            </select></br></br>
+
+                            <div id="Escale_retour_precisions"></div>
+                        </div>
+                    `;
+                    document.getElementById("Voyage_retour").insertAdjacentHTML('afterbegin', new_quest);
+                }
+
+                else if (document.getElementById('mdt_retour').value === "Bus") {
                     var new_quest = `
                         <div class="next_questmdt_retour">
                             <label for="Escale_retour">Avez-vous effectué une ou plusieurs correspondance(s) ?</label><br>
