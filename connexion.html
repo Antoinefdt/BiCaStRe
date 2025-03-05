@@ -70,8 +70,8 @@
                     alert("Veuillez renseigner votre adresse email institutionnelle.");
                     return;
                 } 
-                else if (!Myemail.includes('@ens-paris-saclay.fr')) {
-                    alert("Veuillez entrer une adresse email valide de l'ENS Paris-Saclay.");
+                else if (!(Myemail.includes('@ens-paris-saclay.fr') || Myemail.includes('@ens.psl.eu'))) {
+                    alert("Veuillez entrer une adresse email valide de l'ENS Paris-Saclay ou de l'ENS Ulm.");
                     return; 
                 }
 
