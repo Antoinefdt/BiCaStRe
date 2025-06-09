@@ -77,219 +77,139 @@
         const consommables = JSON.parse(sessionStorage.getItem('consommables'));
         const indexes = JSON.parse(sessionStorage.getItem('indexes'));
 
-        
-
-
-
-        const DF_Id = [
-            reponsesCompletees.email,
-            reponsesCompletees.code_grp,
-        ];
-
-        const DF_dates = [
-            reponsesCompletees.date_beg,
-            reponsesCompletees.date_end,
-        ];
-
-        const DF_sujet = [
-            reponsesCompletees.sub,
-            reponsesCompletees.sub_cc,
-            reponsesCompletees.sub_cc_why,
-            reponsesCompletees.motiv,
-        ];
-
-        const DF_lieu = [
-            reponsesCompletees.country_dep,
-            reponsesCompletees.city_dep,
-            reponsesCompletees.country_int,
-            reponsesCompletees.city_int,
-
-            reponsesCompletees.mdt_aller,
-            reponsesCompletees.Escale_aller,
-            reponsesCompletees.Voiture_aller_type,
-            reponsesCompletees.Voiture_aller_covoit,
-
-            reponsesCompletees.mdt_retour,
-            reponsesCompletees.Escale_retour,
-            reponsesCompletees.Voiture_retour_type,
-            reponsesCompletees.Voiture_retour_covoit,
-        ];
-
-        const DF_escales_aller = [];
-        let EscaleAllerIndex = 1;
-        while (EscaleAllerIndex < indexes_escales[0]+1) {
-            DF_escales_aller.push(reponsesCompletees['Escale_aller_pays'+EscaleAllerIndex]);
-            DF_escales_aller.push(reponsesCompletees['Escale_aller_ville'+EscaleAllerIndex]);
-            EscaleAllerIndex++;
-        };
-
-        const DF_escales_retour = [];
-        let EscaleRetourIndex = 1;
-        while (EscaleRetourIndex < indexes_escales[1]+1) {
-            DF_escales_retour.push(reponsesCompletees['Escale_retour_pays'+EscaleRetourIndex]);
-            DF_escales_retour.push(reponsesCompletees['Escale_retour_ville'+EscaleRetourIndex]);
-            EscaleRetourIndex++;
-        };
-
-        const DF_pro = [
-            reponsesCompletees.dplcmt_pro,
-            reponsesCompletees.dplcmt_pro_dist,
-            reponsesCompletees.dplcmt_pro_mdt,
-            reponsesCompletees.Voiture_pro_type,
-            reponsesCompletees.Voiture_pro_covoit,
-        ];
-
-        const DF_hl = [
-            reponsesCompletees.dplcmt_hl,
-            reponsesCompletees.dplcmt_hl_dist,
-            reponsesCompletees.dplcmt_hl_mdt,
-            reponsesCompletees.Voiture_hl_type,
-            reponsesCompletees.Voiture_hl_covoit,
-        ];
-
-        const DF_sup = [
-            reponsesCompletees.rec_sup,
-            reponsesCompletees.rec_sup_time,
-            reponsesCompletees.rec_sup_para,
-            reponsesCompletees.rec_sup_para_cpu,
-        ];
-
-        const DF_four = [
-            reponsesCompletees.rec_four,
-            reponsesCompletees["Prix_informatique"],
-            reponsesCompletees["Prix_audiovisuel"],
-            reponsesCompletees["Prix_composants électroniques"],
-            reponsesCompletees["Prix_logiciel"],
-        ];
-
-        const DF_conso = [
-            reponsesCompletees.rec_conso,
-            reponsesCompletees["Prix_accessoires"],
-            reponsesCompletees["Prix_protection individuelle"],
-            reponsesCompletees["Prix_gaz hélium et azote liquides"],
-            reponsesCompletees["Prix_produits chimiques"],
-            reponsesCompletees["Prix_plastique et résine"],
-            reponsesCompletees["Prix_Animaux de laboratoire (petit)"],
-            reponsesCompletees["Prix_Animaux de laboratoire (gros)"],
-            reponsesCompletees["Prix_végétal"],
-            reponsesCompletees["Prix_pipette"],
-            reponsesCompletees["Prix_lame"],
-        ];
-
-        const DF_manip = [
-            reponsesCompletees.rec_manip,
-            reponsesCompletees.rec_manip_energy,
-        ];
-
-
         // 1. Création de l'objet JavaScript structuré
         const jsonData = {
-            Id: {
+            id: {
                 email: reponsesCompletees.email,
-                code_grp: reponsesCompletees.code_grp
+                code_groupe: reponsesCompletees.code_grp
             },
-            Dates: {
-                date_beg: reponsesCompletees.date_beg,
-                date_end: reponsesCompletees.date_end
+            dates: {
+                début: reponsesCompletees.date_beg,
+                fin: reponsesCompletees.date_end
             },
-            Sujet: {
+            sujet: {
                 sujet: reponsesCompletees.sub,
-                sous_cat: reponsesCompletees.sub_cc,
-                sous_cat_why: reponsesCompletees.sub_cc_why,
+                concerne_CC: reponsesCompletees.sub_cc,
+                pourquoi_CC: reponsesCompletees.sub_cc_why,
                 motivation: reponsesCompletees.motiv
             },
-            Lieu: {
-                dep: {
-                    country: reponsesCompletees.country_dep,
-                    city: reponsesCompletees.city_dep
+            localisation: {
+                depart: {
+                    pays: reponsesCompletees.country_dep,
+                    ville: reponsesCompletees.city_dep
                 },
-                int: {
-                    country: reponsesCompletees.country_int,
-                    city: reponsesCompletees.city_int
+                stage: {
+                    pays: reponsesCompletees.country_int,
+                    ville: reponsesCompletees.city_int
                 },
-                aller: {
-                    moyen: reponsesCompletees.mdt_aller,
-                    escale: reponsesCompletees.Escale_aller,
-                    voiture_type: reponsesCompletees.Voiture_aller_type,
-                    covoit: reponsesCompletees.Voiture_aller_covoit,
-                    escales: []
-                },
-                retour: {
-                    moyen: reponsesCompletees.mdt_retour,
-                    escale: reponsesCompletees.Escale_retour,
-                    voiture_type: reponsesCompletees.Voiture_retour_type,
-                    covoit: reponsesCompletees.Voiture_retour_covoit,
-                    escales: []
-                }
+                trajets: {
+                    aller: {
+                        moyen: reponsesCompletees.mdt_aller,
+                        escale: reponsesCompletees.Escale_aller,
+                        escales: [],
+                        voiture : {
+                            type: reponsesCompletees.Voiture_aller_type,
+                            covoit: reponsesCompletees.Voiture_aller_covoit
+                        }
+                    },
+                    retour: {
+                        moyen: reponsesCompletees.mdt_retour,
+                        escale: reponsesCompletees.Escale_retour,
+                        escales: [],
+                        voiture: {
+                            type: reponsesCompletees.Voiture_retour_type,
+                            covoit: reponsesCompletees.Voiture_retour_covoit,
+                        }
+                    }
+                }   
             },
-            DeplacementsPro: {
+            deplacements: {
                 pro: {
-                    actif: reponsesCompletees.dplcmt_pro,
-                    dist: reponsesCompletees.dplcmt_pro_dist,
+                    utilise: reponsesCompletees.dplcmt_pro,
+                    distance: reponsesCompletees.dplcmt_pro_dist,
                     moyen: reponsesCompletees.dplcmt_pro_mdt,
-                    voiture_type: reponsesCompletees.Voiture_pro_type,
-                    covoit: reponsesCompletees.Voiture_pro_covoit
+                    voiture: {
+                        voiture_type: reponsesCompletees.Voiture_pro_type,
+                        covoit: reponsesCompletees.Voiture_pro_covoit
+                    }
                 },
-                hl: {
-                    actif: reponsesCompletees.dplcmt_hl,
-                    dist: reponsesCompletees.dplcmt_hl_dist,
+                home_labo: {
+                    utilise: reponsesCompletees.dplcmt_hl,
+                    distance: reponsesCompletees.dplcmt_hl_dist,
                     moyen: reponsesCompletees.dplcmt_hl_mdt,
-                    voiture_type: reponsesCompletees.Voiture_hl_type,
-                    covoit: reponsesCompletees.Voiture_hl_covoit,
-                    days: dplcmt_hl_days
+                    voiture: {
+                        voiture_type: reponsesCompletees.Voiture_hl_type,
+                        covoit: reponsesCompletees.Voiture_hl_covoit,
+                    },
+                    jours: dplcmt_hl_days
                 }
             },
-            Escales: {
-                aller: [],
-                retour: []
-            },
-            Sup: {
-                rec_sup: reponsesCompletees.rec_sup,
-                time: reponsesCompletees.rec_sup_time,
-                para: reponsesCompletees.rec_sup_para,
-                cpu: reponsesCompletees.rec_sup_para_cpu
-            },
-            Fournitures: {
-                rec_four: reponsesCompletees.rec_four,
-                details: fournitures
-            },
-            Consommables: {
-                rec_conso: reponsesCompletees.rec_conso,
-                details: consommables
-            },
-            Manip: {
-                rec_manip: reponsesCompletees.rec_manip,
-                energy: reponsesCompletees.rec_manip_energy
-            },
-            Indexes: indexes
+            ressources: {
+                supercalculateur: {
+                    utilise: reponsesCompletees.rec_sup,
+                    temps_utilisation: reponsesCompletees.rec_sup_time,
+                    parallelisation: reponsesCompletees.rec_sup_para,
+                    cpu: reponsesCompletees.rec_sup_para_cpu
+                },
+                fournitures: {
+                    utilise: reponsesCompletees.rec_four,
+                    details: fournitures,
+                    prix : {
+                        informatique: reponsesCompletees["Prix_informatique"],
+                        audiovisuel: reponsesCompletees["Prix_audiovisuel"],
+                        composants_electroniques: reponsesCompletees["Prix_composants électroniques"],
+                        logiciel: reponsesCompletees["Prix_logiciel"]
+                    }
+                },
+                consommables: {
+                    utilise: reponsesCompletees.rec_conso,
+                    details: consommables,
+                    prix : {
+                        accessoires: reponsesCompletees["Prix_accessoires"],
+                        protection_individuelle: reponsesCompletees["Prix_protection individuelle"],
+                        gaz: reponsesCompletees["Prix_gaz hélium et azote liquides"],
+                        chimiques: reponsesCompletees["Prix_produits chimiques"],
+                        plastique_resine: reponsesCompletees["Prix_plastique et résine"],
+                        animaux_petits: reponsesCompletees["Prix_Animaux de laboratoire (petit)"],
+                        animaux_gros: reponsesCompletees["Prix_Animaux de laboratoire (gros)"],
+                        vegetal: reponsesCompletees["Prix_végétal"],
+                        pipette: reponsesCompletees["Prix_pipette"],
+                        lame: reponsesCompletees["Prix_lame"]
+                    }
+                },
+                manip: {
+                    utilise: reponsesCompletees.rec_manip,
+                    consommation_kWh: reponsesCompletees.rec_manip_energy
+                }
+            }
         };
 
         // 2. Ajouter dynamiquement les escales
         for (let i = 1; i <= indexes_escales[0]; i++) {
-            jsonData.Lieu.aller.escales.push({
-                country: reponsesCompletees['Escale_aller_pays' + i],
-                city: reponsesCompletees['Escale_aller_ville' + i]
+            jsonData.localisation.trajets.aller.escales.push({
+                pays: reponsesCompletees['Escale_aller_pays' + i],
+                ville: reponsesCompletees['Escale_aller_ville' + i]
             });
         }
         for (let i = 1; i <= indexes_escales[1]; i++) {
-            jsonData.Lieu.retour.escales.push({
-                country: reponsesCompletees['Escale_retour_pays' + i],
-                city: reponsesCompletees['Escale_retour_ville' + i]
+            jsonData.localisation.trajets.retour.escales.push({
+                pays: reponsesCompletees['Escale_retour_pays' + i],
+                ville: reponsesCompletees['Escale_retour_ville' + i]
             });
         }
 
         // 3. Ajouter les déplacements individuels
-        jsonData.Individuels = {
+        jsonData.indirect = {
             depuis: [],
             vers: [],
             loisir: []
         };
 
         for (let i = 1; i <= indexes[0]; i++) {
-            jsonData.Individuels.depuis.push({
-                country: reponsesCompletees['ind_depuis_country'+i],
-                city: reponsesCompletees['ind_depuis_city'+i],
-                nb: reponsesCompletees['ind_depuis_nb'+i],
+            jsonData.indirect.depuis.push({
+                pays: reponsesCompletees['ind_depuis_country'+i],
+                ville: reponsesCompletees['ind_depuis_city'+i],
+                nombre_visiteurs: reponsesCompletees['ind_depuis_nb'+i],
                 aller: reponsesCompletees['ind_depuis_mdt_aller'+i],
                 voiture_aller: reponsesCompletees['Voiture_depuis_aller'+i+'_type'],
                 retour: reponsesCompletees['ind_depuis_mdt_retour'+i],
@@ -297,26 +217,34 @@
             });
         }
         for (let i = 1; i <= indexes[1]; i++) {
-            jsonData.Individuels.vers.push({
-                city: reponsesCompletees['ind_vers_city'+i],
+            jsonData.indirect.vers.push({
+                ville: reponsesCompletees['ind_vers_city'+i],
                 aller: reponsesCompletees['ind_vers_mdt_aller'+i],
-                voiture_aller: reponsesCompletees['Voiture_vers_aller'+i+'_type'],
-                covoit_aller: reponsesCompletees['Voiture_vers_aller'+i+'_covoit'],
+                voiture_aller : {
+                    type: reponsesCompletees['Voiture_vers_aller'+i+'_type'],
+                    covoit: reponsesCompletees['Voiture_vers_aller'+i+'_covoit']
+                },
                 retour: reponsesCompletees['ind_vers_mdt_retour'+i],
-                voiture_retour: reponsesCompletees['Voiture_vers_retour'+i+'_type'],
-                covoit_retour: reponsesCompletees['Voiture_vers_retour'+i+'_covoit']
+                voiture_retour: {
+                    type : reponsesCompletees['Voiture_vers_retour'+i+'_type'],
+                    covoit: reponsesCompletees['Voiture_vers_retour'+i+'_covoit']
+                }
             });
         }
         for (let i = 1; i <= indexes[2]; i++) {
-            jsonData.Individuels.loisir.push({
-                country: reponsesCompletees['ind_loisir_country'+i],
-                city: reponsesCompletees['ind_loisir_city'+i],
+            jsonData.indirect.loisir.push({
+                pays: reponsesCompletees['ind_loisir_country'+i],
+                ville: reponsesCompletees['ind_loisir_city'+i],
                 aller: reponsesCompletees['ind_loisir_mdt_aller'+i],
-                voiture_aller: reponsesCompletees['Voiture_loisir_aller'+i+'_type'],
-                covoit_aller: reponsesCompletees['Voiture_loisir_aller'+i+'_covoit'],
+                voiture_aller: {
+                    type : reponsesCompletees['Voiture_loisir_aller'+i+'_type'],
+                    covoit: reponsesCompletees['Voiture_loisir_aller'+i+'_covoit']
+                },
                 retour: reponsesCompletees['ind_loisir_mdt_retour'+i],
-                voiture_retour: reponsesCompletees['Voiture_loisir_retour'+i+'_type'],
-                covoit_retour: reponsesCompletees['Voiture_loisir_retour'+i+'_covoit']
+                voiture_retour: {
+                    type : reponsesCompletees['Voiture_loisir_retour'+i+'_type'],
+                    covoit_retour: reponsesCompletees['Voiture_loisir_retour'+i+'_covoit']
+                }
             });
         }
 
