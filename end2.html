@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BiCaStRe - formulaire soumis</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="end">
+        <h1> Bilan Carbone Stage de Recherche</h1>
+
+        <hr><hr>
+
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="" height="50">
+            </div>
+            <div class="onglets">
+                <ul>
+                    <li><a href="A_propos.html">A propos</a></li>
+                    <li><a href="Simulation.html">Simulation</a></li>
+                    <li><a href="Methodologie.html">Méthodologie</a></li>
+                    <li><a href="Rapports.html">Rapports</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr><hr>
+
+        <div class="avancee">
+            <img src="logo.png" alt="" height="50">
+            <img src="logo.png" alt="" height="50">
+            <img src="logo.png" alt="" height="50">
+            <img src="logo.png" alt="" height="50">
+            <img src="logo.png" alt="" height="60">
+        </div>
+
+        <h2>Merci pour votre réponse au questionnaire !</h2><br><br>
+
+        <p>Vous venez de terminer le renseignement du questionnaire permettant le calcul du bilan carbone de votre stage de recherche. L'ensemble de vos réponses a été regroupé dans un fichier CSV téléchargeable. </p><br><br>
+        <p> <img src="Attention.png" alt="" height="30" style="vertical-align: middle; margin-right: 5px;"> S'il vous plaît, merci de ne pas ouvrir ce fichier afin de ne pas le corrompre.</p><br><br>
+        
+        <h3>Plus qu'une étape !</h3><br><br>
+
+        <p> <img src="Attention.png" alt="" height="30" style="vertical-align: middle; margin-right: 5px;"> Afin que vos résultats soient analysés, il vous est demandé de nous faire parvenir le fichier CSV regroupant vos données par courriel :</p><br><br>
+        
+        <p><em>A l'adresse :</em> <br> antoine.feydit@ens-paris-saclay.fr</p><br><br>
+        <p><em>Objet : </em></p><br><p id="code groupe">BiCaStRe </p><br><br>
+        <p><em>Message : </em><br> Voici les données nécessaires à l'établissement du bilan carbone de mon stage de recherche réalisé dans le cadre de ma formation à l'ENS Paris-Saclay. <br> Par ce courriel, j'accepte que mes résultats puissent être utilisés anonymement à des fins de statistiques. <br> Je désire recevoir mes résultats individuels.</p><br><br>
+        <p><em>Pièce jointe :</em></p><br><br>
+        <button onclick="Telechargement()">Télécharger le fichier CSV</button><br><br>
+        <p><em>Merci d'utiliser votre adresse institutionnelle :</em></p><br><p id="adresse mail"></p><br><br>
+
+        <p> Merci beaucoup pour votre contribution ! Vous recevrez vos résultats individuels à l'adresse précisée lorsqu'ils auront été analysés.</p><br><br>
+
+        <button onclick="window.location.href='https://webmail.ens-paris-saclay.fr/login.php';">Accès webmail ENS</button>
+
+        <button onclick="window.location.href ='index.html';">Revenir à l'accueil</button><br><br>
+        <hr>
+
+        <div class="footer">
+            <p>&copy; copyright Antoine FEYDIT - 2023 </p><br>
+            <h6>Tous les droits sont réservés. Aucune partie de ce site web, de son code source, de sa charte graphique ou de son nom ne peut être reproduite, distribuée ou utilisée sous quelque forme que ce soit, sans une autorisation écrite préalable de l'auteur. <br>
+                Cela inclut, mais sans s'y limiter, toute forme de plagiat, de copie, d'adaptation ou de réutilisation à des fins commerciales ou non commerciales.</h6>
+        </div>
+    </div>
+
+    <script>
+        // Récupérer les réponses complètes depuis la session
+        const reponsesCompletees = JSON.parse(sessionStorage.getItem('reponsesCompletees'));
+        const dplcmt_hl_days = JSON.parse(sessionStorage.getItem('dplcmt_hl_days'));
+        const indexes_escales = JSON.parse(sessionStorage.getItem('indexes_escales'));
+        const fournitures = JSON.parse(sessionStorage.getItem('fournitures'));
+        const consommables = JSON.parse(sessionStorage.getItem('consommables'));
+        const indexes = JSON.parse(sessionStorage.getItem('indexes'));
+
+        
+
+
+
+        const DF_Id = [
+            reponsesCompletees.email,
+            reponsesCompletees.code_grp,
+        ];
+
+        const DF_dates = [
+            reponsesCompletees.date_beg,
+            reponsesCompletees.date_end,
+        ];
+
+        const DF_sujet = [
+            reponsesCompletees.sub,
+            reponsesCompletees.sub_cc,
+            reponsesCompletees.sub_cc_why,
+            reponsesCompletees.motiv,
+        ];
+
+        const DF_lieu = [
+            reponsesCompletees.country_dep,
+            reponsesCompletees.city_dep,
+            reponsesCompletees.country_int,
+            reponsesCompletees.city_int,
+
+            reponsesCompletees.mdt_aller,
+            reponsesCompletees.Escale_aller,
+            reponsesCompletees.Voiture_aller_type,
+            reponsesCompletees.Voiture_aller_covoit,
+
+            reponsesCompletees.mdt_retour,
+            reponsesCompletees.Escale_retour,
+            reponsesCompletees.Voiture_retour_type,
+            reponsesCompletees.Voiture_retour_covoit,
+        ];
+
+        const DF_escales_aller = [];
+        let EscaleAllerIndex = 1;
+        while (EscaleAllerIndex < indexes_escales[0]+1) {
+            DF_escales_aller.push(reponsesCompletees['Escale_aller_pays'+EscaleAllerIndex]);
+            DF_escales_aller.push(reponsesCompletees['Escale_aller_ville'+EscaleAllerIndex]);
+            EscaleAllerIndex++;
+        };
+
+        const DF_escales_retour = [];
+        let EscaleRetourIndex = 1;
+        while (EscaleRetourIndex < indexes_escales[1]+1) {
+            DF_escales_retour.push(reponsesCompletees['Escale_retour_pays'+EscaleRetourIndex]);
+            DF_escales_retour.push(reponsesCompletees['Escale_retour_ville'+EscaleRetourIndex]);
+            EscaleRetourIndex++;
+        };
+
+        const DF_pro = [
+            reponsesCompletees.dplcmt_pro,
+            reponsesCompletees.dplcmt_pro_dist,
+            reponsesCompletees.dplcmt_pro_mdt,
+            reponsesCompletees.Voiture_pro_type,
+            reponsesCompletees.Voiture_pro_covoit,
+        ];
+
+        const DF_hl = [
+            reponsesCompletees.dplcmt_hl,
+            reponsesCompletees.dplcmt_hl_dist,
+            reponsesCompletees.dplcmt_hl_mdt,
+            reponsesCompletees.Voiture_hl_type,
+            reponsesCompletees.Voiture_hl_covoit,
+        ];
+
+        const DF_sup = [
+            reponsesCompletees.rec_sup,
+            reponsesCompletees.rec_sup_time,
+            reponsesCompletees.rec_sup_para,
+            reponsesCompletees.rec_sup_para_cpu,
+        ];
+
+        const DF_four = [
+            reponsesCompletees.rec_four,
+            reponsesCompletees["Prix_informatique"],
+            reponsesCompletees["Prix_audiovisuel"],
+            reponsesCompletees["Prix_composants électroniques"],
+            reponsesCompletees["Prix_logiciel"],
+        ];
+
+        const DF_conso = [
+            reponsesCompletees.rec_conso,
+            reponsesCompletees["Prix_accessoires"],
+            reponsesCompletees["Prix_protection individuelle"],
+            reponsesCompletees["Prix_gaz hélium et azote liquides"],
+            reponsesCompletees["Prix_produits chimiques"],
+            reponsesCompletees["Prix_plastique et résine"],
+            reponsesCompletees["Prix_Animaux de laboratoire (petit)"],
+            reponsesCompletees["Prix_Animaux de laboratoire (gros)"],
+            reponsesCompletees["Prix_végétal"],
+            reponsesCompletees["Prix_pipette"],
+            reponsesCompletees["Prix_lame"],
+        ];
+
+        const DF_manip = [
+            reponsesCompletees.rec_manip,
+            reponsesCompletees.rec_manip_energy,
+        ];
+
+
+        // 1. Création de l'objet JavaScript structuré
+        const jsonData = {
+            Id: {
+                email: reponsesCompletees.email,
+                code_grp: reponsesCompletees.code_grp
+            },
+            Dates: {
+                date_beg: reponsesCompletees.date_beg,
+                date_end: reponsesCompletees.date_end
+            },
+            Sujet: {
+                sujet: reponsesCompletees.sub,
+                sous_cat: reponsesCompletees.sub_cc,
+                sous_cat_why: reponsesCompletees.sub_cc_why,
+                motivation: reponsesCompletees.motiv
+            },
+            Lieu: {
+                dep: {
+                    country: reponsesCompletees.country_dep,
+                    city: reponsesCompletees.city_dep
+                },
+                int: {
+                    country: reponsesCompletees.country_int,
+                    city: reponsesCompletees.city_int
+                },
+                aller: {
+                    moyen: reponsesCompletees.mdt_aller,
+                    escale: reponsesCompletees.Escale_aller,
+                    voiture_type: reponsesCompletees.Voiture_aller_type,
+                    covoit: reponsesCompletees.Voiture_aller_covoit,
+                    escales: []
+                },
+                retour: {
+                    moyen: reponsesCompletees.mdt_retour,
+                    escale: reponsesCompletees.Escale_retour,
+                    voiture_type: reponsesCompletees.Voiture_retour_type,
+                    covoit: reponsesCompletees.Voiture_retour_covoit,
+                    escales: []
+                }
+            },
+            DeplacementsPro: {
+                pro: {
+                    actif: reponsesCompletees.dplcmt_pro,
+                    dist: reponsesCompletees.dplcmt_pro_dist,
+                    moyen: reponsesCompletees.dplcmt_pro_mdt,
+                    voiture_type: reponsesCompletees.Voiture_pro_type,
+                    covoit: reponsesCompletees.Voiture_pro_covoit
+                },
+                hl: {
+                    actif: reponsesCompletees.dplcmt_hl,
+                    dist: reponsesCompletees.dplcmt_hl_dist,
+                    moyen: reponsesCompletees.dplcmt_hl_mdt,
+                    voiture_type: reponsesCompletees.Voiture_hl_type,
+                    covoit: reponsesCompletees.Voiture_hl_covoit,
+                    days: dplcmt_hl_days
+                }
+            },
+            Escales: {
+                aller: [],
+                retour: []
+            },
+            Sup: {
+                rec_sup: reponsesCompletees.rec_sup,
+                time: reponsesCompletees.rec_sup_time,
+                para: reponsesCompletees.rec_sup_para,
+                cpu: reponsesCompletees.rec_sup_para_cpu
+            },
+            Fournitures: {
+                rec_four: reponsesCompletees.rec_four,
+                details: fournitures
+            },
+            Consommables: {
+                rec_conso: reponsesCompletees.rec_conso,
+                details: consommables
+            },
+            Manip: {
+                rec_manip: reponsesCompletees.rec_manip,
+                energy: reponsesCompletees.rec_manip_energy
+            },
+            Indexes: indexes
+        };
+
+        // 2. Ajouter dynamiquement les escales
+        for (let i = 1; i <= indexes_escales[0]; i++) {
+            jsonData.Lieu.aller.escales.push({
+                country: reponsesCompletees['Escale_aller_pays' + i],
+                city: reponsesCompletees['Escale_aller_ville' + i]
+            });
+        }
+        for (let i = 1; i <= indexes_escales[1]; i++) {
+            jsonData.Lieu.retour.escales.push({
+                country: reponsesCompletees['Escale_retour_pays' + i],
+                city: reponsesCompletees['Escale_retour_ville' + i]
+            });
+        }
+
+        // 3. Ajouter les déplacements individuels
+        jsonData.Individuels = {
+            depuis: [],
+            vers: [],
+            loisir: []
+        };
+
+        for (let i = 1; i <= indexes[0]; i++) {
+            jsonData.Individuels.depuis.push({
+                country: reponsesCompletees['ind_depuis_country'+i],
+                city: reponsesCompletees['ind_depuis_city'+i],
+                nb: reponsesCompletees['ind_depuis_nb'+i],
+                aller: reponsesCompletees['ind_depuis_mdt_aller'+i],
+                voiture_aller: reponsesCompletees['Voiture_depuis_aller'+i+'_type'],
+                retour: reponsesCompletees['ind_depuis_mdt_retour'+i],
+                voiture_retour: reponsesCompletees['Voiture_depuis_retour'+i+'_type']
+            });
+        }
+        for (let i = 1; i <= indexes[1]; i++) {
+            jsonData.Individuels.vers.push({
+                city: reponsesCompletees['ind_vers_city'+i],
+                aller: reponsesCompletees['ind_vers_mdt_aller'+i],
+                voiture_aller: reponsesCompletees['Voiture_vers_aller'+i+'_type'],
+                covoit_aller: reponsesCompletees['Voiture_vers_aller'+i+'_covoit'],
+                retour: reponsesCompletees['ind_vers_mdt_retour'+i],
+                voiture_retour: reponsesCompletees['Voiture_vers_retour'+i+'_type'],
+                covoit_retour: reponsesCompletees['Voiture_vers_retour'+i+'_covoit']
+            });
+        }
+        for (let i = 1; i <= indexes[2]; i++) {
+            jsonData.Individuels.loisir.push({
+                country: reponsesCompletees['ind_loisir_country'+i],
+                city: reponsesCompletees['ind_loisir_city'+i],
+                aller: reponsesCompletees['ind_loisir_mdt_aller'+i],
+                voiture_aller: reponsesCompletees['Voiture_loisir_aller'+i+'_type'],
+                covoit_aller: reponsesCompletees['Voiture_loisir_aller'+i+'_covoit'],
+                retour: reponsesCompletees['ind_loisir_mdt_retour'+i],
+                voiture_retour: reponsesCompletees['Voiture_loisir_retour'+i+'_type'],
+                covoit_retour: reponsesCompletees['Voiture_loisir_retour'+i+'_covoit']
+            });
+        }
+
+        // 4. Créer le Blob JSON
+        const blob = new Blob([JSON.stringify(jsonData, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+
+        const lienTelechargement = document.createElement('a');
+        lienTelechargement.href = url;
+        lienTelechargement.download = reponsesCompletees.email + '.json';
+
+        function Telechargement() {
+            lienTelechargement.click();
+        }
+
+
+        document.getElementById('code groupe').insertAdjacentHTML('beforeend', reponsesCompletees['code_grp']);
+        document.getElementById('adresse mail').insertAdjacentHTML('beforeend', reponsesCompletees['email']);
+
+    </script>
+</body>
