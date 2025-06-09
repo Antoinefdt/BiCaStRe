@@ -129,7 +129,7 @@
                     distance: reponsesCompletees.dplcmt_pro_dist,
                     moyen: reponsesCompletees.dplcmt_pro_mdt,
                     voiture: {
-                        voiture_type: reponsesCompletees.Voiture_pro_type,
+                        type: reponsesCompletees.Voiture_pro_type,
                         covoit: reponsesCompletees.Voiture_pro_covoit
                     }
                 },
@@ -138,7 +138,7 @@
                     distance: reponsesCompletees.dplcmt_hl_dist,
                     moyen: reponsesCompletees.dplcmt_hl_mdt,
                     voiture: {
-                        voiture_type: reponsesCompletees.Voiture_hl_type,
+                        type: reponsesCompletees.Voiture_hl_type,
                         covoit: reponsesCompletees.Voiture_hl_covoit,
                     },
                     jours: dplcmt_hl_days
@@ -153,7 +153,6 @@
                 },
                 fournitures: {
                     utilise: reponsesCompletees.rec_four,
-                    details: fournitures,
                     prix : {
                         informatique: reponsesCompletees["Prix_informatique"],
                         audiovisuel: reponsesCompletees["Prix_audiovisuel"],
@@ -163,7 +162,6 @@
                 },
                 consommables: {
                     utilise: reponsesCompletees.rec_conso,
-                    details: consommables,
                     prix : {
                         accessoires: reponsesCompletees["Prix_accessoires"],
                         protection_individuelle: reponsesCompletees["Prix_protection individuelle"],
@@ -211,9 +209,15 @@
                 ville: reponsesCompletees['ind_depuis_city'+i],
                 nombre_visiteurs: reponsesCompletees['ind_depuis_nb'+i],
                 aller: reponsesCompletees['ind_depuis_mdt_aller'+i],
-                voiture_aller: reponsesCompletees['Voiture_depuis_aller'+i+'_type'],
+                voiture_aller: {
+                    type: reponsesCompletees['Voiture_depuis_aller'+i+'_type'],
+                    covoit: 0
+                },
                 retour: reponsesCompletees['ind_depuis_mdt_retour'+i],
-                voiture_retour: reponsesCompletees['Voiture_depuis_retour'+i+'_type']
+                voiture_retour: {
+                    type : reponsesCompletees['Voiture_depuis_retour'+i+'_type'],
+                    covoit: 0
+                }
             });
         }
         for (let i = 1; i <= indexes[1]; i++) {
