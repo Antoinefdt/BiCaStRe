@@ -69,24 +69,6 @@
     </div>
 
     <script>
-        // Dictionnaire des codes groupes et leurs adresses
-        const emailMap = {
-        PHY_24: "antoine.feydit@ens-paris-saclay.fr",
-        ULM_25: "claire-mathilde.stucki@ens-paris-saclay.fr"
-        };
-
-        // Récupération du code groupe
-        const codeGroupe = document.getElementById("code groupe").textContent.trim();
-
-        // Récupération de l'adresse correspondante, ou d'une valeur par défaut
-        const email = emailMap[codeGroupe] || "Erreur";
-
-        // Mise à jour de l'élément affichant l'e-mail
-        document.getElementById("email").textContent = email;
-
-
-
-
         // Récupérer les réponses complètes depuis la session
         const reponsesCompletees = JSON.parse(sessionStorage.getItem('reponsesCompletees'));
         const dplcmt_hl_days = JSON.parse(sessionStorage.getItem('dplcmt_hl_days'));
@@ -285,6 +267,21 @@
 
         document.getElementById('code groupe').insertAdjacentHTML('beforeend', reponsesCompletees['code_grp']);
         document.getElementById('adresse mail').insertAdjacentHTML('beforeend', reponsesCompletees['email']);
+
+        // Dictionnaire des codes groupes et leurs adresses
+        const emailMap = {
+        PHY_24: "antoine.feydit@ens-paris-saclay.fr",
+        ULM_25: "claire-mathilde.stucki@ens-paris-saclay.fr"
+        };
+
+        // Récupération du code groupe
+        const codeGroupe = document.getElementById("code groupe").textContent.trim();
+
+        // Récupération de l'adresse correspondante, ou d'une valeur par défaut
+        const email = emailMap[codeGroupe] || "Erreur";
+
+        // Mise à jour de l'élément affichant l'e-mail
+        document.getElementById("email").textContent = email;
 
     </script>
 </body>
